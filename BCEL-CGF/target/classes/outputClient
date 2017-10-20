@@ -1,0 +1,46 @@
+<init>{
+	entry ->   
+	{ -> <init>;
+	{ -> exit;
+}
+main{
+	entry ->   
+	int sizeOfArray = getSizeOfArray(in); -> getScanner;
+	int sizeOfArray = getSizeOfArray(in); -> int array[]=new int[sizeOfArray];;
+	int array[]=new int[sizeOfArray]; -> getSizeOfArray;
+	int array[]=new int[sizeOfArray]; -> ;
+	 -> ;
+	 -> getElementsOfArray;
+	 -> caller.arraysort();;
+	caller.arraysort(); -> <init>;
+	caller.arraysort(); -> <init>;
+	caller.arraysort(); -> ;
+	 -> arraysort;
+	 -> };
+	} -> close;
+	} -> ;
+	 -> exit;
+}
+getElementsOfArray{
+	entry ->   
+	for(int i=0;i<sizeOfArray;i++) -> println;
+	for(int i=0;i<sizeOfArray;i++) -> {;
+	{ -> };
+	} -> nextInt;
+	} -> {;
+	{ -> ;
+	 -> exit;
+}
+getSizeOfArray{
+	entry ->   
+	int sizeOfArray = in.nextInt(); -> println;
+	int sizeOfArray = in.nextInt(); -> return sizeOfArray;;
+	return sizeOfArray; -> nextInt;
+	return sizeOfArray; -> };
+	} -> exit;
+}
+getScanner{
+	entry ->   
+	} -> <init>;
+	} -> exit;
+}

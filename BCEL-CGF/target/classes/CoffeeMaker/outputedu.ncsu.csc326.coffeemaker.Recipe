@@ -1,0 +1,148 @@
+<init>{
+	entry ->   
+	MC: public Recipe() { -> <init>;
+	CF: public Recipe() { -> this.name = "";;
+	CF: this.name = ""; -> this.price = 0;;
+	CF: this.price = 0; -> this.amtCoffee = 0;;
+	CF: this.amtCoffee = 0; -> this.amtMilk = 0;;
+	CF: this.amtMilk = 0; -> this.amtSugar = 0;;
+	CF: this.amtSugar = 0; -> this.amtChocolate = 0;;
+	CF: this.amtChocolate = 0; -> };
+	CF: } -> exit;
+}
+getAmtChocolate{
+	entry ->   
+	CF: return amtChocolate; -> exit;
+}
+setAmtChocolate{
+	entry ->   
+	CF: int amtChocolate = 0; -> amtChocolate = Integer.parseInt(chocolate);;
+	MC: amtChocolate = Integer.parseInt(chocolate); -> parseInt;
+	CF: amtChocolate = Integer.parseInt(chocolate); -> } catch (NumberFormatException e) {;
+	CF: } catch (NumberFormatException e) { -> throw new RecipeException("Units of chocolate must be a positive integer");;
+	MC: throw new RecipeException("Units of chocolate must be a positive integer"); -> <init>;
+	CF: throw new RecipeException("Units of chocolate must be a positive integer"); -> if (amtChocolate >= 0) {;
+	CF: if (amtChocolate >= 0) { -> this.amtChocolate = amtChocolate;;
+	CF: this.amtChocolate = amtChocolate; -> } else {;
+	CF: } else { -> throw new RecipeException("Units of chocolate must be a positive integer");;
+	MC: throw new RecipeException("Units of chocolate must be a positive integer"); -> <init>;
+	CF: throw new RecipeException("Units of chocolate must be a positive integer"); -> };
+	CF: } -> exit;
+}
+getAmtCoffee{
+	entry ->   
+	CF: return amtCoffee; -> exit;
+}
+setAmtCoffee{
+	entry ->   
+	CF: int amtCoffee = 0; -> amtCoffee = Integer.parseInt(coffee);;
+	MC: amtCoffee = Integer.parseInt(coffee); -> parseInt;
+	CF: amtCoffee = Integer.parseInt(coffee); -> } catch (NumberFormatException e) {;
+	CF: } catch (NumberFormatException e) { -> throw new RecipeException("Units of coffee must be a positive integer");;
+	MC: throw new RecipeException("Units of coffee must be a positive integer"); -> <init>;
+	CF: throw new RecipeException("Units of coffee must be a positive integer"); -> if (amtCoffee >= 0) {;
+	CF: if (amtCoffee >= 0) { -> this.amtCoffee = amtCoffee;;
+	CF: this.amtCoffee = amtCoffee; -> } else {;
+	CF: } else { -> throw new RecipeException("Units of coffee must be a positive integer");;
+	MC: throw new RecipeException("Units of coffee must be a positive integer"); -> <init>;
+	CF: throw new RecipeException("Units of coffee must be a positive integer"); -> };
+	CF: } -> exit;
+}
+getAmtMilk{
+	entry ->   
+	CF: return amtMilk; -> exit;
+}
+setAmtMilk{
+	entry ->   
+	CF: int amtMilk = 0; -> amtMilk = Integer.parseInt(milk);;
+	MC: amtMilk = Integer.parseInt(milk); -> parseInt;
+	CF: amtMilk = Integer.parseInt(milk); -> } catch (NumberFormatException e) {;
+	CF: } catch (NumberFormatException e) { -> throw new RecipeException("Units of milk must be a positive integer");;
+	MC: throw new RecipeException("Units of milk must be a positive integer"); -> <init>;
+	CF: throw new RecipeException("Units of milk must be a positive integer"); -> if (amtMilk >= 0) {;
+	CF: if (amtMilk >= 0) { -> this.amtMilk = amtMilk;;
+	CF: this.amtMilk = amtMilk; -> } else {;
+	CF: } else { -> throw new RecipeException("Units of milk must be a positive integer");;
+	MC: throw new RecipeException("Units of milk must be a positive integer"); -> <init>;
+	CF: throw new RecipeException("Units of milk must be a positive integer"); -> };
+	CF: } -> exit;
+}
+getAmtSugar{
+	entry ->   
+	CF: return amtSugar; -> exit;
+}
+setAmtSugar{
+	entry ->   
+	CF: int amtSugar = 0; -> amtSugar = Integer.parseInt(sugar);;
+	MC: amtSugar = Integer.parseInt(sugar); -> parseInt;
+	CF: amtSugar = Integer.parseInt(sugar); -> } catch (NumberFormatException e) {;
+	CF: } catch (NumberFormatException e) { -> throw new RecipeException("Units of sugar must be a positive integer");;
+	MC: throw new RecipeException("Units of sugar must be a positive integer"); -> <init>;
+	CF: throw new RecipeException("Units of sugar must be a positive integer"); -> if (amtSugar >= 0) {;
+	CF: if (amtSugar >= 0) { -> this.amtSugar = amtSugar;;
+	CF: this.amtSugar = amtSugar; -> } else {;
+	CF: } else { -> throw new RecipeException("Units of sugar must be a positive integer");;
+	MC: throw new RecipeException("Units of sugar must be a positive integer"); -> <init>;
+	CF: throw new RecipeException("Units of sugar must be a positive integer"); -> };
+	CF: } -> exit;
+}
+getName{
+	entry ->   
+	CF: return name; -> exit;
+}
+setName{
+	entry ->   
+	CF: if(name != null) { -> this.name = name;;
+	CF: this.name = name; -> };
+	CF: } -> exit;
+}
+getPrice{
+	entry ->   
+	CF: return price; -> exit;
+}
+setPrice{
+	entry ->   
+	CF: int amtPrice = 0; -> amtPrice = Integer.parseInt(price);;
+	MC: amtPrice = Integer.parseInt(price); -> parseInt;
+	CF: amtPrice = Integer.parseInt(price); -> } catch (NumberFormatException e) {;
+	CF: } catch (NumberFormatException e) { -> throw new RecipeException("Price must be a positive integer");;
+	MC: throw new RecipeException("Price must be a positive integer"); -> <init>;
+	CF: throw new RecipeException("Price must be a positive integer"); -> if (amtPrice >= 0) {;
+	CF: if (amtPrice >= 0) { -> this.price = amtPrice;;
+	CF: this.price = amtPrice; -> } else {;
+	CF: } else { -> throw new RecipeException("Price must be a positive integer");;
+	MC: throw new RecipeException("Price must be a positive integer"); -> <init>;
+	CF: throw new RecipeException("Price must be a positive integer"); -> };
+	CF: } -> exit;
+}
+toString{
+	entry ->   
+	CF: return name; -> exit;
+}
+hashCode{
+	entry ->   
+	CF: final int prime = 31; -> int result = 1;;
+	CF: int result = 1; -> result = prime * result + ((name == null) ? 0 : name.hashCode());;
+	MC: result = prime * result + ((name == null) ? 0 : name.hashCode()); -> hashCode;
+	CF: result = prime * result + ((name == null) ? 0 : name.hashCode()); -> return result;;
+	CF: return result; -> exit;
+}
+equals{
+	entry ->   
+	CF: if (this == obj) -> return true;;
+	CF: return true; -> exit;
+	CF: if (obj == null) -> return false;;
+	CF: return false; -> exit;
+	MC: if (getClass() != obj.getClass()) -> getClass;
+	MC: if (getClass() != obj.getClass()) -> getClass;
+	CF: if (getClass() != obj.getClass()) -> return false;;
+	CF: return false; -> exit;
+	CF: final Recipe other = (Recipe) obj; -> if (name == null) {;
+	CF: if (name == null) { -> if (other.name != null);
+	CF: if (other.name != null) -> return false;;
+	CF: return false; -> exit;
+	MC: } else if (!name.equals(other.name)) -> equals;
+	CF: } else if (!name.equals(other.name)) -> return false;;
+	CF: return false; -> exit;
+	CF: return true; -> exit;
+}

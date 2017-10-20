@@ -1,0 +1,181 @@
+<init>{
+	entry ->   
+	MC: public Inventory() { -> <init>;
+	CF: public Inventory() { -> setCoffee(15);;
+	MC: setCoffee(15); -> setCoffee;
+	CF: setCoffee(15); -> setMilk(15);;
+	MC: setMilk(15); -> setMilk;
+	CF: setMilk(15); -> setSugar(15);;
+	MC: setSugar(15); -> setSugar;
+	CF: setSugar(15); -> setChocolate(15);;
+	MC: setChocolate(15); -> setChocolate;
+	CF: setChocolate(15); -> };
+	} -> exit;
+}
+getChocolate{
+	entry ->   
+	return chocolate; -> exit;
+}
+setChocolate{
+	entry ->   
+	CF: if(chocolate >= 0) { -> Inventory.chocolate = chocolate;;
+	CF: Inventory.chocolate = chocolate; -> };
+	} -> exit;
+}
+addChocolate{
+	entry ->   
+	CF: int amtChocolate = 0; -> amtChocolate = Integer.parseInt(chocolate);;
+	MC: amtChocolate = Integer.parseInt(chocolate); -> parseInt;
+	CF: amtChocolate = Integer.parseInt(chocolate); -> } catch (NumberFormatException e) {;
+	CF: } catch (NumberFormatException e) { -> throw new InventoryException("Units of chocolate must be a positive integer");;
+	MC: throw new InventoryException("Units of chocolate must be a positive integer"); -> <init>;
+	CF: throw new InventoryException("Units of chocolate must be a positive integer"); -> if (amtChocolate >= 0) {;
+	CF: if (amtChocolate >= 0) { -> Inventory.chocolate += amtChocolate;;
+	CF: Inventory.chocolate += amtChocolate; -> } else {;
+	CF: } else { -> throw new InventoryException("Units of chocolate must be a positive integer");;
+	MC: throw new InventoryException("Units of chocolate must be a positive integer"); -> <init>;
+	CF: throw new InventoryException("Units of chocolate must be a positive integer"); -> };
+	} -> exit;
+}
+getCoffee{
+	entry ->   
+	return coffee; -> exit;
+}
+setCoffee{
+	entry ->   
+	CF: if(coffee >= 0) { -> Inventory.coffee = coffee;;
+	CF: Inventory.coffee = coffee; -> };
+	} -> exit;
+}
+addCoffee{
+	entry ->   
+	CF: int amtCoffee = 0; -> amtCoffee = Integer.parseInt(coffee);;
+	MC: amtCoffee = Integer.parseInt(coffee); -> parseInt;
+	CF: amtCoffee = Integer.parseInt(coffee); -> } catch (NumberFormatException e) {;
+	CF: } catch (NumberFormatException e) { -> throw new InventoryException("Units of coffee must be a positive integer");;
+	MC: throw new InventoryException("Units of coffee must be a positive integer"); -> <init>;
+	CF: throw new InventoryException("Units of coffee must be a positive integer"); -> if (amtCoffee >= 0) {;
+	CF: if (amtCoffee >= 0) { -> Inventory.coffee += amtCoffee;;
+	CF: Inventory.coffee += amtCoffee; -> } else {;
+	CF: } else { -> throw new InventoryException("Units of coffee must be a positive integer");;
+	MC: throw new InventoryException("Units of coffee must be a positive integer"); -> <init>;
+	CF: throw new InventoryException("Units of coffee must be a positive integer"); -> };
+	} -> exit;
+}
+getMilk{
+	entry ->   
+	return milk; -> exit;
+}
+setMilk{
+	entry ->   
+	CF: if(milk >= 0) { -> Inventory.milk = milk;;
+	CF: Inventory.milk = milk; -> };
+	} -> exit;
+}
+addMilk{
+	entry ->   
+	CF: int amtMilk = 0; -> amtMilk = Integer.parseInt(milk);;
+	MC: amtMilk = Integer.parseInt(milk); -> parseInt;
+	CF: amtMilk = Integer.parseInt(milk); -> } catch (NumberFormatException e) {;
+	CF: } catch (NumberFormatException e) { -> throw new InventoryException("Units of milk must be a positive integer");;
+	MC: throw new InventoryException("Units of milk must be a positive integer"); -> <init>;
+	CF: throw new InventoryException("Units of milk must be a positive integer"); -> if (amtMilk >= 0) {;
+	CF: if (amtMilk >= 0) { -> Inventory.milk += amtMilk;;
+	CF: Inventory.milk += amtMilk; -> } else {;
+	CF: } else { -> throw new InventoryException("Units of milk must be a positive integer");;
+	MC: throw new InventoryException("Units of milk must be a positive integer"); -> <init>;
+	CF: throw new InventoryException("Units of milk must be a positive integer"); -> };
+	} -> exit;
+}
+getSugar{
+	entry ->   
+	return sugar; -> exit;
+}
+setSugar{
+	entry ->   
+	CF: if(sugar >= 0) { -> Inventory.sugar = sugar;;
+	CF: Inventory.sugar = sugar; -> };
+	} -> exit;
+}
+addSugar{
+	entry ->   
+	CF: int amtSugar = 0; -> amtSugar = Integer.parseInt(sugar);;
+	MC: amtSugar = Integer.parseInt(sugar); -> parseInt;
+	CF: amtSugar = Integer.parseInt(sugar); -> } catch (NumberFormatException e) {;
+	CF: } catch (NumberFormatException e) { -> throw new InventoryException("Units of sugar must be a positive integer");;
+	MC: throw new InventoryException("Units of sugar must be a positive integer"); -> <init>;
+	CF: throw new InventoryException("Units of sugar must be a positive integer"); -> if (amtSugar >= 0) {;
+	CF: if (amtSugar >= 0) { -> Inventory.sugar += amtSugar;;
+	CF: Inventory.sugar += amtSugar; -> } else {;
+	CF: } else { -> throw new InventoryException("Units of sugar must be a positive integer");;
+	MC: throw new InventoryException("Units of sugar must be a positive integer"); -> <init>;
+	CF: throw new InventoryException("Units of sugar must be a positive integer"); -> };
+	} -> exit;
+}
+enoughIngredients{
+	entry ->   
+	CF: boolean isEnough = true; -> if(Inventory.coffee < r.getAmtCoffee()) {;
+	MC: if(Inventory.coffee < r.getAmtCoffee()) { -> getAmtCoffee;
+	CF: if(Inventory.coffee < r.getAmtCoffee()) { -> isEnough = false;;
+	CF: isEnough = false; -> if(Inventory.milk < r.getAmtMilk()) {;
+	MC: if(Inventory.milk < r.getAmtMilk()) { -> getAmtMilk;
+	CF: if(Inventory.milk < r.getAmtMilk()) { -> isEnough = false;;
+	CF: isEnough = false; -> if(Inventory.sugar < r.getAmtSugar()) {;
+	MC: if(Inventory.sugar < r.getAmtSugar()) { -> getAmtSugar;
+	CF: if(Inventory.sugar < r.getAmtSugar()) { -> isEnough = false;;
+	CF: isEnough = false; -> if(Inventory.chocolate < r.getAmtChocolate()) {;
+	MC: if(Inventory.chocolate < r.getAmtChocolate()) { -> getAmtChocolate;
+	CF: if(Inventory.chocolate < r.getAmtChocolate()) { -> isEnough = false;;
+	CF: isEnough = false; -> return isEnough;;
+	return isEnough; -> exit;
+}
+useIngredients{
+	entry ->   
+	MC: if (enoughIngredients(r)) { -> enoughIngredients;
+	CF: if (enoughIngredients(r)) { -> Inventory.coffee -= r.getAmtCoffee();;
+	MC: Inventory.coffee -= r.getAmtCoffee(); -> getAmtCoffee;
+	CF: Inventory.coffee -= r.getAmtCoffee(); -> Inventory.milk -= r.getAmtMilk();;
+	MC: Inventory.milk -= r.getAmtMilk(); -> getAmtMilk;
+	CF: Inventory.milk -= r.getAmtMilk(); -> Inventory.sugar -= r.getAmtSugar();;
+	MC: Inventory.sugar -= r.getAmtSugar(); -> getAmtSugar;
+	CF: Inventory.sugar -= r.getAmtSugar(); -> Inventory.chocolate -= r.getAmtChocolate();;
+	MC: Inventory.chocolate -= r.getAmtChocolate(); -> getAmtChocolate;
+	CF: Inventory.chocolate -= r.getAmtChocolate(); -> return true;;
+	return true; -> exit;
+	return false; -> exit;
+}
+toString{
+	entry ->   
+	MC: StringBuffer buf = new StringBuffer(); -> <init>;
+	CF: StringBuffer buf = new StringBuffer(); -> buf.append("Coffee: ");;
+	MC: buf.append("Coffee: "); -> append;
+	CF: buf.append("Coffee: "); -> buf.append(getCoffee());;
+	MC: buf.append(getCoffee()); -> getCoffee;
+	MC: buf.append(getCoffee()); -> append;
+	CF: buf.append(getCoffee()); -> buf.append("\n");;
+	MC: buf.append("\n"); -> append;
+	CF: buf.append("\n"); -> buf.append("Milk: ");;
+	MC: buf.append("Milk: "); -> append;
+	CF: buf.append("Milk: "); -> buf.append(getMilk());;
+	MC: buf.append(getMilk()); -> getMilk;
+	MC: buf.append(getMilk()); -> append;
+	CF: buf.append(getMilk()); -> buf.append("\n");;
+	MC: buf.append("\n"); -> append;
+	CF: buf.append("\n"); -> buf.append("Sugar: ");;
+	MC: buf.append("Sugar: "); -> append;
+	CF: buf.append("Sugar: "); -> buf.append(getSugar());;
+	MC: buf.append(getSugar()); -> getSugar;
+	MC: buf.append(getSugar()); -> append;
+	CF: buf.append(getSugar()); -> buf.append("\n");;
+	MC: buf.append("\n"); -> append;
+	CF: buf.append("\n"); -> buf.append("Chocolate: ");;
+	MC: buf.append("Chocolate: "); -> append;
+	CF: buf.append("Chocolate: "); -> buf.append(getChocolate());;
+	MC: buf.append(getChocolate()); -> getChocolate;
+	MC: buf.append(getChocolate()); -> append;
+	CF: buf.append(getChocolate()); -> buf.append("\n");;
+	MC: buf.append("\n"); -> append;
+	CF: buf.append("\n"); -> return buf.toString();;
+	MC: return buf.toString(); -> toString;
+	return buf.toString(); -> exit;
+}

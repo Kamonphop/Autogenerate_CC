@@ -1,0 +1,13 @@
+<init>{
+	entry ->   
+	callbackref = cbr; -> <init>;
+	callbackref = cbr; -> };
+	} -> void arraysort();
+	void arraysort() -> exit;
+}
+arraysort{
+	entry ->   
+	} -> sort;
+	} -> };
+	} -> exit;
+}

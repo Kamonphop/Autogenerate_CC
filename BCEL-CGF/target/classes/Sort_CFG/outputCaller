@@ -1,0 +1,13 @@
+<init>{
+	entry ->   
+	MC: { -> <init>;
+	CF: { -> callbackref = cbr;;
+	CF: callbackref = cbr; -> };
+	CF: } -> exit;
+}
+arraysort{
+	entry ->   
+	MC: callbackref.sort(); -> sort;
+	CF: callbackref.sort(); -> };
+	CF: } -> exit;
+}

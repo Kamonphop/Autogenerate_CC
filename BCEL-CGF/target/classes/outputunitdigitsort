@@ -1,0 +1,25 @@
+<init>{
+	entry ->   
+	n = an; -> <init>;
+	n = an; -> public unitdigitsort(int an , int ano[]);
+	public unitdigitsort(int an , int ano[]) -> no=ano;;
+	no=ano; -> };
+	} -> public void sort();
+	public void sort() -> exit;
+}
+sort{
+	entry ->   
+	{ -> {;
+	{ -> {;
+	{ -> no[j] = no[i];;
+	no[j] = no[i]; -> no[i] = temp;;
+	no[i] = temp; -> };
+	} -> {;
+	{ -> {;
+	{ -> System.out.println(no[i]);;
+	System.out.println(no[i]); -> };
+	} -> println;
+	} -> System.out.println(no[i]);;
+	System.out.println(no[i]); -> };
+	} -> exit;
+}

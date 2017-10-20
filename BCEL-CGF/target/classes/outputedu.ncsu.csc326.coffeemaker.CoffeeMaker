@@ -1,0 +1,68 @@
+<init>{
+	entry ->   
+	MC: public CoffeeMaker() { -> <init>;
+	CF: public CoffeeMaker() { -> recipeBook = new RecipeBook();;
+	MC: recipeBook = new RecipeBook(); -> <init>;
+	CF: recipeBook = new RecipeBook(); -> inventory = new Inventory();;
+	MC: inventory = new Inventory(); -> <init>;
+	CF: inventory = new Inventory(); -> };
+	} -> exit;
+}
+addRecipe{
+	entry ->   
+	MC: return recipeBook.addRecipe(r); -> addRecipe;
+	return recipeBook.addRecipe(r); -> exit;
+}
+deleteRecipe{
+	entry ->   
+	MC: return recipeBook.deleteRecipe(recipeToDelete); -> deleteRecipe;
+	return recipeBook.deleteRecipe(recipeToDelete); -> exit;
+}
+editRecipe{
+	entry ->   
+	MC: return recipeBook.editRecipe(recipeToEdit, r); -> editRecipe;
+	return recipeBook.editRecipe(recipeToEdit, r); -> exit;
+}
+addInventory{
+	entry ->   
+	MC: inventory.addCoffee(amtCoffee); -> addCoffee;
+	CF: inventory.addCoffee(amtCoffee); -> inventory.addMilk(amtMilk);;
+	MC: inventory.addMilk(amtMilk); -> addMilk;
+	CF: inventory.addMilk(amtMilk); -> inventory.addSugar(amtSugar);;
+	MC: inventory.addSugar(amtSugar); -> addSugar;
+	CF: inventory.addSugar(amtSugar); -> inventory.addChocolate(amtChocolate);;
+	MC: inventory.addChocolate(amtChocolate); -> addChocolate;
+	CF: inventory.addChocolate(amtChocolate); -> };
+	} -> exit;
+}
+checkInventory{
+	entry ->   
+	MC: return inventory.toString(); -> toString;
+	return inventory.toString(); -> exit;
+}
+makeCoffee{
+	entry ->   
+	CF: int change = 0; -> if (getRecipes()[recipeToPurchase] == null) {;
+	MC: if (getRecipes()[recipeToPurchase] == null) { -> getRecipes;
+	CF: if (getRecipes()[recipeToPurchase] == null) { -> change = amtPaid;;
+	CF: change = amtPaid; -> } else if (getRecipes()[recipeToPurchase].getPrice() <= amtPaid) {;
+	MC: } else if (getRecipes()[recipeToPurchase].getPrice() <= amtPaid) { -> getRecipes;
+	MC: } else if (getRecipes()[recipeToPurchase].getPrice() <= amtPaid) { -> getPrice;
+	CF: } else if (getRecipes()[recipeToPurchase].getPrice() <= amtPaid) { -> if (inventory.useIngredients(getRecipes()[recipeToPurchase])) {;
+	MC: if (inventory.useIngredients(getRecipes()[recipeToPurchase])) { -> getRecipes;
+	MC: if (inventory.useIngredients(getRecipes()[recipeToPurchase])) { -> useIngredients;
+	CF: if (inventory.useIngredients(getRecipes()[recipeToPurchase])) { -> change = amtPaid - getRecipes()[recipeToPurchase].getPrice();;
+	MC: change = amtPaid - getRecipes()[recipeToPurchase].getPrice(); -> getRecipes;
+	MC: change = amtPaid - getRecipes()[recipeToPurchase].getPrice(); -> getPrice;
+	CF: change = amtPaid - getRecipes()[recipeToPurchase].getPrice(); -> } else {;
+	CF: } else { -> change = amtPaid;;
+	CF: change = amtPaid; -> } else {;
+	CF: } else { -> change = amtPaid;;
+	CF: change = amtPaid; -> return change;;
+	return change; -> exit;
+}
+getRecipes{
+	entry ->   
+	MC: return recipeBook.getRecipes(); -> getRecipes;
+	return recipeBook.getRecipes(); -> exit;
+}

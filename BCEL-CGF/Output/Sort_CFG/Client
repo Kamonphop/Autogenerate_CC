@@ -1,9 +1,9 @@
-<init>{
+Client.<init>{
 	entry ->   
 	MC: public class Client -> java.lang.Object.<init>;
 	CF: public class Client -> exit;
 }
-main{
+Client.main{
 	entry ->   
 	MC: Scanner in = getScanner(); -> Client.getScanner;
 	CF: Scanner in = getScanner(); -> int sizeOfArray = getSizeOfArray(in);;
@@ -21,7 +21,7 @@ main{
 	CF: in.close(); -> };
 	CF: } -> exit;
 }
-getElementsOfArray{
+Client.getElementsOfArray{
 	entry ->   
 	MC: System.out.println ("enter the elements of the array"); -> java.io.PrintStream.println;
 	CF: System.out.println ("enter the elements of the array"); -> for(int i=0;i<sizeOfArray;i++);
@@ -32,7 +32,7 @@ getElementsOfArray{
 	CF: for(int i=0;i<sizeOfArray;i++) -> for(int i=0;i<sizeOfArray;i++) [label = "goto"];
 	CF: } -> exit;
 }
-getSizeOfArray{
+Client.getSizeOfArray{
 	entry ->   
 	MC: System.out.println ("Enter the no of elements of the array"); -> java.io.PrintStream.println;
 	CF: System.out.println ("Enter the no of elements of the array"); -> int sizeOfArray = in.nextInt();;
@@ -40,7 +40,7 @@ getSizeOfArray{
 	CF: int sizeOfArray = in.nextInt(); -> return sizeOfArray;;
 	CF: return sizeOfArray; -> exit;
 }
-getScanner{
+Client.getScanner{
 	entry ->   
 	MC: return new Scanner(System.in); -> java.util.Scanner.<init>;
 	CF: return new Scanner(System.in); -> exit;

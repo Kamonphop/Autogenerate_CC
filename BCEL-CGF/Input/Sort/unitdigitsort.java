@@ -33,7 +33,7 @@ public class unitdigitsort implements ISort
               }
          }
       }
-      for(int i = 0 ; i < n ; i++)
-         System.out.println(no[i]);
+      for(int k = 0 ; k < n ; k++)
+         System.out.println(no[k]);
    }
 }

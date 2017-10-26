@@ -1,13 +1,13 @@
-<init>{
+Caller.<init>{
 	entry ->   
-	MC: { -> <init>;
+	MC: { -> java.lang.Object.<init>;
 	CF: { -> callbackref = cbr;;
 	CF: callbackref = cbr; -> };
 	CF: } -> exit;
 }
-arraysort{
+Caller.arraysort{
 	entry ->   
-	MC: callbackref.sort(); -> sort;
+	MC: callbackref.sort(); -> ISort.sort;
 	CF: callbackref.sort(); -> };
 	CF: } -> exit;
 }

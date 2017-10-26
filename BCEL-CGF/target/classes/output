@@ -1,9 +1,0 @@
-digraph control_flow_graph {
-
-
-	entry -> 0;
-	0 -> 1;
-	1 -> 4;
-	4 -> 9;
-	9 -> exit;
-}

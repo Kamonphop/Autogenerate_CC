@@ -1,4 +1,4 @@
-<init>{
+unitdigitsort.<init>{
 	entry ->   
 	MC: { -> java.lang.Object.<init>;
 	CF: { -> private int[] no = new int[15];;
@@ -7,7 +7,7 @@
 	CF: no=ano; -> };
 	CF: } -> exit;
 }
-sort{
+unitdigitsort.sort{
 	entry ->   
 	CF: for(int i = 0 ; i < n ; i++) -> for(int k = 0 ; k < n ; k++) [label = "if_icmpge"];
 	CF: for(int i = 0 ; i < n ; i++) -> for(int j = i ; j < n ; j++) [label = "!if_icmpge"];

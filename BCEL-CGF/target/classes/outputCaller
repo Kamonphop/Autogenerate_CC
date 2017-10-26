@@ -1,13 +1,13 @@
 <init>{
 	entry ->   
-	callbackref = cbr; -> <init>;
-	callbackref = cbr; -> };
-	} -> void arraysort();
-	void arraysort() -> exit;
+	MC: { -> java.lang.Object.<init>;
+	CF: { -> callbackref = cbr;;
+	CF: callbackref = cbr; -> };
+	CF: } -> exit;
 }
 arraysort{
 	entry ->   
-	} -> sort;
-	} -> };
-	} -> exit;
+	MC: callbackref.sort(); -> ISort.sort;
+	CF: callbackref.sort(); -> };
+	CF: } -> exit;
 }

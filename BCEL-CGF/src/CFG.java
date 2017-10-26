@@ -10,19 +10,21 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
-import java.util.SortedMap;
-import java.util.TreeMap;
 
 import org.apache.bcel.classfile.ClassParser;
 import org.apache.bcel.classfile.Code;
 import org.apache.bcel.classfile.JavaClass;
 import org.apache.bcel.classfile.Method;
+import org.apache.bcel.generic.BranchInstruction;
 import org.apache.bcel.generic.ConstantPoolGen;
+import org.apache.bcel.generic.GotoInstruction;
+import org.apache.bcel.generic.IfInstruction;
 import org.apache.bcel.generic.Instruction;
 import org.apache.bcel.generic.InstructionHandle;
 import org.apache.bcel.generic.InstructionList;
 import org.apache.bcel.generic.InvokeInstruction;
 import org.apache.bcel.generic.ReturnInstruction;
+import org.apache.bcel.generic.Select;
 
 public class CFG {
 	// Static Dotty file strings.
@@ -78,7 +80,7 @@ public class CFG {
 
 
 		PrintStream printStream = new PrintStream(_out);
-		printStream.print(method.getName());
+		printStream.print(cls.getClassName() + "." + method.getName());
 		for(String header: dottyFileHeader){
 			printStream.print(header +"\n");
 		}
@@ -90,22 +92,67 @@ public class CFG {
 			line = code.getLineNumberTable().getSourceLine(line);
 			String codeLine = sourceCode.get(line);
 
+			// Method Call
 			if (instr instanceof InvokeInstruction) {
 
 				ConstantPoolGen cpg = new ConstantPoolGen(cls.getConstantPool());
 				InvokeInstruction invoke = (InvokeInstruction) instr;
-				//				printStream.println("	"+line+" -> "+invoke.getName(cpg)+";");
-				printStream.println("	MC: "+codeLine+" -> "+invoke.getName(cpg)+";");
-				graph.addNode(codeLine, invoke.getName(cpg));
+				if(!invoke.getReferenceType(cpg).equals(cls.getClassName())) {
+					printStream.println("	MC: "+codeLine+" -> "+invoke.getReferenceType(cpg)+"."+invoke.getName(cpg)+";");
+					graph.addNode(codeLine, invoke.getName(cpg));	
+				}
+				else {
+					printStream.println("	MC: "+codeLine+" -> "+invoke.getName(cpg)+";");
+					graph.addNode(codeLine, invoke.getName(cpg));
+				}
 			}
-			if(instr instanceof ReturnInstruction){
+			
+			// Control Flow
+			if(instr instanceof BranchInstruction){
+				BranchInstruction br = (BranchInstruction)instr;
+				if(br instanceof GotoInstruction){
+					InstructionHandle ihs = ((GotoInstruction)br).getTarget();
+					int branchline = ihs.getPosition();
+					branchline = code.getLineNumberTable().getSourceLine(branchline);
+					String branchlineCode = sourceCode.get(branchline);
+					printStream.println("	CF: "+codeLine+" -> "+branchlineCode+" [label = \""+br.getName()+"\"];");
+					graph.addNode(codeLine, branchlineCode);
+				}
+				//if will have two branches the goto and itself
+				else if(br instanceof IfInstruction){
+					InstructionHandle nextbr = ((IfInstruction)br).getTarget();
+					int branchline = nextbr.getPosition();
+					int line2 = instructionArray[i+1].getPosition();
+					branchline = code.getLineNumberTable().getSourceLine(branchline);
+					String branchlineCode = sourceCode.get(branchline);
+					line2 = code.getLineNumberTable().getSourceLine(line2);
+					String line2Code = sourceCode.get(line2);
+					printStream.println("	CF: "+codeLine+" -> "+branchlineCode+" [label = \""+br.getName()+"\"];");
+					printStream.println("	CF: "+codeLine+" -> "+line2Code+" [label = \"!"+br.getName()+"\"];");
+					graph.addNode(codeLine, branchlineCode);
+					graph.addNode(codeLine, line2Code);
+				}
+				else if(br instanceof Select){
+					for(InstructionHandle target: ((Select)br).getTargets()){
+						int targetLine = target.getPosition();
+						targetLine = code.getLineNumberTable().getSourceLine(targetLine);
+						String targetLineCode = sourceCode.get(targetLine);
+						printStream.println("	CF: "+codeLine+" -> "+targetLineCode+" [label = \""+br.getName()+"\"];");
+						graph.addNode(codeLine, targetLineCode);
+					}
+					int nextLine = ((Select)br).getTarget().getPosition();
+					nextLine = code.getLineNumberTable().getSourceLine(nextLine);
+					String nextLineCode = sourceCode.get(nextLine);
+					printStream.println("	CF: "+codeLine+" -> "+nextLineCode+" [label = \""+br.getName()+"\"];");
+				}
+			}
+			else if(instr instanceof ReturnInstruction){
 				printStream.println("	CF: "+codeLine+" -> exit;");
 			}else{
 				int line2 = instructionArray[i+1].getPosition();
 				line2 = code.getLineNumberTable().getSourceLine(line2);
 				String codeLine2 = sourceCode.get(line2);
 				if(line != line2 ) {
-					//						printStream.println("	"+line+" -> "+line2+";");
 					printStream.println("	CF: "+codeLine+" -> "+codeLine2+";");
 					graph.addNode(codeLine, codeLine2);
 				}
@@ -134,18 +181,17 @@ public class CFG {
 			}} );
 
 		// Check arguments.
-		if ( args.length != 2 ) {
+		if ( args.length != 1 ) {
 			error.println( "Wrong number of arguments." );
-			error.println( "Usage: CFG <input-class-file> <output-dotty-file>" );
+			error.println( "Usage: CFG <input-class-folder-with-.java-and-.class-files>" );
 			System.exit( 1 );
 		}
 
-		//		List<String> inputClassFilenameList = Arrays.asList(args[0].split(File.pathSeparator));
 		File folder = new File(args[0]);
 		ArrayList<String> inputClassFilenameList = new ArrayList<String>(); 
 		ArrayList<String> inputJavaFilenameList = new ArrayList<String>();;
 		File[] listOfFiles = folder.listFiles();
-		System.out.println(listOfFiles);
+
 		for (int i = 0; i < listOfFiles.length; i++) {
 			String name = listOfFiles[i].getName();
 			if (name.endsWith(".class")) {
@@ -158,8 +204,6 @@ public class CFG {
 
 
 		for(int index = 0; index<inputClassFilenameList.size(); index++) {
-			// Parse class file.
-			String outputDottyFilename = args[1] ;
 			System.out.println("Parsing " + inputClassFilenameList.get(index) + "." );
 			debug.println( "Parsing " + inputClassFilenameList.get(index)+ "." );
 			JavaClass cls = null;
@@ -170,7 +214,7 @@ public class CFG {
 				error.println( "Error while parsing " + inputClassFilenameList.get(index) + "." );
 				System.exit( 1 );
 			}
-			outputDottyFilename += cls.getClassName();
+			String outputDottyFilename = cls.getClassName();
 			try {
 				OutputStream output = new FileOutputStream( outputDottyFilename );
 				for ( Method m : cls.getMethods() ) {

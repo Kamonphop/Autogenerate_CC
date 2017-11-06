@@ -15,16 +15,22 @@ import org.apache.bcel.classfile.ClassParser;
 import org.apache.bcel.classfile.Code;
 import org.apache.bcel.classfile.JavaClass;
 import org.apache.bcel.classfile.Method;
+import org.apache.bcel.generic.ArithmeticInstruction;
+import org.apache.bcel.generic.ArrayInstruction;
 import org.apache.bcel.generic.BranchInstruction;
+import org.apache.bcel.generic.CPInstruction;
 import org.apache.bcel.generic.ConstantPoolGen;
+import org.apache.bcel.generic.ConversionInstruction;
 import org.apache.bcel.generic.GotoInstruction;
 import org.apache.bcel.generic.IfInstruction;
 import org.apache.bcel.generic.Instruction;
 import org.apache.bcel.generic.InstructionHandle;
 import org.apache.bcel.generic.InstructionList;
 import org.apache.bcel.generic.InvokeInstruction;
+import org.apache.bcel.generic.LocalVariableInstruction;
 import org.apache.bcel.generic.ReturnInstruction;
 import org.apache.bcel.generic.Select;
+import org.apache.bcel.generic.StackInstruction;
 
 public class CFG {
 	// Static Dotty file strings.
@@ -90,23 +96,32 @@ public class CFG {
 			Integer line = instructionArray[i].getPosition();
 			Instruction instr = instructionArray[i].getInstruction();
 			line = code.getLineNumberTable().getSourceLine(line);
-			String codeLine = sourceCode.get(line);
-
+			String codeLine = cleanInstruction(sourceCode.get(line));
+			
 			// Method Call
 			if (instr instanceof InvokeInstruction) {
 
 				ConstantPoolGen cpg = new ConstantPoolGen(cls.getConstantPool());
 				InvokeInstruction invoke = (InvokeInstruction) instr;
 				if(!invoke.getReferenceType(cpg).equals(cls.getClassName())) {
-					printStream.println("	MC: "+codeLine+" -> "+invoke.getReferenceType(cpg)+"."+invoke.getName(cpg)+";");
+					printStream.println("	MC: "+codeLine+" calls "+invoke.getReferenceType(cpg)+"."+invoke.getName(cpg));
 					graph.addNode(codeLine, invoke.getName(cpg));	
 				}
 				else {
-					printStream.println("	MC: "+codeLine+" -> "+invoke.getName(cpg)+";");
+					printStream.println("	MC: "+codeLine+" -> "+invoke.getName(cpg));
 					graph.addNode(codeLine, invoke.getName(cpg));
 				}
 			}
 			
+			// Arthmetic
+			if(instr instanceof ArithmeticInstruction) {
+				ConstantPoolGen cpg = new ConstantPoolGen(cls.getConstantPool());
+//				System.out.println(codeLine + " -> " + instr.getClass());
+				printStream.println("	AI: "+codeLine+" [SubClass: "+instr.getName()+"	Type: "+((ArithmeticInstruction)instr).getType(cpg)+"]");
+			}
+			if(instr instanceof LocalVariableInstruction) {
+				printStream.println("	LS: "+codeLine+" [SubClass: "+((LocalVariableInstruction) instr).getName()+"]");
+			}
 			// Control Flow
 			if(instr instanceof BranchInstruction){
 				BranchInstruction br = (BranchInstruction)instr;
@@ -114,8 +129,8 @@ public class CFG {
 					InstructionHandle ihs = ((GotoInstruction)br).getTarget();
 					int branchline = ihs.getPosition();
 					branchline = code.getLineNumberTable().getSourceLine(branchline);
-					String branchlineCode = sourceCode.get(branchline);
-					printStream.println("	CF: "+codeLine+" -> "+branchlineCode+" [label = \""+br.getName()+"\"];");
+					String branchlineCode = cleanInstruction(sourceCode.get(branchline));
+					printStream.println("	CF: "+codeLine+" -> "+branchlineCode+" [label = \""+br.getName()+"\"]");
 					graph.addNode(codeLine, branchlineCode);
 				}
 				//if will have two branches the goto and itself
@@ -124,11 +139,11 @@ public class CFG {
 					int branchline = nextbr.getPosition();
 					int line2 = instructionArray[i+1].getPosition();
 					branchline = code.getLineNumberTable().getSourceLine(branchline);
-					String branchlineCode = sourceCode.get(branchline);
+					String branchlineCode = cleanInstruction(sourceCode.get(branchline));
 					line2 = code.getLineNumberTable().getSourceLine(line2);
-					String line2Code = sourceCode.get(line2);
-					printStream.println("	CF: "+codeLine+" -> "+branchlineCode+" [label = \""+br.getName()+"\"];");
-					printStream.println("	CF: "+codeLine+" -> "+line2Code+" [label = \"!"+br.getName()+"\"];");
+					String line2Code = cleanInstruction(sourceCode.get(line2));
+					printStream.println("	CF: "+codeLine+" -> "+branchlineCode+" [label = \""+br.getName()+"\"]");
+					printStream.println("	CF: "+codeLine+" -> "+line2Code+" [label = \"!"+br.getName()+"\"]");
 					graph.addNode(codeLine, branchlineCode);
 					graph.addNode(codeLine, line2Code);
 				}
@@ -136,24 +151,24 @@ public class CFG {
 					for(InstructionHandle target: ((Select)br).getTargets()){
 						int targetLine = target.getPosition();
 						targetLine = code.getLineNumberTable().getSourceLine(targetLine);
-						String targetLineCode = sourceCode.get(targetLine);
-						printStream.println("	CF: "+codeLine+" -> "+targetLineCode+" [label = \""+br.getName()+"\"];");
+						String targetLineCode = cleanInstruction(sourceCode.get(targetLine));
+						printStream.println("	CF: "+codeLine+" -> "+targetLineCode+" [label = \""+br.getName()+"\"]");
 						graph.addNode(codeLine, targetLineCode);
 					}
 					int nextLine = ((Select)br).getTarget().getPosition();
 					nextLine = code.getLineNumberTable().getSourceLine(nextLine);
-					String nextLineCode = sourceCode.get(nextLine);
-					printStream.println("	CF: "+codeLine+" -> "+nextLineCode+" [label = \""+br.getName()+"\"];");
+					String nextLineCode = cleanInstruction(sourceCode.get(nextLine));
+					printStream.println("	CF: "+codeLine+" -> "+nextLineCode+" [label = \""+br.getName()+"\"]");
 				}
 			}
 			else if(instr instanceof ReturnInstruction){
-				printStream.println("	CF: "+codeLine+" -> exit;");
+				printStream.println("	CF: "+codeLine+" -> exit [Return Type: "+((ReturnInstruction) instr).getType()+"]");
 			}else{
 				int line2 = instructionArray[i+1].getPosition();
 				line2 = code.getLineNumberTable().getSourceLine(line2);
-				String codeLine2 = sourceCode.get(line2);
+				String codeLine2 = cleanInstruction(sourceCode.get(line2));
 				if(line != line2 ) {
-					printStream.println("	CF: "+codeLine+" -> "+codeLine2+";");
+					printStream.println("	CF: "+codeLine+" -> "+codeLine2);
 					graph.addNode(codeLine, codeLine2);
 				}
 			}
@@ -249,5 +264,11 @@ public class CFG {
 
 			}
 		}
+	}
+	
+	private static String cleanInstruction(String codeLine) {
+		codeLine = codeLine.replaceAll("[;{}]", "");         //Removes Special characters only
+		codeLine = codeLine.trim();
+		return codeLine;
 	}
 }

@@ -1,58 +1,104 @@
 edu.ncsu.csc326.coffeemaker.RecipeBook.<init>{
 	entry ->   
-	MC: public RecipeBook() { -> java.lang.Object.<init>;
-	CF: public RecipeBook() { -> private final int NUM_RECIPES = 3;;
-	CF: private final int NUM_RECIPES = 3; -> recipeArray = new Recipe[NUM_RECIPES];;
-	CF: recipeArray = new Recipe[NUM_RECIPES]; -> };
-	CF: } -> exit;
+	LS: public RecipeBook() [SubClass: aload_0]
+	MC: public RecipeBook() calls java.lang.Object.<init>
+	CF: public RecipeBook() -> private final int NUM_RECIPES = 3
+	LS: private final int NUM_RECIPES = 3 [SubClass: aload_0]
+	CF: private final int NUM_RECIPES = 3 -> recipeArray = new Recipe[NUM_RECIPES]
+	LS: recipeArray = new Recipe[NUM_RECIPES] [SubClass: aload_0]
+	CF: recipeArray = new Recipe[NUM_RECIPES] -> 
+	CF:  -> exit [Return Type: void]
 }
 edu.ncsu.csc326.coffeemaker.RecipeBook.getRecipes{
 	entry ->   
-	CF: return recipeArray; -> exit;
+	LS: return recipeArray [SubClass: aload_0]
+	CF: return recipeArray -> exit [Return Type: java.lang.Object]
 }
 edu.ncsu.csc326.coffeemaker.RecipeBook.addRecipe{
 	entry ->   
-	CF: boolean exists = false; -> for (int i = 0; i < recipeArray.length; i++ ) {;
-	CF: for (int i = 0; i < recipeArray.length; i++ ) { -> for (int i = 0; i < recipeArray.length; i++ ) { [label = "goto"];
-	MC: if (r.equals(recipeArray[i])) { -> edu.ncsu.csc326.coffeemaker.Recipe.equals;
-	CF: if (r.equals(recipeArray[i])) { -> for (int i = 0; i < recipeArray.length; i++ ) { [label = "ifeq"];
-	CF: if (r.equals(recipeArray[i])) { -> exists = true; [label = "!ifeq"];
-	CF: exists = true; -> for (int i = 0; i < recipeArray.length; i++ ) {;
-	CF: for (int i = 0; i < recipeArray.length; i++ ) { -> if (r.equals(recipeArray[i])) { [label = "if_icmplt"];
-	CF: for (int i = 0; i < recipeArray.length; i++ ) { -> boolean added = false; [label = "!if_icmplt"];
-	CF: boolean added = false; -> if (!exists) {;
-	CF: if (!exists) { -> return added; [label = "ifne"];
-	CF: if (!exists) { -> for (int i = 0; i < recipeArray.length && !added; i++) { [label = "!ifne"];
-	CF: for (int i = 0; i < recipeArray.length && !added; i++) { -> for (int i = 0; i < recipeArray.length && !added; i++) { [label = "goto"];
-	CF: if (recipeArray[i] == null) { -> for (int i = 0; i < recipeArray.length && !added; i++) { [label = "ifnonnull"];
-	CF: if (recipeArray[i] == null) { -> recipeArray[i] = r; [label = "!ifnonnull"];
-	CF: recipeArray[i] = r; -> added = true;;
-	CF: added = true; -> for (int i = 0; i < recipeArray.length && !added; i++) {;
-	CF: for (int i = 0; i < recipeArray.length && !added; i++) { -> return added; [label = "if_icmpge"];
-	CF: for (int i = 0; i < recipeArray.length && !added; i++) { -> for (int i = 0; i < recipeArray.length && !added; i++) { [label = "!if_icmpge"];
-	CF: for (int i = 0; i < recipeArray.length && !added; i++) { -> if (recipeArray[i] == null) { [label = "ifeq"];
-	CF: for (int i = 0; i < recipeArray.length && !added; i++) { -> return added; [label = "!ifeq"];
-	CF: return added; -> exit;
+	LS: boolean exists = false [SubClass: istore_2]
+	CF: boolean exists = false -> for (int i = 0 i < recipeArray.length i++ )
+	LS: for (int i = 0 i < recipeArray.length i++ ) [SubClass: istore_3]
+	CF: for (int i = 0 i < recipeArray.length i++ ) -> for (int i = 0 i < recipeArray.length i++ ) [label = "goto"]
+	LS: if (r.equals(recipeArray[i])) [SubClass: aload_1]
+	LS: if (r.equals(recipeArray[i])) [SubClass: aload_0]
+	LS: if (r.equals(recipeArray[i])) [SubClass: iload_3]
+	MC: if (r.equals(recipeArray[i])) calls edu.ncsu.csc326.coffeemaker.Recipe.equals
+	CF: if (r.equals(recipeArray[i])) -> for (int i = 0 i < recipeArray.length i++ ) [label = "ifeq"]
+	CF: if (r.equals(recipeArray[i])) -> exists = true [label = "!ifeq"]
+	LS: exists = true [SubClass: istore_2]
+	CF: exists = true -> for (int i = 0 i < recipeArray.length i++ )
+	LS: for (int i = 0 i < recipeArray.length i++ ) [SubClass: iinc]
+	LS: for (int i = 0 i < recipeArray.length i++ ) [SubClass: iload_3]
+	LS: for (int i = 0 i < recipeArray.length i++ ) [SubClass: aload_0]
+	CF: for (int i = 0 i < recipeArray.length i++ ) -> if (r.equals(recipeArray[i])) [label = "if_icmplt"]
+	CF: for (int i = 0 i < recipeArray.length i++ ) -> boolean added = false [label = "!if_icmplt"]
+	LS: boolean added = false [SubClass: istore_3]
+	CF: boolean added = false -> if (!exists)
+	LS: if (!exists) [SubClass: iload_2]
+	CF: if (!exists) -> return added [label = "ifne"]
+	CF: if (!exists) -> for (int i = 0 i < recipeArray.length && !added i++) [label = "!ifne"]
+	LS: for (int i = 0 i < recipeArray.length && !added i++) [SubClass: istore]
+	CF: for (int i = 0 i < recipeArray.length && !added i++) -> for (int i = 0 i < recipeArray.length && !added i++) [label = "goto"]
+	LS: if (recipeArray[i] == null) [SubClass: aload_0]
+	LS: if (recipeArray[i] == null) [SubClass: iload]
+	CF: if (recipeArray[i] == null) -> for (int i = 0 i < recipeArray.length && !added i++) [label = "ifnonnull"]
+	CF: if (recipeArray[i] == null) -> recipeArray[i] = r [label = "!ifnonnull"]
+	LS: recipeArray[i] = r [SubClass: aload_0]
+	LS: recipeArray[i] = r [SubClass: iload]
+	LS: recipeArray[i] = r [SubClass: aload_1]
+	CF: recipeArray[i] = r -> added = true
+	LS: added = true [SubClass: istore_3]
+	CF: added = true -> for (int i = 0 i < recipeArray.length && !added i++)
+	LS: for (int i = 0 i < recipeArray.length && !added i++) [SubClass: iinc]
+	LS: for (int i = 0 i < recipeArray.length && !added i++) [SubClass: iload]
+	LS: for (int i = 0 i < recipeArray.length && !added i++) [SubClass: aload_0]
+	CF: for (int i = 0 i < recipeArray.length && !added i++) -> return added [label = "if_icmpge"]
+	CF: for (int i = 0 i < recipeArray.length && !added i++) -> for (int i = 0 i < recipeArray.length && !added i++) [label = "!if_icmpge"]
+	LS: for (int i = 0 i < recipeArray.length && !added i++) [SubClass: iload_3]
+	CF: for (int i = 0 i < recipeArray.length && !added i++) -> if (recipeArray[i] == null) [label = "ifeq"]
+	CF: for (int i = 0 i < recipeArray.length && !added i++) -> return added [label = "!ifeq"]
+	LS: return added [SubClass: iload_3]
+	CF: return added -> exit [Return Type: int]
 }
 edu.ncsu.csc326.coffeemaker.RecipeBook.deleteRecipe{
 	entry ->   
-	CF: if (recipeArray[recipeToDelete] != null) { -> return null; [label = "ifnull"];
-	CF: if (recipeArray[recipeToDelete] != null) { -> String recipeName = recipeArray[recipeToDelete].getName(); [label = "!ifnull"];
-	MC: String recipeName = recipeArray[recipeToDelete].getName(); -> edu.ncsu.csc326.coffeemaker.Recipe.getName;
-	CF: String recipeName = recipeArray[recipeToDelete].getName(); -> recipeArray[recipeToDelete] = null;;
-	CF: recipeArray[recipeToDelete] = null; -> return recipeName;;
-	CF: return recipeName; -> exit;
-	CF: return null; -> exit;
+	LS: if (recipeArray[recipeToDelete] != null) [SubClass: aload_0]
+	LS: if (recipeArray[recipeToDelete] != null) [SubClass: iload_1]
+	CF: if (recipeArray[recipeToDelete] != null) -> return null [label = "ifnull"]
+	CF: if (recipeArray[recipeToDelete] != null) -> String recipeName = recipeArray[recipeToDelete].getName() [label = "!ifnull"]
+	LS: String recipeName = recipeArray[recipeToDelete].getName() [SubClass: aload_0]
+	LS: String recipeName = recipeArray[recipeToDelete].getName() [SubClass: iload_1]
+	MC: String recipeName = recipeArray[recipeToDelete].getName() calls edu.ncsu.csc326.coffeemaker.Recipe.getName
+	LS: String recipeName = recipeArray[recipeToDelete].getName() [SubClass: astore_2]
+	CF: String recipeName = recipeArray[recipeToDelete].getName() -> recipeArray[recipeToDelete] = null
+	LS: recipeArray[recipeToDelete] = null [SubClass: aload_0]
+	LS: recipeArray[recipeToDelete] = null [SubClass: iload_1]
+	CF: recipeArray[recipeToDelete] = null -> return recipeName
+	LS: return recipeName [SubClass: aload_2]
+	CF: return recipeName -> exit [Return Type: java.lang.Object]
+	CF: return null -> exit [Return Type: java.lang.Object]
 }
 edu.ncsu.csc326.coffeemaker.RecipeBook.editRecipe{
 	entry ->   
-	CF: if (recipeArray[recipeToEdit] != null) { -> return null; [label = "ifnull"];
-	CF: if (recipeArray[recipeToEdit] != null) { -> String recipeName = recipeArray[recipeToEdit].getName(); [label = "!ifnull"];
-	MC: String recipeName = recipeArray[recipeToEdit].getName(); -> edu.ncsu.csc326.coffeemaker.Recipe.getName;
-	CF: String recipeName = recipeArray[recipeToEdit].getName(); -> newRecipe.setName(recipeName);;
-	MC: newRecipe.setName(recipeName); -> edu.ncsu.csc326.coffeemaker.Recipe.setName;
-	CF: newRecipe.setName(recipeName); -> recipeArray[recipeToEdit] = newRecipe;;
-	CF: recipeArray[recipeToEdit] = newRecipe; -> return recipeName;;
-	CF: return recipeName; -> exit;
-	CF: return null; -> exit;
+	LS: if (recipeArray[recipeToEdit] != null) [SubClass: aload_0]
+	LS: if (recipeArray[recipeToEdit] != null) [SubClass: iload_1]
+	CF: if (recipeArray[recipeToEdit] != null) -> return null [label = "ifnull"]
+	CF: if (recipeArray[recipeToEdit] != null) -> String recipeName = recipeArray[recipeToEdit].getName() [label = "!ifnull"]
+	LS: String recipeName = recipeArray[recipeToEdit].getName() [SubClass: aload_0]
+	LS: String recipeName = recipeArray[recipeToEdit].getName() [SubClass: iload_1]
+	MC: String recipeName = recipeArray[recipeToEdit].getName() calls edu.ncsu.csc326.coffeemaker.Recipe.getName
+	LS: String recipeName = recipeArray[recipeToEdit].getName() [SubClass: astore_3]
+	CF: String recipeName = recipeArray[recipeToEdit].getName() -> newRecipe.setName(recipeName)
+	LS: newRecipe.setName(recipeName) [SubClass: aload_2]
+	LS: newRecipe.setName(recipeName) [SubClass: aload_3]
+	MC: newRecipe.setName(recipeName) calls edu.ncsu.csc326.coffeemaker.Recipe.setName
+	CF: newRecipe.setName(recipeName) -> recipeArray[recipeToEdit] = newRecipe
+	LS: recipeArray[recipeToEdit] = newRecipe [SubClass: aload_0]
+	LS: recipeArray[recipeToEdit] = newRecipe [SubClass: iload_1]
+	LS: recipeArray[recipeToEdit] = newRecipe [SubClass: aload_2]
+	CF: recipeArray[recipeToEdit] = newRecipe -> return recipeName
+	LS: return recipeName [SubClass: aload_3]
+	CF: return recipeName -> exit [Return Type: java.lang.Object]
+	CF: return null -> exit [Return Type: java.lang.Object]
 }

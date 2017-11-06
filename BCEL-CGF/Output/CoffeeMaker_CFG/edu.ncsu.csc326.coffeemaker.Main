@@ -1,384 +1,534 @@
 edu.ncsu.csc326.coffeemaker.Main.<init>{
 	entry ->   
-	MC: public class Main { -> java.lang.Object.<init>;
-	CF: public class Main { -> exit;
+	LS: public class Main [SubClass: aload_0]
+	MC: public class Main calls java.lang.Object.<init>
+	CF: public class Main -> exit [Return Type: void]
 }
 edu.ncsu.csc326.coffeemaker.Main.mainMenu{
 	entry ->   
-	MC: System.out.println("1. Add a recipe"); -> java.io.PrintStream.println;
-	CF: System.out.println("1. Add a recipe"); -> System.out.println("2. Delete a recipe");;
-	MC: System.out.println("2. Delete a recipe"); -> java.io.PrintStream.println;
-	CF: System.out.println("2. Delete a recipe"); -> System.out.println("3. Edit a recipe");;
-	MC: System.out.println("3. Edit a recipe"); -> java.io.PrintStream.println;
-	CF: System.out.println("3. Edit a recipe"); -> System.out.println("4. Add inventory");;
-	MC: System.out.println("4. Add inventory"); -> java.io.PrintStream.println;
-	CF: System.out.println("4. Add inventory"); -> System.out.println("5. Check inventory");;
-	MC: System.out.println("5. Check inventory"); -> java.io.PrintStream.println;
-	CF: System.out.println("5. Check inventory"); -> System.out.println("6. Make coffee");;
-	MC: System.out.println("6. Make coffee"); -> java.io.PrintStream.println;
-	CF: System.out.println("6. Make coffee"); -> System.out.println("0. Exit\n");;
-	MC: System.out.println("0. Exit\n"); -> java.io.PrintStream.println;
-	CF: System.out.println("0. Exit\n"); -> int userInput = Integer.parseInt(inputOutput("Please press the number that corresponds to what you would like the coffee maker to do."));;
-	MC: int userInput = Integer.parseInt(inputOutput("Please press the number that corresponds to what you would like the coffee maker to do.")); -> edu.ncsu.csc326.coffeemaker.Main.inputOutput;
-	MC: int userInput = Integer.parseInt(inputOutput("Please press the number that corresponds to what you would like the coffee maker to do.")); -> java.lang.Integer.parseInt;
-	CF: int userInput = Integer.parseInt(inputOutput("Please press the number that corresponds to what you would like the coffee maker to do.")); -> if (userInput >= 0 && userInput <=6) {;
-	CF: if (userInput >= 0 && userInput <=6) { -> System.out.println("Please enter a number from 0 - 6"); [label = "iflt"];
-	CF: if (userInput >= 0 && userInput <=6) { -> if (userInput >= 0 && userInput <=6) { [label = "!iflt"];
-	CF: if (userInput >= 0 && userInput <=6) { -> System.out.println("Please enter a number from 0 - 6"); [label = "if_icmpgt"];
-	CF: if (userInput >= 0 && userInput <=6) { -> if (userInput == 1) addRecipe(); [label = "!if_icmpgt"];
-	CF: if (userInput == 1) addRecipe(); -> if (userInput == 2) deleteRecipe(); [label = "if_icmpne"];
-	CF: if (userInput == 1) addRecipe(); -> if (userInput == 1) addRecipe(); [label = "!if_icmpne"];
-	MC: if (userInput == 1) addRecipe(); -> edu.ncsu.csc326.coffeemaker.Main.addRecipe;
-	CF: if (userInput == 1) addRecipe(); -> if (userInput == 2) deleteRecipe();;
-	CF: if (userInput == 2) deleteRecipe(); -> if (userInput == 3) editRecipe(); [label = "if_icmpne"];
-	CF: if (userInput == 2) deleteRecipe(); -> if (userInput == 2) deleteRecipe(); [label = "!if_icmpne"];
-	MC: if (userInput == 2) deleteRecipe(); -> edu.ncsu.csc326.coffeemaker.Main.deleteRecipe;
-	CF: if (userInput == 2) deleteRecipe(); -> if (userInput == 3) editRecipe();;
-	CF: if (userInput == 3) editRecipe(); -> if (userInput == 4) addInventory(); [label = "if_icmpne"];
-	CF: if (userInput == 3) editRecipe(); -> if (userInput == 3) editRecipe(); [label = "!if_icmpne"];
-	MC: if (userInput == 3) editRecipe(); -> edu.ncsu.csc326.coffeemaker.Main.editRecipe;
-	CF: if (userInput == 3) editRecipe(); -> if (userInput == 4) addInventory();;
-	CF: if (userInput == 4) addInventory(); -> if (userInput == 5) checkInventory(); [label = "if_icmpne"];
-	CF: if (userInput == 4) addInventory(); -> if (userInput == 4) addInventory(); [label = "!if_icmpne"];
-	MC: if (userInput == 4) addInventory(); -> edu.ncsu.csc326.coffeemaker.Main.addInventory;
-	CF: if (userInput == 4) addInventory(); -> if (userInput == 5) checkInventory();;
-	CF: if (userInput == 5) checkInventory(); -> if (userInput == 6) makeCoffee(); [label = "if_icmpne"];
-	CF: if (userInput == 5) checkInventory(); -> if (userInput == 5) checkInventory(); [label = "!if_icmpne"];
-	MC: if (userInput == 5) checkInventory(); -> edu.ncsu.csc326.coffeemaker.Main.checkInventory;
-	CF: if (userInput == 5) checkInventory(); -> if (userInput == 6) makeCoffee();;
-	CF: if (userInput == 6) makeCoffee(); -> if (userInput == 0) System.exit(0); [label = "if_icmpne"];
-	CF: if (userInput == 6) makeCoffee(); -> if (userInput == 6) makeCoffee(); [label = "!if_icmpne"];
-	MC: if (userInput == 6) makeCoffee(); -> edu.ncsu.csc326.coffeemaker.Main.makeCoffee;
-	CF: if (userInput == 6) makeCoffee(); -> if (userInput == 0) System.exit(0);;
-	CF: if (userInput == 0) System.exit(0); -> } [label = "ifne"];
-	CF: if (userInput == 0) System.exit(0); -> if (userInput == 0) System.exit(0); [label = "!ifne"];
-	MC: if (userInput == 0) System.exit(0); -> java.lang.System.exit;
-	CF: if (userInput == 0) System.exit(0); -> } else {;
-	CF: } else { -> } [label = "goto"];
-	MC: System.out.println("Please enter a number from 0 - 6"); -> java.io.PrintStream.println;
-	CF: System.out.println("Please enter a number from 0 - 6"); -> mainMenu();;
-	MC: mainMenu(); -> edu.ncsu.csc326.coffeemaker.Main.mainMenu;
-	CF: mainMenu(); -> } catch (NumberFormatException e) {;
-	CF: } catch (NumberFormatException e) { -> } [label = "goto"];
-	CF: } catch (NumberFormatException e) { -> System.out.println("Please enter a number from 0 - 6");;
-	MC: System.out.println("Please enter a number from 0 - 6"); -> java.io.PrintStream.println;
-	CF: System.out.println("Please enter a number from 0 - 6"); -> mainMenu();;
-	MC: mainMenu(); -> edu.ncsu.csc326.coffeemaker.Main.mainMenu;
-	CF: mainMenu(); -> };
-	CF: } -> exit;
+	MC: System.out.println("1. Add a recipe") calls java.io.PrintStream.println
+	CF: System.out.println("1. Add a recipe") -> System.out.println("2. Delete a recipe")
+	MC: System.out.println("2. Delete a recipe") calls java.io.PrintStream.println
+	CF: System.out.println("2. Delete a recipe") -> System.out.println("3. Edit a recipe")
+	MC: System.out.println("3. Edit a recipe") calls java.io.PrintStream.println
+	CF: System.out.println("3. Edit a recipe") -> System.out.println("4. Add inventory")
+	MC: System.out.println("4. Add inventory") calls java.io.PrintStream.println
+	CF: System.out.println("4. Add inventory") -> System.out.println("5. Check inventory")
+	MC: System.out.println("5. Check inventory") calls java.io.PrintStream.println
+	CF: System.out.println("5. Check inventory") -> System.out.println("6. Make coffee")
+	MC: System.out.println("6. Make coffee") calls java.io.PrintStream.println
+	CF: System.out.println("6. Make coffee") -> System.out.println("0. Exit\n")
+	MC: System.out.println("0. Exit\n") calls java.io.PrintStream.println
+	CF: System.out.println("0. Exit\n") -> int userInput = Integer.parseInt(inputOutput("Please press the number that corresponds to what you would like the coffee maker to do."))
+	MC: int userInput = Integer.parseInt(inputOutput("Please press the number that corresponds to what you would like the coffee maker to do.")) calls edu.ncsu.csc326.coffeemaker.Main.inputOutput
+	MC: int userInput = Integer.parseInt(inputOutput("Please press the number that corresponds to what you would like the coffee maker to do.")) calls java.lang.Integer.parseInt
+	LS: int userInput = Integer.parseInt(inputOutput("Please press the number that corresponds to what you would like the coffee maker to do.")) [SubClass: istore_0]
+	CF: int userInput = Integer.parseInt(inputOutput("Please press the number that corresponds to what you would like the coffee maker to do.")) -> if (userInput >= 0 && userInput <=6)
+	LS: if (userInput >= 0 && userInput <=6) [SubClass: iload_0]
+	CF: if (userInput >= 0 && userInput <=6) -> System.out.println("Please enter a number from 0 - 6") [label = "iflt"]
+	CF: if (userInput >= 0 && userInput <=6) -> if (userInput >= 0 && userInput <=6) [label = "!iflt"]
+	LS: if (userInput >= 0 && userInput <=6) [SubClass: iload_0]
+	CF: if (userInput >= 0 && userInput <=6) -> System.out.println("Please enter a number from 0 - 6") [label = "if_icmpgt"]
+	CF: if (userInput >= 0 && userInput <=6) -> if (userInput == 1) addRecipe() [label = "!if_icmpgt"]
+	LS: if (userInput == 1) addRecipe() [SubClass: iload_0]
+	CF: if (userInput == 1) addRecipe() -> if (userInput == 2) deleteRecipe() [label = "if_icmpne"]
+	CF: if (userInput == 1) addRecipe() -> if (userInput == 1) addRecipe() [label = "!if_icmpne"]
+	MC: if (userInput == 1) addRecipe() calls edu.ncsu.csc326.coffeemaker.Main.addRecipe
+	CF: if (userInput == 1) addRecipe() -> if (userInput == 2) deleteRecipe()
+	LS: if (userInput == 2) deleteRecipe() [SubClass: iload_0]
+	CF: if (userInput == 2) deleteRecipe() -> if (userInput == 3) editRecipe() [label = "if_icmpne"]
+	CF: if (userInput == 2) deleteRecipe() -> if (userInput == 2) deleteRecipe() [label = "!if_icmpne"]
+	MC: if (userInput == 2) deleteRecipe() calls edu.ncsu.csc326.coffeemaker.Main.deleteRecipe
+	CF: if (userInput == 2) deleteRecipe() -> if (userInput == 3) editRecipe()
+	LS: if (userInput == 3) editRecipe() [SubClass: iload_0]
+	CF: if (userInput == 3) editRecipe() -> if (userInput == 4) addInventory() [label = "if_icmpne"]
+	CF: if (userInput == 3) editRecipe() -> if (userInput == 3) editRecipe() [label = "!if_icmpne"]
+	MC: if (userInput == 3) editRecipe() calls edu.ncsu.csc326.coffeemaker.Main.editRecipe
+	CF: if (userInput == 3) editRecipe() -> if (userInput == 4) addInventory()
+	LS: if (userInput == 4) addInventory() [SubClass: iload_0]
+	CF: if (userInput == 4) addInventory() -> if (userInput == 5) checkInventory() [label = "if_icmpne"]
+	CF: if (userInput == 4) addInventory() -> if (userInput == 4) addInventory() [label = "!if_icmpne"]
+	MC: if (userInput == 4) addInventory() calls edu.ncsu.csc326.coffeemaker.Main.addInventory
+	CF: if (userInput == 4) addInventory() -> if (userInput == 5) checkInventory()
+	LS: if (userInput == 5) checkInventory() [SubClass: iload_0]
+	CF: if (userInput == 5) checkInventory() -> if (userInput == 6) makeCoffee() [label = "if_icmpne"]
+	CF: if (userInput == 5) checkInventory() -> if (userInput == 5) checkInventory() [label = "!if_icmpne"]
+	MC: if (userInput == 5) checkInventory() calls edu.ncsu.csc326.coffeemaker.Main.checkInventory
+	CF: if (userInput == 5) checkInventory() -> if (userInput == 6) makeCoffee()
+	LS: if (userInput == 6) makeCoffee() [SubClass: iload_0]
+	CF: if (userInput == 6) makeCoffee() -> if (userInput == 0) System.exit(0) [label = "if_icmpne"]
+	CF: if (userInput == 6) makeCoffee() -> if (userInput == 6) makeCoffee() [label = "!if_icmpne"]
+	MC: if (userInput == 6) makeCoffee() calls edu.ncsu.csc326.coffeemaker.Main.makeCoffee
+	CF: if (userInput == 6) makeCoffee() -> if (userInput == 0) System.exit(0)
+	LS: if (userInput == 0) System.exit(0) [SubClass: iload_0]
+	CF: if (userInput == 0) System.exit(0) ->  [label = "ifne"]
+	CF: if (userInput == 0) System.exit(0) -> if (userInput == 0) System.exit(0) [label = "!ifne"]
+	MC: if (userInput == 0) System.exit(0) calls java.lang.System.exit
+	CF: if (userInput == 0) System.exit(0) -> else
+	CF: else ->  [label = "goto"]
+	MC: System.out.println("Please enter a number from 0 - 6") calls java.io.PrintStream.println
+	CF: System.out.println("Please enter a number from 0 - 6") -> mainMenu()
+	MC: mainMenu() calls edu.ncsu.csc326.coffeemaker.Main.mainMenu
+	CF: mainMenu() -> catch (NumberFormatException e)
+	CF: catch (NumberFormatException e) ->  [label = "goto"]
+	LS: catch (NumberFormatException e) [SubClass: astore_0]
+	CF: catch (NumberFormatException e) -> System.out.println("Please enter a number from 0 - 6")
+	MC: System.out.println("Please enter a number from 0 - 6") calls java.io.PrintStream.println
+	CF: System.out.println("Please enter a number from 0 - 6") -> mainMenu()
+	MC: mainMenu() calls edu.ncsu.csc326.coffeemaker.Main.mainMenu
+	CF: mainMenu() -> 
+	CF:  -> exit [Return Type: void]
 }
 edu.ncsu.csc326.coffeemaker.Main.addRecipe{
 	entry ->   
-	MC: String name = inputOutput("\nPlease enter the recipe name: "); -> edu.ncsu.csc326.coffeemaker.Main.inputOutput;
-	CF: String name = inputOutput("\nPlease enter the recipe name: "); -> String priceString = inputOutput("\nPlease enter the recipe price: $");;
-	MC: String priceString = inputOutput("\nPlease enter the recipe price: $"); -> edu.ncsu.csc326.coffeemaker.Main.inputOutput;
-	CF: String priceString = inputOutput("\nPlease enter the recipe price: $"); -> String coffeeString = inputOutput("\nPlease enter the units of coffee in the recipe: ");;
-	MC: String coffeeString = inputOutput("\nPlease enter the units of coffee in the recipe: "); -> edu.ncsu.csc326.coffeemaker.Main.inputOutput;
-	CF: String coffeeString = inputOutput("\nPlease enter the units of coffee in the recipe: "); -> String milkString = inputOutput("\nPlease enter the units of milk in the recipe: ");;
-	MC: String milkString = inputOutput("\nPlease enter the units of milk in the recipe: "); -> edu.ncsu.csc326.coffeemaker.Main.inputOutput;
-	CF: String milkString = inputOutput("\nPlease enter the units of milk in the recipe: "); -> String sugarString = inputOutput("\nPlease enter the units of sugar in the recipe: ");;
-	MC: String sugarString = inputOutput("\nPlease enter the units of sugar in the recipe: "); -> edu.ncsu.csc326.coffeemaker.Main.inputOutput;
-	CF: String sugarString = inputOutput("\nPlease enter the units of sugar in the recipe: "); -> String chocolateString = inputOutput("\nPlease enter the units of chocolate in the recipe: ");;
-	MC: String chocolateString = inputOutput("\nPlease enter the units of chocolate in the recipe: "); -> edu.ncsu.csc326.coffeemaker.Main.inputOutput;
-	CF: String chocolateString = inputOutput("\nPlease enter the units of chocolate in the recipe: "); -> Recipe r = new Recipe();;
-	MC: Recipe r = new Recipe(); -> edu.ncsu.csc326.coffeemaker.Recipe.<init>;
-	CF: Recipe r = new Recipe(); -> r.setName(name);;
-	MC: r.setName(name); -> edu.ncsu.csc326.coffeemaker.Recipe.setName;
-	CF: r.setName(name); -> r.setPrice(priceString);;
-	MC: r.setPrice(priceString); -> edu.ncsu.csc326.coffeemaker.Recipe.setPrice;
-	CF: r.setPrice(priceString); -> r.setAmtCoffee(coffeeString);;
-	MC: r.setAmtCoffee(coffeeString); -> edu.ncsu.csc326.coffeemaker.Recipe.setAmtCoffee;
-	CF: r.setAmtCoffee(coffeeString); -> r.setAmtMilk(milkString);;
-	MC: r.setAmtMilk(milkString); -> edu.ncsu.csc326.coffeemaker.Recipe.setAmtMilk;
-	CF: r.setAmtMilk(milkString); -> r.setAmtSugar(sugarString);;
-	MC: r.setAmtSugar(sugarString); -> edu.ncsu.csc326.coffeemaker.Recipe.setAmtSugar;
-	CF: r.setAmtSugar(sugarString); -> r.setAmtChocolate(chocolateString);;
-	MC: r.setAmtChocolate(chocolateString); -> edu.ncsu.csc326.coffeemaker.Recipe.setAmtChocolate;
-	CF: r.setAmtChocolate(chocolateString); -> boolean recipeAdded = coffeeMaker.addRecipe(r);;
-	MC: boolean recipeAdded = coffeeMaker.addRecipe(r); -> edu.ncsu.csc326.coffeemaker.CoffeeMaker.addRecipe;
-	CF: boolean recipeAdded = coffeeMaker.addRecipe(r); -> if(recipeAdded) {;
-	CF: if(recipeAdded) { -> System.out.println(name + " could not be added.\n"); [label = "ifeq"];
-	CF: if(recipeAdded) { -> System.out.println(name + " successfully added.\n"); [label = "!ifeq"];
-	MC: System.out.println(name + " successfully added.\n"); -> java.lang.String.valueOf;
-	MC: System.out.println(name + " successfully added.\n"); -> java.lang.StringBuilder.<init>;
-	MC: System.out.println(name + " successfully added.\n"); -> java.lang.StringBuilder.append;
-	MC: System.out.println(name + " successfully added.\n"); -> java.lang.StringBuilder.toString;
-	MC: System.out.println(name + " successfully added.\n"); -> java.io.PrintStream.println;
-	CF: System.out.println(name + " successfully added.\n"); -> } else {;
-	CF: } else { -> mainMenu(); [label = "goto"];
-	MC: System.out.println(name + " could not be added.\n"); -> java.lang.String.valueOf;
-	MC: System.out.println(name + " could not be added.\n"); -> java.lang.StringBuilder.<init>;
-	MC: System.out.println(name + " could not be added.\n"); -> java.lang.StringBuilder.append;
-	MC: System.out.println(name + " could not be added.\n"); -> java.lang.StringBuilder.toString;
-	MC: System.out.println(name + " could not be added.\n"); -> java.io.PrintStream.println;
-	CF: System.out.println(name + " could not be added.\n"); -> } catch (RecipeException e) {;
-	CF: } catch (RecipeException e) { -> mainMenu(); [label = "goto"];
-	CF: } catch (RecipeException e) { -> System.out.println(e.getMessage());;
-	MC: System.out.println(e.getMessage()); -> edu.ncsu.csc326.coffeemaker.exceptions.RecipeException.getMessage;
-	MC: System.out.println(e.getMessage()); -> java.io.PrintStream.println;
-	CF: System.out.println(e.getMessage()); -> mainMenu();;
-	MC: mainMenu(); -> edu.ncsu.csc326.coffeemaker.Main.mainMenu;
-	CF: mainMenu(); -> } [label = "goto"];
-	CF: } finally { -> mainMenu();;
-	MC: mainMenu(); -> edu.ncsu.csc326.coffeemaker.Main.mainMenu;
-	CF: mainMenu(); -> };
-	CF: } -> mainMenu();;
-	MC: mainMenu(); -> edu.ncsu.csc326.coffeemaker.Main.mainMenu;
-	CF: mainMenu(); -> };
-	CF: } -> exit;
+	MC: String name = inputOutput("\nPlease enter the recipe name: ") calls edu.ncsu.csc326.coffeemaker.Main.inputOutput
+	LS: String name = inputOutput("\nPlease enter the recipe name: ") [SubClass: astore_0]
+	CF: String name = inputOutput("\nPlease enter the recipe name: ") -> String priceString = inputOutput("\nPlease enter the recipe price: $")
+	MC: String priceString = inputOutput("\nPlease enter the recipe price: $") calls edu.ncsu.csc326.coffeemaker.Main.inputOutput
+	LS: String priceString = inputOutput("\nPlease enter the recipe price: $") [SubClass: astore_1]
+	CF: String priceString = inputOutput("\nPlease enter the recipe price: $") -> String coffeeString = inputOutput("\nPlease enter the units of coffee in the recipe: ")
+	MC: String coffeeString = inputOutput("\nPlease enter the units of coffee in the recipe: ") calls edu.ncsu.csc326.coffeemaker.Main.inputOutput
+	LS: String coffeeString = inputOutput("\nPlease enter the units of coffee in the recipe: ") [SubClass: astore_2]
+	CF: String coffeeString = inputOutput("\nPlease enter the units of coffee in the recipe: ") -> String milkString = inputOutput("\nPlease enter the units of milk in the recipe: ")
+	MC: String milkString = inputOutput("\nPlease enter the units of milk in the recipe: ") calls edu.ncsu.csc326.coffeemaker.Main.inputOutput
+	LS: String milkString = inputOutput("\nPlease enter the units of milk in the recipe: ") [SubClass: astore_3]
+	CF: String milkString = inputOutput("\nPlease enter the units of milk in the recipe: ") -> String sugarString = inputOutput("\nPlease enter the units of sugar in the recipe: ")
+	MC: String sugarString = inputOutput("\nPlease enter the units of sugar in the recipe: ") calls edu.ncsu.csc326.coffeemaker.Main.inputOutput
+	LS: String sugarString = inputOutput("\nPlease enter the units of sugar in the recipe: ") [SubClass: astore]
+	CF: String sugarString = inputOutput("\nPlease enter the units of sugar in the recipe: ") -> String chocolateString = inputOutput("\nPlease enter the units of chocolate in the recipe: ")
+	MC: String chocolateString = inputOutput("\nPlease enter the units of chocolate in the recipe: ") calls edu.ncsu.csc326.coffeemaker.Main.inputOutput
+	LS: String chocolateString = inputOutput("\nPlease enter the units of chocolate in the recipe: ") [SubClass: astore]
+	CF: String chocolateString = inputOutput("\nPlease enter the units of chocolate in the recipe: ") -> Recipe r = new Recipe()
+	MC: Recipe r = new Recipe() calls edu.ncsu.csc326.coffeemaker.Recipe.<init>
+	LS: Recipe r = new Recipe() [SubClass: astore]
+	CF: Recipe r = new Recipe() -> r.setName(name)
+	LS: r.setName(name) [SubClass: aload]
+	LS: r.setName(name) [SubClass: aload_0]
+	MC: r.setName(name) calls edu.ncsu.csc326.coffeemaker.Recipe.setName
+	CF: r.setName(name) -> r.setPrice(priceString)
+	LS: r.setPrice(priceString) [SubClass: aload]
+	LS: r.setPrice(priceString) [SubClass: aload_1]
+	MC: r.setPrice(priceString) calls edu.ncsu.csc326.coffeemaker.Recipe.setPrice
+	CF: r.setPrice(priceString) -> r.setAmtCoffee(coffeeString)
+	LS: r.setAmtCoffee(coffeeString) [SubClass: aload]
+	LS: r.setAmtCoffee(coffeeString) [SubClass: aload_2]
+	MC: r.setAmtCoffee(coffeeString) calls edu.ncsu.csc326.coffeemaker.Recipe.setAmtCoffee
+	CF: r.setAmtCoffee(coffeeString) -> r.setAmtMilk(milkString)
+	LS: r.setAmtMilk(milkString) [SubClass: aload]
+	LS: r.setAmtMilk(milkString) [SubClass: aload_3]
+	MC: r.setAmtMilk(milkString) calls edu.ncsu.csc326.coffeemaker.Recipe.setAmtMilk
+	CF: r.setAmtMilk(milkString) -> r.setAmtSugar(sugarString)
+	LS: r.setAmtSugar(sugarString) [SubClass: aload]
+	LS: r.setAmtSugar(sugarString) [SubClass: aload]
+	MC: r.setAmtSugar(sugarString) calls edu.ncsu.csc326.coffeemaker.Recipe.setAmtSugar
+	CF: r.setAmtSugar(sugarString) -> r.setAmtChocolate(chocolateString)
+	LS: r.setAmtChocolate(chocolateString) [SubClass: aload]
+	LS: r.setAmtChocolate(chocolateString) [SubClass: aload]
+	MC: r.setAmtChocolate(chocolateString) calls edu.ncsu.csc326.coffeemaker.Recipe.setAmtChocolate
+	CF: r.setAmtChocolate(chocolateString) -> boolean recipeAdded = coffeeMaker.addRecipe(r)
+	LS: boolean recipeAdded = coffeeMaker.addRecipe(r) [SubClass: aload]
+	MC: boolean recipeAdded = coffeeMaker.addRecipe(r) calls edu.ncsu.csc326.coffeemaker.CoffeeMaker.addRecipe
+	LS: boolean recipeAdded = coffeeMaker.addRecipe(r) [SubClass: istore]
+	CF: boolean recipeAdded = coffeeMaker.addRecipe(r) -> if(recipeAdded)
+	LS: if(recipeAdded) [SubClass: iload]
+	CF: if(recipeAdded) -> System.out.println(name + " could not be added.\n") [label = "ifeq"]
+	CF: if(recipeAdded) -> System.out.println(name + " successfully added.\n") [label = "!ifeq"]
+	LS: System.out.println(name + " successfully added.\n") [SubClass: aload_0]
+	MC: System.out.println(name + " successfully added.\n") calls java.lang.String.valueOf
+	MC: System.out.println(name + " successfully added.\n") calls java.lang.StringBuilder.<init>
+	MC: System.out.println(name + " successfully added.\n") calls java.lang.StringBuilder.append
+	MC: System.out.println(name + " successfully added.\n") calls java.lang.StringBuilder.toString
+	MC: System.out.println(name + " successfully added.\n") calls java.io.PrintStream.println
+	CF: System.out.println(name + " successfully added.\n") -> else
+	CF: else -> mainMenu() [label = "goto"]
+	LS: System.out.println(name + " could not be added.\n") [SubClass: aload_0]
+	MC: System.out.println(name + " could not be added.\n") calls java.lang.String.valueOf
+	MC: System.out.println(name + " could not be added.\n") calls java.lang.StringBuilder.<init>
+	MC: System.out.println(name + " could not be added.\n") calls java.lang.StringBuilder.append
+	MC: System.out.println(name + " could not be added.\n") calls java.lang.StringBuilder.toString
+	MC: System.out.println(name + " could not be added.\n") calls java.io.PrintStream.println
+	CF: System.out.println(name + " could not be added.\n") -> catch (RecipeException e)
+	CF: catch (RecipeException e) -> mainMenu() [label = "goto"]
+	LS: catch (RecipeException e) [SubClass: astore]
+	CF: catch (RecipeException e) -> System.out.println(e.getMessage())
+	LS: System.out.println(e.getMessage()) [SubClass: aload]
+	MC: System.out.println(e.getMessage()) calls edu.ncsu.csc326.coffeemaker.exceptions.RecipeException.getMessage
+	MC: System.out.println(e.getMessage()) calls java.io.PrintStream.println
+	CF: System.out.println(e.getMessage()) -> mainMenu()
+	MC: mainMenu() calls edu.ncsu.csc326.coffeemaker.Main.mainMenu
+	CF: mainMenu() ->  [label = "goto"]
+	LS: finally [SubClass: astore]
+	CF: finally -> mainMenu()
+	MC: mainMenu() calls edu.ncsu.csc326.coffeemaker.Main.mainMenu
+	CF: mainMenu() -> 
+	LS:  [SubClass: aload]
+	CF:  -> mainMenu()
+	MC: mainMenu() calls edu.ncsu.csc326.coffeemaker.Main.mainMenu
+	CF: mainMenu() -> 
+	CF:  -> exit [Return Type: void]
 }
 edu.ncsu.csc326.coffeemaker.Main.deleteRecipe{
 	entry ->   
-	MC: Recipe [] recipes = coffeeMaker.getRecipes(); -> edu.ncsu.csc326.coffeemaker.CoffeeMaker.getRecipes;
-	CF: Recipe [] recipes = coffeeMaker.getRecipes(); -> for(int i = 0; i < recipes.length; i++) {;
-	CF: for(int i = 0; i < recipes.length; i++) { -> for(int i = 0; i < recipes.length; i++) { [label = "goto"];
-	CF: if (recipes[i] != null) { -> for(int i = 0; i < recipes.length; i++) { [label = "ifnull"];
-	CF: if (recipes[i] != null) { -> System.out.println((i+1) + ". " + recipes[i].getName()); [label = "!ifnull"];
-	MC: System.out.println((i+1) + ". " + recipes[i].getName()); -> java.lang.String.valueOf;
-	MC: System.out.println((i+1) + ". " + recipes[i].getName()); -> java.lang.StringBuilder.<init>;
-	MC: System.out.println((i+1) + ". " + recipes[i].getName()); -> java.lang.StringBuilder.append;
-	MC: System.out.println((i+1) + ". " + recipes[i].getName()); -> edu.ncsu.csc326.coffeemaker.Recipe.getName;
-	MC: System.out.println((i+1) + ". " + recipes[i].getName()); -> java.lang.StringBuilder.append;
-	MC: System.out.println((i+1) + ". " + recipes[i].getName()); -> java.lang.StringBuilder.toString;
-	MC: System.out.println((i+1) + ". " + recipes[i].getName()); -> java.io.PrintStream.println;
-	CF: System.out.println((i+1) + ". " + recipes[i].getName()); -> for(int i = 0; i < recipes.length; i++) {;
-	CF: for(int i = 0; i < recipes.length; i++) { -> if (recipes[i] != null) { [label = "if_icmplt"];
-	CF: for(int i = 0; i < recipes.length; i++) { -> int recipeToDelete = recipeListSelection("Please select the number of the recipe to delete."); [label = "!if_icmplt"];
-	MC: int recipeToDelete = recipeListSelection("Please select the number of the recipe to delete."); -> edu.ncsu.csc326.coffeemaker.Main.recipeListSelection;
-	CF: int recipeToDelete = recipeListSelection("Please select the number of the recipe to delete."); -> if(recipeToDelete < 0) {;
-	CF: if(recipeToDelete < 0) { -> String recipeDeleted = coffeeMaker.deleteRecipe(recipeToDelete); [label = "ifge"];
-	CF: if(recipeToDelete < 0) { -> mainMenu(); [label = "!ifge"];
-	MC: mainMenu(); -> edu.ncsu.csc326.coffeemaker.Main.mainMenu;
-	CF: mainMenu(); -> String recipeDeleted = coffeeMaker.deleteRecipe(recipeToDelete);;
-	MC: String recipeDeleted = coffeeMaker.deleteRecipe(recipeToDelete); -> edu.ncsu.csc326.coffeemaker.CoffeeMaker.deleteRecipe;
-	CF: String recipeDeleted = coffeeMaker.deleteRecipe(recipeToDelete); -> if (recipeDeleted != null) {;
-	CF: if (recipeDeleted != null) { -> System.out.println("Selected recipe doesn't exist and could not be deleted.\n"); [label = "ifnull"];
-	CF: if (recipeDeleted != null) { -> System.out.println(recipeDeleted + " successfully deleted.\n"); [label = "!ifnull"];
-	MC: System.out.println(recipeDeleted + " successfully deleted.\n"); -> java.lang.String.valueOf;
-	MC: System.out.println(recipeDeleted + " successfully deleted.\n"); -> java.lang.StringBuilder.<init>;
-	MC: System.out.println(recipeDeleted + " successfully deleted.\n"); -> java.lang.StringBuilder.append;
-	MC: System.out.println(recipeDeleted + " successfully deleted.\n"); -> java.lang.StringBuilder.toString;
-	MC: System.out.println(recipeDeleted + " successfully deleted.\n"); -> java.io.PrintStream.println;
-	CF: System.out.println(recipeDeleted + " successfully deleted.\n"); -> } else {;
-	CF: } else { -> mainMenu(); [label = "goto"];
-	MC: System.out.println("Selected recipe doesn't exist and could not be deleted.\n"); -> java.io.PrintStream.println;
-	CF: System.out.println("Selected recipe doesn't exist and could not be deleted.\n"); -> mainMenu();;
-	MC: mainMenu(); -> edu.ncsu.csc326.coffeemaker.Main.mainMenu;
-	CF: mainMenu(); -> };
-	CF: } -> exit;
+	MC: Recipe [] recipes = coffeeMaker.getRecipes() calls edu.ncsu.csc326.coffeemaker.CoffeeMaker.getRecipes
+	LS: Recipe [] recipes = coffeeMaker.getRecipes() [SubClass: astore_0]
+	CF: Recipe [] recipes = coffeeMaker.getRecipes() -> for(int i = 0 i < recipes.length i++)
+	LS: for(int i = 0 i < recipes.length i++) [SubClass: istore_1]
+	CF: for(int i = 0 i < recipes.length i++) -> for(int i = 0 i < recipes.length i++) [label = "goto"]
+	LS: if (recipes[i] != null) [SubClass: aload_0]
+	LS: if (recipes[i] != null) [SubClass: iload_1]
+	CF: if (recipes[i] != null) -> for(int i = 0 i < recipes.length i++) [label = "ifnull"]
+	CF: if (recipes[i] != null) -> System.out.println((i+1) + ". " + recipes[i].getName()) [label = "!ifnull"]
+	LS: System.out.println((i+1) + ". " + recipes[i].getName()) [SubClass: iload_1]
+	AI: System.out.println((i+1) + ". " + recipes[i].getName()) [SubClass: iadd	Type: int]
+	MC: System.out.println((i+1) + ". " + recipes[i].getName()) calls java.lang.String.valueOf
+	MC: System.out.println((i+1) + ". " + recipes[i].getName()) calls java.lang.StringBuilder.<init>
+	MC: System.out.println((i+1) + ". " + recipes[i].getName()) calls java.lang.StringBuilder.append
+	LS: System.out.println((i+1) + ". " + recipes[i].getName()) [SubClass: aload_0]
+	LS: System.out.println((i+1) + ". " + recipes[i].getName()) [SubClass: iload_1]
+	MC: System.out.println((i+1) + ". " + recipes[i].getName()) calls edu.ncsu.csc326.coffeemaker.Recipe.getName
+	MC: System.out.println((i+1) + ". " + recipes[i].getName()) calls java.lang.StringBuilder.append
+	MC: System.out.println((i+1) + ". " + recipes[i].getName()) calls java.lang.StringBuilder.toString
+	MC: System.out.println((i+1) + ". " + recipes[i].getName()) calls java.io.PrintStream.println
+	CF: System.out.println((i+1) + ". " + recipes[i].getName()) -> for(int i = 0 i < recipes.length i++)
+	LS: for(int i = 0 i < recipes.length i++) [SubClass: iinc]
+	LS: for(int i = 0 i < recipes.length i++) [SubClass: iload_1]
+	LS: for(int i = 0 i < recipes.length i++) [SubClass: aload_0]
+	CF: for(int i = 0 i < recipes.length i++) -> if (recipes[i] != null) [label = "if_icmplt"]
+	CF: for(int i = 0 i < recipes.length i++) -> int recipeToDelete = recipeListSelection("Please select the number of the recipe to delete.") [label = "!if_icmplt"]
+	MC: int recipeToDelete = recipeListSelection("Please select the number of the recipe to delete.") calls edu.ncsu.csc326.coffeemaker.Main.recipeListSelection
+	LS: int recipeToDelete = recipeListSelection("Please select the number of the recipe to delete.") [SubClass: istore_1]
+	CF: int recipeToDelete = recipeListSelection("Please select the number of the recipe to delete.") -> if(recipeToDelete < 0)
+	LS: if(recipeToDelete < 0) [SubClass: iload_1]
+	CF: if(recipeToDelete < 0) -> String recipeDeleted = coffeeMaker.deleteRecipe(recipeToDelete) [label = "ifge"]
+	CF: if(recipeToDelete < 0) -> mainMenu() [label = "!ifge"]
+	MC: mainMenu() calls edu.ncsu.csc326.coffeemaker.Main.mainMenu
+	CF: mainMenu() -> String recipeDeleted = coffeeMaker.deleteRecipe(recipeToDelete)
+	LS: String recipeDeleted = coffeeMaker.deleteRecipe(recipeToDelete) [SubClass: iload_1]
+	MC: String recipeDeleted = coffeeMaker.deleteRecipe(recipeToDelete) calls edu.ncsu.csc326.coffeemaker.CoffeeMaker.deleteRecipe
+	LS: String recipeDeleted = coffeeMaker.deleteRecipe(recipeToDelete) [SubClass: astore_2]
+	CF: String recipeDeleted = coffeeMaker.deleteRecipe(recipeToDelete) -> if (recipeDeleted != null)
+	LS: if (recipeDeleted != null) [SubClass: aload_2]
+	CF: if (recipeDeleted != null) -> System.out.println("Selected recipe doesn't exist and could not be deleted.\n") [label = "ifnull"]
+	CF: if (recipeDeleted != null) -> System.out.println(recipeDeleted + " successfully deleted.\n") [label = "!ifnull"]
+	LS: System.out.println(recipeDeleted + " successfully deleted.\n") [SubClass: aload_2]
+	MC: System.out.println(recipeDeleted + " successfully deleted.\n") calls java.lang.String.valueOf
+	MC: System.out.println(recipeDeleted + " successfully deleted.\n") calls java.lang.StringBuilder.<init>
+	MC: System.out.println(recipeDeleted + " successfully deleted.\n") calls java.lang.StringBuilder.append
+	MC: System.out.println(recipeDeleted + " successfully deleted.\n") calls java.lang.StringBuilder.toString
+	MC: System.out.println(recipeDeleted + " successfully deleted.\n") calls java.io.PrintStream.println
+	CF: System.out.println(recipeDeleted + " successfully deleted.\n") -> else
+	CF: else -> mainMenu() [label = "goto"]
+	MC: System.out.println("Selected recipe doesn't exist and could not be deleted.\n") calls java.io.PrintStream.println
+	CF: System.out.println("Selected recipe doesn't exist and could not be deleted.\n") -> mainMenu()
+	MC: mainMenu() calls edu.ncsu.csc326.coffeemaker.Main.mainMenu
+	CF: mainMenu() -> 
+	CF:  -> exit [Return Type: void]
 }
 edu.ncsu.csc326.coffeemaker.Main.editRecipe{
 	entry ->   
-	MC: Recipe [] recipes = coffeeMaker.getRecipes(); -> edu.ncsu.csc326.coffeemaker.CoffeeMaker.getRecipes;
-	CF: Recipe [] recipes = coffeeMaker.getRecipes(); -> for(int i = 0; i < recipes.length; i++) {;
-	CF: for(int i = 0; i < recipes.length; i++) { -> for(int i = 0; i < recipes.length; i++) { [label = "goto"];
-	CF: if (recipes[i] != null) { -> for(int i = 0; i < recipes.length; i++) { [label = "ifnull"];
-	CF: if (recipes[i] != null) { -> System.out.println((i+1) + ". " + recipes[i].getName()); [label = "!ifnull"];
-	MC: System.out.println((i+1) + ". " + recipes[i].getName()); -> java.lang.String.valueOf;
-	MC: System.out.println((i+1) + ". " + recipes[i].getName()); -> java.lang.StringBuilder.<init>;
-	MC: System.out.println((i+1) + ". " + recipes[i].getName()); -> java.lang.StringBuilder.append;
-	MC: System.out.println((i+1) + ". " + recipes[i].getName()); -> edu.ncsu.csc326.coffeemaker.Recipe.getName;
-	MC: System.out.println((i+1) + ". " + recipes[i].getName()); -> java.lang.StringBuilder.append;
-	MC: System.out.println((i+1) + ". " + recipes[i].getName()); -> java.lang.StringBuilder.toString;
-	MC: System.out.println((i+1) + ". " + recipes[i].getName()); -> java.io.PrintStream.println;
-	CF: System.out.println((i+1) + ". " + recipes[i].getName()); -> for(int i = 0; i < recipes.length; i++) {;
-	CF: for(int i = 0; i < recipes.length; i++) { -> if (recipes[i] != null) { [label = "if_icmplt"];
-	CF: for(int i = 0; i < recipes.length; i++) { -> int recipeToEdit = recipeListSelection("Please select the number of the recipe to edit."); [label = "!if_icmplt"];
-	MC: int recipeToEdit = recipeListSelection("Please select the number of the recipe to edit."); -> edu.ncsu.csc326.coffeemaker.Main.recipeListSelection;
-	CF: int recipeToEdit = recipeListSelection("Please select the number of the recipe to edit."); -> if(recipeToEdit < 0) {;
-	CF: if(recipeToEdit < 0) { -> String priceString = inputOutput("\nPlease enter the recipe price: $"); [label = "ifge"];
-	CF: if(recipeToEdit < 0) { -> mainMenu(); [label = "!ifge"];
-	MC: mainMenu(); -> edu.ncsu.csc326.coffeemaker.Main.mainMenu;
-	CF: mainMenu(); -> String priceString = inputOutput("\nPlease enter the recipe price: $");;
-	MC: String priceString = inputOutput("\nPlease enter the recipe price: $"); -> edu.ncsu.csc326.coffeemaker.Main.inputOutput;
-	CF: String priceString = inputOutput("\nPlease enter the recipe price: $"); -> String coffeeString = inputOutput("\nPlease enter the units of coffee in the recipe: ");;
-	MC: String coffeeString = inputOutput("\nPlease enter the units of coffee in the recipe: "); -> edu.ncsu.csc326.coffeemaker.Main.inputOutput;
-	CF: String coffeeString = inputOutput("\nPlease enter the units of coffee in the recipe: "); -> String milkString = inputOutput("\nPlease enter the units of milk in the recipe: ");;
-	MC: String milkString = inputOutput("\nPlease enter the units of milk in the recipe: "); -> edu.ncsu.csc326.coffeemaker.Main.inputOutput;
-	CF: String milkString = inputOutput("\nPlease enter the units of milk in the recipe: "); -> String sugarString = inputOutput("\nPlease enter the units of sugar in the recipe: ");;
-	MC: String sugarString = inputOutput("\nPlease enter the units of sugar in the recipe: "); -> edu.ncsu.csc326.coffeemaker.Main.inputOutput;
-	CF: String sugarString = inputOutput("\nPlease enter the units of sugar in the recipe: "); -> String chocolateString = inputOutput("\nPlease enter the units of chocolate in the recipe: ");;
-	MC: String chocolateString = inputOutput("\nPlease enter the units of chocolate in the recipe: "); -> edu.ncsu.csc326.coffeemaker.Main.inputOutput;
-	CF: String chocolateString = inputOutput("\nPlease enter the units of chocolate in the recipe: "); -> Recipe newRecipe = new Recipe();;
-	MC: Recipe newRecipe = new Recipe(); -> edu.ncsu.csc326.coffeemaker.Recipe.<init>;
-	CF: Recipe newRecipe = new Recipe(); -> newRecipe.setPrice(priceString);;
-	MC: newRecipe.setPrice(priceString); -> edu.ncsu.csc326.coffeemaker.Recipe.setPrice;
-	CF: newRecipe.setPrice(priceString); -> newRecipe.setAmtCoffee(coffeeString);;
-	MC: newRecipe.setAmtCoffee(coffeeString); -> edu.ncsu.csc326.coffeemaker.Recipe.setAmtCoffee;
-	CF: newRecipe.setAmtCoffee(coffeeString); -> newRecipe.setAmtMilk(milkString);;
-	MC: newRecipe.setAmtMilk(milkString); -> edu.ncsu.csc326.coffeemaker.Recipe.setAmtMilk;
-	CF: newRecipe.setAmtMilk(milkString); -> newRecipe.setAmtSugar(sugarString);;
-	MC: newRecipe.setAmtSugar(sugarString); -> edu.ncsu.csc326.coffeemaker.Recipe.setAmtSugar;
-	CF: newRecipe.setAmtSugar(sugarString); -> newRecipe.setAmtChocolate(chocolateString);;
-	MC: newRecipe.setAmtChocolate(chocolateString); -> edu.ncsu.csc326.coffeemaker.Recipe.setAmtChocolate;
-	CF: newRecipe.setAmtChocolate(chocolateString); -> String recipeEdited = coffeeMaker.editRecipe(recipeToEdit, newRecipe);;
-	MC: String recipeEdited = coffeeMaker.editRecipe(recipeToEdit, newRecipe); -> edu.ncsu.csc326.coffeemaker.CoffeeMaker.editRecipe;
-	CF: String recipeEdited = coffeeMaker.editRecipe(recipeToEdit, newRecipe); -> if (recipeEdited != null) {;
-	CF: if (recipeEdited != null) { -> System.out.println(recipeEdited + "could not be edited.\n"); [label = "ifnull"];
-	CF: if (recipeEdited != null) { -> System.out.println(recipeEdited + " successfully edited.\n"); [label = "!ifnull"];
-	MC: System.out.println(recipeEdited + " successfully edited.\n"); -> java.lang.String.valueOf;
-	MC: System.out.println(recipeEdited + " successfully edited.\n"); -> java.lang.StringBuilder.<init>;
-	MC: System.out.println(recipeEdited + " successfully edited.\n"); -> java.lang.StringBuilder.append;
-	MC: System.out.println(recipeEdited + " successfully edited.\n"); -> java.lang.StringBuilder.toString;
-	MC: System.out.println(recipeEdited + " successfully edited.\n"); -> java.io.PrintStream.println;
-	CF: System.out.println(recipeEdited + " successfully edited.\n"); -> };
-	CF: } -> mainMenu(); [label = "goto"];
-	MC: System.out.println(recipeEdited + "could not be edited.\n"); -> java.lang.String.valueOf;
-	MC: System.out.println(recipeEdited + "could not be edited.\n"); -> java.lang.StringBuilder.<init>;
-	MC: System.out.println(recipeEdited + "could not be edited.\n"); -> java.lang.StringBuilder.append;
-	MC: System.out.println(recipeEdited + "could not be edited.\n"); -> java.lang.StringBuilder.toString;
-	MC: System.out.println(recipeEdited + "could not be edited.\n"); -> java.io.PrintStream.println;
-	CF: System.out.println(recipeEdited + "could not be edited.\n"); -> } catch (RecipeException e) {;
-	CF: } catch (RecipeException e) { -> mainMenu(); [label = "goto"];
-	CF: } catch (RecipeException e) { -> System.out.println(e.getMessage());;
-	MC: System.out.println(e.getMessage()); -> edu.ncsu.csc326.coffeemaker.exceptions.RecipeException.getMessage;
-	MC: System.out.println(e.getMessage()); -> java.io.PrintStream.println;
-	CF: System.out.println(e.getMessage()); -> mainMenu();;
-	MC: mainMenu(); -> edu.ncsu.csc326.coffeemaker.Main.mainMenu;
-	CF: mainMenu(); -> } [label = "goto"];
-	CF: } finally { -> mainMenu();;
-	MC: mainMenu(); -> edu.ncsu.csc326.coffeemaker.Main.mainMenu;
-	CF: mainMenu(); -> };
-	CF: } -> mainMenu();;
-	MC: mainMenu(); -> edu.ncsu.csc326.coffeemaker.Main.mainMenu;
-	CF: mainMenu(); -> };
-	CF: } -> exit;
+	MC: Recipe [] recipes = coffeeMaker.getRecipes() calls edu.ncsu.csc326.coffeemaker.CoffeeMaker.getRecipes
+	LS: Recipe [] recipes = coffeeMaker.getRecipes() [SubClass: astore_0]
+	CF: Recipe [] recipes = coffeeMaker.getRecipes() -> for(int i = 0 i < recipes.length i++)
+	LS: for(int i = 0 i < recipes.length i++) [SubClass: istore_1]
+	CF: for(int i = 0 i < recipes.length i++) -> for(int i = 0 i < recipes.length i++) [label = "goto"]
+	LS: if (recipes[i] != null) [SubClass: aload_0]
+	LS: if (recipes[i] != null) [SubClass: iload_1]
+	CF: if (recipes[i] != null) -> for(int i = 0 i < recipes.length i++) [label = "ifnull"]
+	CF: if (recipes[i] != null) -> System.out.println((i+1) + ". " + recipes[i].getName()) [label = "!ifnull"]
+	LS: System.out.println((i+1) + ". " + recipes[i].getName()) [SubClass: iload_1]
+	AI: System.out.println((i+1) + ". " + recipes[i].getName()) [SubClass: iadd	Type: int]
+	MC: System.out.println((i+1) + ". " + recipes[i].getName()) calls java.lang.String.valueOf
+	MC: System.out.println((i+1) + ". " + recipes[i].getName()) calls java.lang.StringBuilder.<init>
+	MC: System.out.println((i+1) + ". " + recipes[i].getName()) calls java.lang.StringBuilder.append
+	LS: System.out.println((i+1) + ". " + recipes[i].getName()) [SubClass: aload_0]
+	LS: System.out.println((i+1) + ". " + recipes[i].getName()) [SubClass: iload_1]
+	MC: System.out.println((i+1) + ". " + recipes[i].getName()) calls edu.ncsu.csc326.coffeemaker.Recipe.getName
+	MC: System.out.println((i+1) + ". " + recipes[i].getName()) calls java.lang.StringBuilder.append
+	MC: System.out.println((i+1) + ". " + recipes[i].getName()) calls java.lang.StringBuilder.toString
+	MC: System.out.println((i+1) + ". " + recipes[i].getName()) calls java.io.PrintStream.println
+	CF: System.out.println((i+1) + ". " + recipes[i].getName()) -> for(int i = 0 i < recipes.length i++)
+	LS: for(int i = 0 i < recipes.length i++) [SubClass: iinc]
+	LS: for(int i = 0 i < recipes.length i++) [SubClass: iload_1]
+	LS: for(int i = 0 i < recipes.length i++) [SubClass: aload_0]
+	CF: for(int i = 0 i < recipes.length i++) -> if (recipes[i] != null) [label = "if_icmplt"]
+	CF: for(int i = 0 i < recipes.length i++) -> int recipeToEdit = recipeListSelection("Please select the number of the recipe to edit.") [label = "!if_icmplt"]
+	MC: int recipeToEdit = recipeListSelection("Please select the number of the recipe to edit.") calls edu.ncsu.csc326.coffeemaker.Main.recipeListSelection
+	LS: int recipeToEdit = recipeListSelection("Please select the number of the recipe to edit.") [SubClass: istore_1]
+	CF: int recipeToEdit = recipeListSelection("Please select the number of the recipe to edit.") -> if(recipeToEdit < 0)
+	LS: if(recipeToEdit < 0) [SubClass: iload_1]
+	CF: if(recipeToEdit < 0) -> String priceString = inputOutput("\nPlease enter the recipe price: $") [label = "ifge"]
+	CF: if(recipeToEdit < 0) -> mainMenu() [label = "!ifge"]
+	MC: mainMenu() calls edu.ncsu.csc326.coffeemaker.Main.mainMenu
+	CF: mainMenu() -> String priceString = inputOutput("\nPlease enter the recipe price: $")
+	MC: String priceString = inputOutput("\nPlease enter the recipe price: $") calls edu.ncsu.csc326.coffeemaker.Main.inputOutput
+	LS: String priceString = inputOutput("\nPlease enter the recipe price: $") [SubClass: astore_2]
+	CF: String priceString = inputOutput("\nPlease enter the recipe price: $") -> String coffeeString = inputOutput("\nPlease enter the units of coffee in the recipe: ")
+	MC: String coffeeString = inputOutput("\nPlease enter the units of coffee in the recipe: ") calls edu.ncsu.csc326.coffeemaker.Main.inputOutput
+	LS: String coffeeString = inputOutput("\nPlease enter the units of coffee in the recipe: ") [SubClass: astore_3]
+	CF: String coffeeString = inputOutput("\nPlease enter the units of coffee in the recipe: ") -> String milkString = inputOutput("\nPlease enter the units of milk in the recipe: ")
+	MC: String milkString = inputOutput("\nPlease enter the units of milk in the recipe: ") calls edu.ncsu.csc326.coffeemaker.Main.inputOutput
+	LS: String milkString = inputOutput("\nPlease enter the units of milk in the recipe: ") [SubClass: astore]
+	CF: String milkString = inputOutput("\nPlease enter the units of milk in the recipe: ") -> String sugarString = inputOutput("\nPlease enter the units of sugar in the recipe: ")
+	MC: String sugarString = inputOutput("\nPlease enter the units of sugar in the recipe: ") calls edu.ncsu.csc326.coffeemaker.Main.inputOutput
+	LS: String sugarString = inputOutput("\nPlease enter the units of sugar in the recipe: ") [SubClass: astore]
+	CF: String sugarString = inputOutput("\nPlease enter the units of sugar in the recipe: ") -> String chocolateString = inputOutput("\nPlease enter the units of chocolate in the recipe: ")
+	MC: String chocolateString = inputOutput("\nPlease enter the units of chocolate in the recipe: ") calls edu.ncsu.csc326.coffeemaker.Main.inputOutput
+	LS: String chocolateString = inputOutput("\nPlease enter the units of chocolate in the recipe: ") [SubClass: astore]
+	CF: String chocolateString = inputOutput("\nPlease enter the units of chocolate in the recipe: ") -> Recipe newRecipe = new Recipe()
+	MC: Recipe newRecipe = new Recipe() calls edu.ncsu.csc326.coffeemaker.Recipe.<init>
+	LS: Recipe newRecipe = new Recipe() [SubClass: astore]
+	CF: Recipe newRecipe = new Recipe() -> newRecipe.setPrice(priceString)
+	LS: newRecipe.setPrice(priceString) [SubClass: aload]
+	LS: newRecipe.setPrice(priceString) [SubClass: aload_2]
+	MC: newRecipe.setPrice(priceString) calls edu.ncsu.csc326.coffeemaker.Recipe.setPrice
+	CF: newRecipe.setPrice(priceString) -> newRecipe.setAmtCoffee(coffeeString)
+	LS: newRecipe.setAmtCoffee(coffeeString) [SubClass: aload]
+	LS: newRecipe.setAmtCoffee(coffeeString) [SubClass: aload_3]
+	MC: newRecipe.setAmtCoffee(coffeeString) calls edu.ncsu.csc326.coffeemaker.Recipe.setAmtCoffee
+	CF: newRecipe.setAmtCoffee(coffeeString) -> newRecipe.setAmtMilk(milkString)
+	LS: newRecipe.setAmtMilk(milkString) [SubClass: aload]
+	LS: newRecipe.setAmtMilk(milkString) [SubClass: aload]
+	MC: newRecipe.setAmtMilk(milkString) calls edu.ncsu.csc326.coffeemaker.Recipe.setAmtMilk
+	CF: newRecipe.setAmtMilk(milkString) -> newRecipe.setAmtSugar(sugarString)
+	LS: newRecipe.setAmtSugar(sugarString) [SubClass: aload]
+	LS: newRecipe.setAmtSugar(sugarString) [SubClass: aload]
+	MC: newRecipe.setAmtSugar(sugarString) calls edu.ncsu.csc326.coffeemaker.Recipe.setAmtSugar
+	CF: newRecipe.setAmtSugar(sugarString) -> newRecipe.setAmtChocolate(chocolateString)
+	LS: newRecipe.setAmtChocolate(chocolateString) [SubClass: aload]
+	LS: newRecipe.setAmtChocolate(chocolateString) [SubClass: aload]
+	MC: newRecipe.setAmtChocolate(chocolateString) calls edu.ncsu.csc326.coffeemaker.Recipe.setAmtChocolate
+	CF: newRecipe.setAmtChocolate(chocolateString) -> String recipeEdited = coffeeMaker.editRecipe(recipeToEdit, newRecipe)
+	LS: String recipeEdited = coffeeMaker.editRecipe(recipeToEdit, newRecipe) [SubClass: iload_1]
+	LS: String recipeEdited = coffeeMaker.editRecipe(recipeToEdit, newRecipe) [SubClass: aload]
+	MC: String recipeEdited = coffeeMaker.editRecipe(recipeToEdit, newRecipe) calls edu.ncsu.csc326.coffeemaker.CoffeeMaker.editRecipe
+	LS: String recipeEdited = coffeeMaker.editRecipe(recipeToEdit, newRecipe) [SubClass: astore]
+	CF: String recipeEdited = coffeeMaker.editRecipe(recipeToEdit, newRecipe) -> if (recipeEdited != null)
+	LS: if (recipeEdited != null) [SubClass: aload]
+	CF: if (recipeEdited != null) -> System.out.println(recipeEdited + "could not be edited.\n") [label = "ifnull"]
+	CF: if (recipeEdited != null) -> System.out.println(recipeEdited + " successfully edited.\n") [label = "!ifnull"]
+	LS: System.out.println(recipeEdited + " successfully edited.\n") [SubClass: aload]
+	MC: System.out.println(recipeEdited + " successfully edited.\n") calls java.lang.String.valueOf
+	MC: System.out.println(recipeEdited + " successfully edited.\n") calls java.lang.StringBuilder.<init>
+	MC: System.out.println(recipeEdited + " successfully edited.\n") calls java.lang.StringBuilder.append
+	MC: System.out.println(recipeEdited + " successfully edited.\n") calls java.lang.StringBuilder.toString
+	MC: System.out.println(recipeEdited + " successfully edited.\n") calls java.io.PrintStream.println
+	CF: System.out.println(recipeEdited + " successfully edited.\n") -> 
+	CF:  -> mainMenu() [label = "goto"]
+	LS: System.out.println(recipeEdited + "could not be edited.\n") [SubClass: aload]
+	MC: System.out.println(recipeEdited + "could not be edited.\n") calls java.lang.String.valueOf
+	MC: System.out.println(recipeEdited + "could not be edited.\n") calls java.lang.StringBuilder.<init>
+	MC: System.out.println(recipeEdited + "could not be edited.\n") calls java.lang.StringBuilder.append
+	MC: System.out.println(recipeEdited + "could not be edited.\n") calls java.lang.StringBuilder.toString
+	MC: System.out.println(recipeEdited + "could not be edited.\n") calls java.io.PrintStream.println
+	CF: System.out.println(recipeEdited + "could not be edited.\n") -> catch (RecipeException e)
+	CF: catch (RecipeException e) -> mainMenu() [label = "goto"]
+	LS: catch (RecipeException e) [SubClass: astore]
+	CF: catch (RecipeException e) -> System.out.println(e.getMessage())
+	LS: System.out.println(e.getMessage()) [SubClass: aload]
+	MC: System.out.println(e.getMessage()) calls edu.ncsu.csc326.coffeemaker.exceptions.RecipeException.getMessage
+	MC: System.out.println(e.getMessage()) calls java.io.PrintStream.println
+	CF: System.out.println(e.getMessage()) -> mainMenu()
+	MC: mainMenu() calls edu.ncsu.csc326.coffeemaker.Main.mainMenu
+	CF: mainMenu() ->  [label = "goto"]
+	LS: finally [SubClass: astore]
+	CF: finally -> mainMenu()
+	MC: mainMenu() calls edu.ncsu.csc326.coffeemaker.Main.mainMenu
+	CF: mainMenu() -> 
+	LS:  [SubClass: aload]
+	CF:  -> mainMenu()
+	MC: mainMenu() calls edu.ncsu.csc326.coffeemaker.Main.mainMenu
+	CF: mainMenu() -> 
+	CF:  -> exit [Return Type: void]
 }
 edu.ncsu.csc326.coffeemaker.Main.addInventory{
 	entry ->   
-	MC: String coffeeString = inputOutput("\nPlease enter the units of coffee to add: "); -> edu.ncsu.csc326.coffeemaker.Main.inputOutput;
-	CF: String coffeeString = inputOutput("\nPlease enter the units of coffee to add: "); -> String milkString = inputOutput("\nPlease enter the units of milk to add: ");;
-	MC: String milkString = inputOutput("\nPlease enter the units of milk to add: "); -> edu.ncsu.csc326.coffeemaker.Main.inputOutput;
-	CF: String milkString = inputOutput("\nPlease enter the units of milk to add: "); -> String sugarString = inputOutput("\nPlease enter the units of sugar to add: ");;
-	MC: String sugarString = inputOutput("\nPlease enter the units of sugar to add: "); -> edu.ncsu.csc326.coffeemaker.Main.inputOutput;
-	CF: String sugarString = inputOutput("\nPlease enter the units of sugar to add: "); -> String chocolateString = inputOutput("\nPlease enter the units of chocolate to add: ");;
-	MC: String chocolateString = inputOutput("\nPlease enter the units of chocolate to add: "); -> edu.ncsu.csc326.coffeemaker.Main.inputOutput;
-	CF: String chocolateString = inputOutput("\nPlease enter the units of chocolate to add: "); -> coffeeMaker.addInventory(coffeeString, milkString, sugarString, chocolateString);;
-	MC: coffeeMaker.addInventory(coffeeString, milkString, sugarString, chocolateString); -> edu.ncsu.csc326.coffeemaker.CoffeeMaker.addInventory;
-	CF: coffeeMaker.addInventory(coffeeString, milkString, sugarString, chocolateString); -> System.out.println("Inventory successfully added");;
-	MC: System.out.println("Inventory successfully added"); -> java.io.PrintStream.println;
-	CF: System.out.println("Inventory successfully added"); -> } catch (InventoryException e) {;
-	CF: } catch (InventoryException e) { -> mainMenu(); [label = "goto"];
-	CF: } catch (InventoryException e) { -> System.out.println("Inventory was not added");;
-	MC: System.out.println("Inventory was not added"); -> java.io.PrintStream.println;
-	CF: System.out.println("Inventory was not added"); -> mainMenu();;
-	MC: mainMenu(); -> edu.ncsu.csc326.coffeemaker.Main.mainMenu;
-	CF: mainMenu(); -> } [label = "goto"];
-	CF: } finally { -> mainMenu();;
-	MC: mainMenu(); -> edu.ncsu.csc326.coffeemaker.Main.mainMenu;
-	CF: mainMenu(); -> };
-	CF: } -> mainMenu();;
-	MC: mainMenu(); -> edu.ncsu.csc326.coffeemaker.Main.mainMenu;
-	CF: mainMenu(); -> };
-	CF: } -> exit;
+	MC: String coffeeString = inputOutput("\nPlease enter the units of coffee to add: ") calls edu.ncsu.csc326.coffeemaker.Main.inputOutput
+	LS: String coffeeString = inputOutput("\nPlease enter the units of coffee to add: ") [SubClass: astore_0]
+	CF: String coffeeString = inputOutput("\nPlease enter the units of coffee to add: ") -> String milkString = inputOutput("\nPlease enter the units of milk to add: ")
+	MC: String milkString = inputOutput("\nPlease enter the units of milk to add: ") calls edu.ncsu.csc326.coffeemaker.Main.inputOutput
+	LS: String milkString = inputOutput("\nPlease enter the units of milk to add: ") [SubClass: astore_1]
+	CF: String milkString = inputOutput("\nPlease enter the units of milk to add: ") -> String sugarString = inputOutput("\nPlease enter the units of sugar to add: ")
+	MC: String sugarString = inputOutput("\nPlease enter the units of sugar to add: ") calls edu.ncsu.csc326.coffeemaker.Main.inputOutput
+	LS: String sugarString = inputOutput("\nPlease enter the units of sugar to add: ") [SubClass: astore_2]
+	CF: String sugarString = inputOutput("\nPlease enter the units of sugar to add: ") -> String chocolateString = inputOutput("\nPlease enter the units of chocolate to add: ")
+	MC: String chocolateString = inputOutput("\nPlease enter the units of chocolate to add: ") calls edu.ncsu.csc326.coffeemaker.Main.inputOutput
+	LS: String chocolateString = inputOutput("\nPlease enter the units of chocolate to add: ") [SubClass: astore_3]
+	CF: String chocolateString = inputOutput("\nPlease enter the units of chocolate to add: ") -> coffeeMaker.addInventory(coffeeString, milkString, sugarString, chocolateString)
+	LS: coffeeMaker.addInventory(coffeeString, milkString, sugarString, chocolateString) [SubClass: aload_0]
+	LS: coffeeMaker.addInventory(coffeeString, milkString, sugarString, chocolateString) [SubClass: aload_1]
+	LS: coffeeMaker.addInventory(coffeeString, milkString, sugarString, chocolateString) [SubClass: aload_2]
+	LS: coffeeMaker.addInventory(coffeeString, milkString, sugarString, chocolateString) [SubClass: aload_3]
+	MC: coffeeMaker.addInventory(coffeeString, milkString, sugarString, chocolateString) calls edu.ncsu.csc326.coffeemaker.CoffeeMaker.addInventory
+	CF: coffeeMaker.addInventory(coffeeString, milkString, sugarString, chocolateString) -> System.out.println("Inventory successfully added")
+	MC: System.out.println("Inventory successfully added") calls java.io.PrintStream.println
+	CF: System.out.println("Inventory successfully added") -> catch (InventoryException e)
+	CF: catch (InventoryException e) -> mainMenu() [label = "goto"]
+	LS: catch (InventoryException e) [SubClass: astore]
+	CF: catch (InventoryException e) -> System.out.println("Inventory was not added")
+	MC: System.out.println("Inventory was not added") calls java.io.PrintStream.println
+	CF: System.out.println("Inventory was not added") -> mainMenu()
+	MC: mainMenu() calls edu.ncsu.csc326.coffeemaker.Main.mainMenu
+	CF: mainMenu() ->  [label = "goto"]
+	LS: finally [SubClass: astore]
+	CF: finally -> mainMenu()
+	MC: mainMenu() calls edu.ncsu.csc326.coffeemaker.Main.mainMenu
+	CF: mainMenu() -> 
+	LS:  [SubClass: aload]
+	CF:  -> mainMenu()
+	MC: mainMenu() calls edu.ncsu.csc326.coffeemaker.Main.mainMenu
+	CF: mainMenu() -> 
+	CF:  -> exit [Return Type: void]
 }
 edu.ncsu.csc326.coffeemaker.Main.checkInventory{
 	entry ->   
-	MC: System.out.println(coffeeMaker.checkInventory()); -> edu.ncsu.csc326.coffeemaker.CoffeeMaker.checkInventory;
-	MC: System.out.println(coffeeMaker.checkInventory()); -> java.io.PrintStream.println;
-	CF: System.out.println(coffeeMaker.checkInventory()); -> mainMenu();;
-	MC: mainMenu(); -> edu.ncsu.csc326.coffeemaker.Main.mainMenu;
-	CF: mainMenu(); -> };
-	CF: } -> exit;
+	MC: System.out.println(coffeeMaker.checkInventory()) calls edu.ncsu.csc326.coffeemaker.CoffeeMaker.checkInventory
+	MC: System.out.println(coffeeMaker.checkInventory()) calls java.io.PrintStream.println
+	CF: System.out.println(coffeeMaker.checkInventory()) -> mainMenu()
+	MC: mainMenu() calls edu.ncsu.csc326.coffeemaker.Main.mainMenu
+	CF: mainMenu() -> 
+	CF:  -> exit [Return Type: void]
 }
 edu.ncsu.csc326.coffeemaker.Main.makeCoffee{
 	entry ->   
-	MC: Recipe [] recipes = coffeeMaker.getRecipes(); -> edu.ncsu.csc326.coffeemaker.CoffeeMaker.getRecipes;
-	CF: Recipe [] recipes = coffeeMaker.getRecipes(); -> for(int i = 0; i < recipes.length; i++) {;
-	CF: for(int i = 0; i < recipes.length; i++) { -> for(int i = 0; i < recipes.length; i++) { [label = "goto"];
-	CF: if (recipes[i] != null) { -> for(int i = 0; i < recipes.length; i++) { [label = "ifnull"];
-	CF: if (recipes[i] != null) { -> System.out.println((i+1) + ". " + recipes[i].getName()); [label = "!ifnull"];
-	MC: System.out.println((i+1) + ". " + recipes[i].getName()); -> java.lang.String.valueOf;
-	MC: System.out.println((i+1) + ". " + recipes[i].getName()); -> java.lang.StringBuilder.<init>;
-	MC: System.out.println((i+1) + ". " + recipes[i].getName()); -> java.lang.StringBuilder.append;
-	MC: System.out.println((i+1) + ". " + recipes[i].getName()); -> edu.ncsu.csc326.coffeemaker.Recipe.getName;
-	MC: System.out.println((i+1) + ". " + recipes[i].getName()); -> java.lang.StringBuilder.append;
-	MC: System.out.println((i+1) + ". " + recipes[i].getName()); -> java.lang.StringBuilder.toString;
-	MC: System.out.println((i+1) + ". " + recipes[i].getName()); -> java.io.PrintStream.println;
-	CF: System.out.println((i+1) + ". " + recipes[i].getName()); -> for(int i = 0; i < recipes.length; i++) {;
-	CF: for(int i = 0; i < recipes.length; i++) { -> if (recipes[i] != null) { [label = "if_icmplt"];
-	CF: for(int i = 0; i < recipes.length; i++) { -> int recipeToPurchase = recipeListSelection("Please select the number of the recipe to purchase."); [label = "!if_icmplt"];
-	MC: int recipeToPurchase = recipeListSelection("Please select the number of the recipe to purchase."); -> edu.ncsu.csc326.coffeemaker.Main.recipeListSelection;
-	CF: int recipeToPurchase = recipeListSelection("Please select the number of the recipe to purchase."); -> String amountPaid = inputOutput("Please enter the amount you wish to pay");;
-	MC: String amountPaid = inputOutput("Please enter the amount you wish to pay"); -> edu.ncsu.csc326.coffeemaker.Main.inputOutput;
-	CF: String amountPaid = inputOutput("Please enter the amount you wish to pay"); -> int amtPaid = 0;;
-	CF: int amtPaid = 0; -> amtPaid = Integer.parseInt(amountPaid);;
-	MC: amtPaid = Integer.parseInt(amountPaid); -> java.lang.Integer.parseInt;
-	CF: amtPaid = Integer.parseInt(amountPaid); -> } catch (NumberFormatException e) {;
-	CF: } catch (NumberFormatException e) { -> int change = coffeeMaker.makeCoffee(recipeToPurchase, amtPaid); [label = "goto"];
-	CF: } catch (NumberFormatException e) { -> System.out.println("Please enter a positive integer");;
-	MC: System.out.println("Please enter a positive integer"); -> java.io.PrintStream.println;
-	CF: System.out.println("Please enter a positive integer"); -> mainMenu();;
-	MC: mainMenu(); -> edu.ncsu.csc326.coffeemaker.Main.mainMenu;
-	CF: mainMenu(); -> int change = coffeeMaker.makeCoffee(recipeToPurchase, amtPaid);;
-	MC: int change = coffeeMaker.makeCoffee(recipeToPurchase, amtPaid); -> edu.ncsu.csc326.coffeemaker.CoffeeMaker.makeCoffee;
-	CF: int change = coffeeMaker.makeCoffee(recipeToPurchase, amtPaid); -> if (change == amtPaid) {;
-	CF: if (change == amtPaid) { -> System.out.println("Thank you for purchasing " + coffeeMaker.getRecipes()[recipeToPurchase].getName()); [label = "if_icmpne"];
-	CF: if (change == amtPaid) { -> System.out.println("Insufficient funds to purchase."); [label = "!if_icmpne"];
-	MC: System.out.println("Insufficient funds to purchase."); -> java.io.PrintStream.println;
-	CF: System.out.println("Insufficient funds to purchase."); -> } else {;
-	CF: } else { -> System.out.println("Your change is: " + change + "\n"); [label = "goto"];
-	MC: System.out.println("Thank you for purchasing " + coffeeMaker.getRecipes()[recipeToPurchase].getName()); -> java.lang.StringBuilder.<init>;
-	MC: System.out.println("Thank you for purchasing " + coffeeMaker.getRecipes()[recipeToPurchase].getName()); -> edu.ncsu.csc326.coffeemaker.CoffeeMaker.getRecipes;
-	MC: System.out.println("Thank you for purchasing " + coffeeMaker.getRecipes()[recipeToPurchase].getName()); -> edu.ncsu.csc326.coffeemaker.Recipe.getName;
-	MC: System.out.println("Thank you for purchasing " + coffeeMaker.getRecipes()[recipeToPurchase].getName()); -> java.lang.StringBuilder.append;
-	MC: System.out.println("Thank you for purchasing " + coffeeMaker.getRecipes()[recipeToPurchase].getName()); -> java.lang.StringBuilder.toString;
-	MC: System.out.println("Thank you for purchasing " + coffeeMaker.getRecipes()[recipeToPurchase].getName()); -> java.io.PrintStream.println;
-	CF: System.out.println("Thank you for purchasing " + coffeeMaker.getRecipes()[recipeToPurchase].getName()); -> System.out.println("Your change is: " + change + "\n");;
-	MC: System.out.println("Your change is: " + change + "\n"); -> java.lang.StringBuilder.<init>;
-	MC: System.out.println("Your change is: " + change + "\n"); -> java.lang.StringBuilder.append;
-	MC: System.out.println("Your change is: " + change + "\n"); -> java.lang.StringBuilder.append;
-	MC: System.out.println("Your change is: " + change + "\n"); -> java.lang.StringBuilder.toString;
-	MC: System.out.println("Your change is: " + change + "\n"); -> java.io.PrintStream.println;
-	CF: System.out.println("Your change is: " + change + "\n"); -> mainMenu();;
-	MC: mainMenu(); -> edu.ncsu.csc326.coffeemaker.Main.mainMenu;
-	CF: mainMenu(); -> };
-	CF: } -> exit;
+	MC: Recipe [] recipes = coffeeMaker.getRecipes() calls edu.ncsu.csc326.coffeemaker.CoffeeMaker.getRecipes
+	LS: Recipe [] recipes = coffeeMaker.getRecipes() [SubClass: astore_0]
+	CF: Recipe [] recipes = coffeeMaker.getRecipes() -> for(int i = 0 i < recipes.length i++)
+	LS: for(int i = 0 i < recipes.length i++) [SubClass: istore_1]
+	CF: for(int i = 0 i < recipes.length i++) -> for(int i = 0 i < recipes.length i++) [label = "goto"]
+	LS: if (recipes[i] != null) [SubClass: aload_0]
+	LS: if (recipes[i] != null) [SubClass: iload_1]
+	CF: if (recipes[i] != null) -> for(int i = 0 i < recipes.length i++) [label = "ifnull"]
+	CF: if (recipes[i] != null) -> System.out.println((i+1) + ". " + recipes[i].getName()) [label = "!ifnull"]
+	LS: System.out.println((i+1) + ". " + recipes[i].getName()) [SubClass: iload_1]
+	AI: System.out.println((i+1) + ". " + recipes[i].getName()) [SubClass: iadd	Type: int]
+	MC: System.out.println((i+1) + ". " + recipes[i].getName()) calls java.lang.String.valueOf
+	MC: System.out.println((i+1) + ". " + recipes[i].getName()) calls java.lang.StringBuilder.<init>
+	MC: System.out.println((i+1) + ". " + recipes[i].getName()) calls java.lang.StringBuilder.append
+	LS: System.out.println((i+1) + ". " + recipes[i].getName()) [SubClass: aload_0]
+	LS: System.out.println((i+1) + ". " + recipes[i].getName()) [SubClass: iload_1]
+	MC: System.out.println((i+1) + ". " + recipes[i].getName()) calls edu.ncsu.csc326.coffeemaker.Recipe.getName
+	MC: System.out.println((i+1) + ". " + recipes[i].getName()) calls java.lang.StringBuilder.append
+	MC: System.out.println((i+1) + ". " + recipes[i].getName()) calls java.lang.StringBuilder.toString
+	MC: System.out.println((i+1) + ". " + recipes[i].getName()) calls java.io.PrintStream.println
+	CF: System.out.println((i+1) + ". " + recipes[i].getName()) -> for(int i = 0 i < recipes.length i++)
+	LS: for(int i = 0 i < recipes.length i++) [SubClass: iinc]
+	LS: for(int i = 0 i < recipes.length i++) [SubClass: iload_1]
+	LS: for(int i = 0 i < recipes.length i++) [SubClass: aload_0]
+	CF: for(int i = 0 i < recipes.length i++) -> if (recipes[i] != null) [label = "if_icmplt"]
+	CF: for(int i = 0 i < recipes.length i++) -> int recipeToPurchase = recipeListSelection("Please select the number of the recipe to purchase.") [label = "!if_icmplt"]
+	MC: int recipeToPurchase = recipeListSelection("Please select the number of the recipe to purchase.") calls edu.ncsu.csc326.coffeemaker.Main.recipeListSelection
+	LS: int recipeToPurchase = recipeListSelection("Please select the number of the recipe to purchase.") [SubClass: istore_1]
+	CF: int recipeToPurchase = recipeListSelection("Please select the number of the recipe to purchase.") -> String amountPaid = inputOutput("Please enter the amount you wish to pay")
+	MC: String amountPaid = inputOutput("Please enter the amount you wish to pay") calls edu.ncsu.csc326.coffeemaker.Main.inputOutput
+	LS: String amountPaid = inputOutput("Please enter the amount you wish to pay") [SubClass: astore_2]
+	CF: String amountPaid = inputOutput("Please enter the amount you wish to pay") -> int amtPaid = 0
+	LS: int amtPaid = 0 [SubClass: istore_3]
+	CF: int amtPaid = 0 -> amtPaid = Integer.parseInt(amountPaid)
+	LS: amtPaid = Integer.parseInt(amountPaid) [SubClass: aload_2]
+	MC: amtPaid = Integer.parseInt(amountPaid) calls java.lang.Integer.parseInt
+	LS: amtPaid = Integer.parseInt(amountPaid) [SubClass: istore_3]
+	CF: amtPaid = Integer.parseInt(amountPaid) -> catch (NumberFormatException e)
+	CF: catch (NumberFormatException e) -> int change = coffeeMaker.makeCoffee(recipeToPurchase, amtPaid) [label = "goto"]
+	LS: catch (NumberFormatException e) [SubClass: astore]
+	CF: catch (NumberFormatException e) -> System.out.println("Please enter a positive integer")
+	MC: System.out.println("Please enter a positive integer") calls java.io.PrintStream.println
+	CF: System.out.println("Please enter a positive integer") -> mainMenu()
+	MC: mainMenu() calls edu.ncsu.csc326.coffeemaker.Main.mainMenu
+	CF: mainMenu() -> int change = coffeeMaker.makeCoffee(recipeToPurchase, amtPaid)
+	LS: int change = coffeeMaker.makeCoffee(recipeToPurchase, amtPaid) [SubClass: iload_1]
+	LS: int change = coffeeMaker.makeCoffee(recipeToPurchase, amtPaid) [SubClass: iload_3]
+	MC: int change = coffeeMaker.makeCoffee(recipeToPurchase, amtPaid) calls edu.ncsu.csc326.coffeemaker.CoffeeMaker.makeCoffee
+	LS: int change = coffeeMaker.makeCoffee(recipeToPurchase, amtPaid) [SubClass: istore]
+	CF: int change = coffeeMaker.makeCoffee(recipeToPurchase, amtPaid) -> if (change == amtPaid)
+	LS: if (change == amtPaid) [SubClass: iload]
+	LS: if (change == amtPaid) [SubClass: iload_3]
+	CF: if (change == amtPaid) -> System.out.println("Thank you for purchasing " + coffeeMaker.getRecipes()[recipeToPurchase].getName()) [label = "if_icmpne"]
+	CF: if (change == amtPaid) -> System.out.println("Insufficient funds to purchase.") [label = "!if_icmpne"]
+	MC: System.out.println("Insufficient funds to purchase.") calls java.io.PrintStream.println
+	CF: System.out.println("Insufficient funds to purchase.") -> else
+	CF: else -> System.out.println("Your change is: " + change + "\n") [label = "goto"]
+	MC: System.out.println("Thank you for purchasing " + coffeeMaker.getRecipes()[recipeToPurchase].getName()) calls java.lang.StringBuilder.<init>
+	MC: System.out.println("Thank you for purchasing " + coffeeMaker.getRecipes()[recipeToPurchase].getName()) calls edu.ncsu.csc326.coffeemaker.CoffeeMaker.getRecipes
+	LS: System.out.println("Thank you for purchasing " + coffeeMaker.getRecipes()[recipeToPurchase].getName()) [SubClass: iload_1]
+	MC: System.out.println("Thank you for purchasing " + coffeeMaker.getRecipes()[recipeToPurchase].getName()) calls edu.ncsu.csc326.coffeemaker.Recipe.getName
+	MC: System.out.println("Thank you for purchasing " + coffeeMaker.getRecipes()[recipeToPurchase].getName()) calls java.lang.StringBuilder.append
+	MC: System.out.println("Thank you for purchasing " + coffeeMaker.getRecipes()[recipeToPurchase].getName()) calls java.lang.StringBuilder.toString
+	MC: System.out.println("Thank you for purchasing " + coffeeMaker.getRecipes()[recipeToPurchase].getName()) calls java.io.PrintStream.println
+	CF: System.out.println("Thank you for purchasing " + coffeeMaker.getRecipes()[recipeToPurchase].getName()) -> System.out.println("Your change is: " + change + "\n")
+	MC: System.out.println("Your change is: " + change + "\n") calls java.lang.StringBuilder.<init>
+	LS: System.out.println("Your change is: " + change + "\n") [SubClass: iload]
+	MC: System.out.println("Your change is: " + change + "\n") calls java.lang.StringBuilder.append
+	MC: System.out.println("Your change is: " + change + "\n") calls java.lang.StringBuilder.append
+	MC: System.out.println("Your change is: " + change + "\n") calls java.lang.StringBuilder.toString
+	MC: System.out.println("Your change is: " + change + "\n") calls java.io.PrintStream.println
+	CF: System.out.println("Your change is: " + change + "\n") -> mainMenu()
+	MC: mainMenu() calls edu.ncsu.csc326.coffeemaker.Main.mainMenu
+	CF: mainMenu() -> 
+	CF:  -> exit [Return Type: void]
 }
 edu.ncsu.csc326.coffeemaker.Main.inputOutput{
 	entry ->   
-	MC: System.out.println(message); -> java.io.PrintStream.println;
-	CF: System.out.println(message); -> BufferedReader br = new BufferedReader(new InputStreamReader(System.in));;
-	MC: BufferedReader br = new BufferedReader(new InputStreamReader(System.in)); -> java.io.InputStreamReader.<init>;
-	MC: BufferedReader br = new BufferedReader(new InputStreamReader(System.in)); -> java.io.BufferedReader.<init>;
-	CF: BufferedReader br = new BufferedReader(new InputStreamReader(System.in)); -> String returnString = "";;
-	CF: String returnString = ""; -> returnString = br.readLine();;
-	MC: returnString = br.readLine(); -> java.io.BufferedReader.readLine;
-	CF: returnString = br.readLine(); -> };
-	CF: } -> return returnString; [label = "goto"];
-	CF: catch (IOException e){ -> System.out.println("Error reading in value");;
-	MC: System.out.println("Error reading in value"); -> java.io.PrintStream.println;
-	CF: System.out.println("Error reading in value"); -> mainMenu();;
-	MC: mainMenu(); -> edu.ncsu.csc326.coffeemaker.Main.mainMenu;
-	CF: mainMenu(); -> return returnString;;
-	CF: return returnString; -> exit;
+	LS: System.out.println(message) [SubClass: aload_0]
+	MC: System.out.println(message) calls java.io.PrintStream.println
+	CF: System.out.println(message) -> BufferedReader br = new BufferedReader(new InputStreamReader(System.in))
+	MC: BufferedReader br = new BufferedReader(new InputStreamReader(System.in)) calls java.io.InputStreamReader.<init>
+	MC: BufferedReader br = new BufferedReader(new InputStreamReader(System.in)) calls java.io.BufferedReader.<init>
+	LS: BufferedReader br = new BufferedReader(new InputStreamReader(System.in)) [SubClass: astore_1]
+	CF: BufferedReader br = new BufferedReader(new InputStreamReader(System.in)) -> String returnString = ""
+	LS: String returnString = "" [SubClass: astore_2]
+	CF: String returnString = "" -> returnString = br.readLine()
+	LS: returnString = br.readLine() [SubClass: aload_1]
+	MC: returnString = br.readLine() calls java.io.BufferedReader.readLine
+	LS: returnString = br.readLine() [SubClass: astore_2]
+	CF: returnString = br.readLine() -> 
+	CF:  -> return returnString [label = "goto"]
+	LS: catch (IOException e) [SubClass: astore_3]
+	CF: catch (IOException e) -> System.out.println("Error reading in value")
+	MC: System.out.println("Error reading in value") calls java.io.PrintStream.println
+	CF: System.out.println("Error reading in value") -> mainMenu()
+	MC: mainMenu() calls edu.ncsu.csc326.coffeemaker.Main.mainMenu
+	CF: mainMenu() -> return returnString
+	LS: return returnString [SubClass: aload_2]
+	CF: return returnString -> exit [Return Type: java.lang.Object]
 }
 edu.ncsu.csc326.coffeemaker.Main.recipeListSelection{
 	entry ->   
-	MC: String userSelection = inputOutput(message); -> edu.ncsu.csc326.coffeemaker.Main.inputOutput;
-	CF: String userSelection = inputOutput(message); -> int recipe = 0;;
-	CF: int recipe = 0; -> recipe = Integer.parseInt(userSelection) - 1;;
-	MC: recipe = Integer.parseInt(userSelection) - 1; -> java.lang.Integer.parseInt;
-	CF: recipe = Integer.parseInt(userSelection) - 1; -> if (recipe >= 0 && recipe <=2) {;
-	CF: if (recipe >= 0 && recipe <=2) { -> recipe = -1; [label = "iflt"];
-	CF: if (recipe >= 0 && recipe <=2) { -> if (recipe >= 0 && recipe <=2) { [label = "!iflt"];
-	CF: if (recipe >= 0 && recipe <=2) { -> return recipe; [label = "if_icmple"];
-	CF: if (recipe >= 0 && recipe <=2) { -> recipe = -1; [label = "!if_icmple"];
-	CF: recipe = -1; -> } catch (NumberFormatException e) {;
-	CF: } catch (NumberFormatException e) { -> return recipe; [label = "goto"];
-	CF: } catch (NumberFormatException e) { -> System.out.println("Please select a number from 1-3.");;
-	MC: System.out.println("Please select a number from 1-3."); -> java.io.PrintStream.println;
-	CF: System.out.println("Please select a number from 1-3."); -> recipe = -1;;
-	CF: recipe = -1; -> return recipe;;
-	CF: return recipe; -> exit;
+	LS: String userSelection = inputOutput(message) [SubClass: aload_0]
+	MC: String userSelection = inputOutput(message) calls edu.ncsu.csc326.coffeemaker.Main.inputOutput
+	LS: String userSelection = inputOutput(message) [SubClass: astore_1]
+	CF: String userSelection = inputOutput(message) -> int recipe = 0
+	LS: int recipe = 0 [SubClass: istore_2]
+	CF: int recipe = 0 -> recipe = Integer.parseInt(userSelection) - 1
+	LS: recipe = Integer.parseInt(userSelection) - 1 [SubClass: aload_1]
+	MC: recipe = Integer.parseInt(userSelection) - 1 calls java.lang.Integer.parseInt
+	AI: recipe = Integer.parseInt(userSelection) - 1 [SubClass: isub	Type: int]
+	LS: recipe = Integer.parseInt(userSelection) - 1 [SubClass: istore_2]
+	CF: recipe = Integer.parseInt(userSelection) - 1 -> if (recipe >= 0 && recipe <=2)
+	LS: if (recipe >= 0 && recipe <=2) [SubClass: iload_2]
+	CF: if (recipe >= 0 && recipe <=2) -> recipe = -1 [label = "iflt"]
+	CF: if (recipe >= 0 && recipe <=2) -> if (recipe >= 0 && recipe <=2) [label = "!iflt"]
+	LS: if (recipe >= 0 && recipe <=2) [SubClass: iload_2]
+	CF: if (recipe >= 0 && recipe <=2) -> return recipe [label = "if_icmple"]
+	CF: if (recipe >= 0 && recipe <=2) -> recipe = -1 [label = "!if_icmple"]
+	LS: recipe = -1 [SubClass: istore_2]
+	CF: recipe = -1 -> catch (NumberFormatException e)
+	CF: catch (NumberFormatException e) -> return recipe [label = "goto"]
+	LS: catch (NumberFormatException e) [SubClass: astore_3]
+	CF: catch (NumberFormatException e) -> System.out.println("Please select a number from 1-3.")
+	MC: System.out.println("Please select a number from 1-3.") calls java.io.PrintStream.println
+	CF: System.out.println("Please select a number from 1-3.") -> recipe = -1
+	LS: recipe = -1 [SubClass: istore_2]
+	CF: recipe = -1 -> return recipe
+	LS: return recipe [SubClass: iload_2]
+	CF: return recipe -> exit [Return Type: int]
 }
 edu.ncsu.csc326.coffeemaker.Main.main{
 	entry ->   
-	MC: coffeeMaker = new CoffeeMaker(); -> edu.ncsu.csc326.coffeemaker.CoffeeMaker.<init>;
-	CF: coffeeMaker = new CoffeeMaker(); -> System.out.println("Welcome to the CoffeeMaker!\n");;
-	MC: System.out.println("Welcome to the CoffeeMaker!\n"); -> java.io.PrintStream.println;
-	CF: System.out.println("Welcome to the CoffeeMaker!\n"); -> mainMenu();;
-	MC: mainMenu(); -> edu.ncsu.csc326.coffeemaker.Main.mainMenu;
-	CF: mainMenu(); -> };
-	CF: } -> exit;
+	MC: coffeeMaker = new CoffeeMaker() calls edu.ncsu.csc326.coffeemaker.CoffeeMaker.<init>
+	CF: coffeeMaker = new CoffeeMaker() -> System.out.println("Welcome to the CoffeeMaker!\n")
+	MC: System.out.println("Welcome to the CoffeeMaker!\n") calls java.io.PrintStream.println
+	CF: System.out.println("Welcome to the CoffeeMaker!\n") -> mainMenu()
+	MC: mainMenu() calls edu.ncsu.csc326.coffeemaker.Main.mainMenu
+	CF: mainMenu() -> 
+	CF:  -> exit [Return Type: void]
 }

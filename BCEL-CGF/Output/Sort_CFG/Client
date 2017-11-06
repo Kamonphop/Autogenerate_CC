@@ -1,47 +1,71 @@
 Client.<init>{
 	entry ->   
-	MC: public class Client -> java.lang.Object.<init>;
-	CF: public class Client -> exit;
+	LS: public class Client [SubClass: aload_0]
+	MC: public class Client calls java.lang.Object.<init>
+	CF: public class Client -> exit [Return Type: void]
 }
 Client.main{
 	entry ->   
-	MC: Scanner in = getScanner(); -> Client.getScanner;
-	CF: Scanner in = getScanner(); -> int sizeOfArray = getSizeOfArray(in);;
-	MC: int sizeOfArray = getSizeOfArray(in); -> Client.getSizeOfArray;
-	CF: int sizeOfArray = getSizeOfArray(in); -> int array[]=new int[sizeOfArray];;
-	CF: int array[]=new int[sizeOfArray]; -> getElementsOfArray(in, sizeOfArray, array);;
-	MC: getElementsOfArray(in, sizeOfArray, array); -> Client.getElementsOfArray;
-	CF: getElementsOfArray(in, sizeOfArray, array); -> Caller caller = new Caller(new unitdigitsort(sizeOfArray ,array));;
-	MC: Caller caller = new Caller(new unitdigitsort(sizeOfArray ,array)); -> unitdigitsort.<init>;
-	MC: Caller caller = new Caller(new unitdigitsort(sizeOfArray ,array)); -> Caller.<init>;
-	CF: Caller caller = new Caller(new unitdigitsort(sizeOfArray ,array)); -> caller.arraysort();;
-	MC: caller.arraysort(); -> Caller.arraysort;
-	CF: caller.arraysort(); -> in.close();;
-	MC: in.close(); -> java.util.Scanner.close;
-	CF: in.close(); -> };
-	CF: } -> exit;
+	MC: Scanner in = getScanner() calls Client.getScanner
+	LS: Scanner in = getScanner() [SubClass: astore_1]
+	CF: Scanner in = getScanner() -> int sizeOfArray = getSizeOfArray(in)
+	LS: int sizeOfArray = getSizeOfArray(in) [SubClass: aload_1]
+	MC: int sizeOfArray = getSizeOfArray(in) calls Client.getSizeOfArray
+	LS: int sizeOfArray = getSizeOfArray(in) [SubClass: istore_2]
+	CF: int sizeOfArray = getSizeOfArray(in) -> int array[]=new int[sizeOfArray]
+	LS: int array[]=new int[sizeOfArray] [SubClass: iload_2]
+	LS: int array[]=new int[sizeOfArray] [SubClass: astore_3]
+	CF: int array[]=new int[sizeOfArray] -> getElementsOfArray(in, sizeOfArray, array)
+	LS: getElementsOfArray(in, sizeOfArray, array) [SubClass: aload_1]
+	LS: getElementsOfArray(in, sizeOfArray, array) [SubClass: iload_2]
+	LS: getElementsOfArray(in, sizeOfArray, array) [SubClass: aload_3]
+	MC: getElementsOfArray(in, sizeOfArray, array) calls Client.getElementsOfArray
+	CF: getElementsOfArray(in, sizeOfArray, array) -> Caller caller = new Caller(new unitdigitsort(sizeOfArray ,array))
+	LS: Caller caller = new Caller(new unitdigitsort(sizeOfArray ,array)) [SubClass: iload_2]
+	LS: Caller caller = new Caller(new unitdigitsort(sizeOfArray ,array)) [SubClass: aload_3]
+	MC: Caller caller = new Caller(new unitdigitsort(sizeOfArray ,array)) calls unitdigitsort.<init>
+	MC: Caller caller = new Caller(new unitdigitsort(sizeOfArray ,array)) calls Caller.<init>
+	LS: Caller caller = new Caller(new unitdigitsort(sizeOfArray ,array)) [SubClass: astore]
+	CF: Caller caller = new Caller(new unitdigitsort(sizeOfArray ,array)) -> caller.arraysort()
+	LS: caller.arraysort() [SubClass: aload]
+	MC: caller.arraysort() calls Caller.arraysort
+	CF: caller.arraysort() -> in.close()
+	LS: in.close() [SubClass: aload_1]
+	MC: in.close() calls java.util.Scanner.close
+	CF: in.close() -> 
+	CF:  -> exit [Return Type: void]
 }
 Client.getElementsOfArray{
 	entry ->   
-	MC: System.out.println ("enter the elements of the array"); -> java.io.PrintStream.println;
-	CF: System.out.println ("enter the elements of the array"); -> for(int i=0;i<sizeOfArray;i++);
-	CF: for(int i=0;i<sizeOfArray;i++) -> } [label = "if_icmpge"];
-	CF: for(int i=0;i<sizeOfArray;i++) -> array[i]=in.nextInt(); [label = "!if_icmpge"];
-	MC: array[i]=in.nextInt(); -> java.util.Scanner.nextInt;
-	CF: array[i]=in.nextInt(); -> for(int i=0;i<sizeOfArray;i++);
-	CF: for(int i=0;i<sizeOfArray;i++) -> for(int i=0;i<sizeOfArray;i++) [label = "goto"];
-	CF: } -> exit;
+	MC: System.out.println ("enter the elements of the array") calls java.io.PrintStream.println
+	CF: System.out.println ("enter the elements of the array") -> for(int i=0i<sizeOfArrayi++)
+	LS: for(int i=0i<sizeOfArrayi++) [SubClass: istore_3]
+	LS: for(int i=0i<sizeOfArrayi++) [SubClass: iload_3]
+	LS: for(int i=0i<sizeOfArrayi++) [SubClass: iload_1]
+	CF: for(int i=0i<sizeOfArrayi++) ->  [label = "if_icmpge"]
+	CF: for(int i=0i<sizeOfArrayi++) -> array[i]=in.nextInt() [label = "!if_icmpge"]
+	LS: array[i]=in.nextInt() [SubClass: aload_2]
+	LS: array[i]=in.nextInt() [SubClass: iload_3]
+	LS: array[i]=in.nextInt() [SubClass: aload_0]
+	MC: array[i]=in.nextInt() calls java.util.Scanner.nextInt
+	CF: array[i]=in.nextInt() -> for(int i=0i<sizeOfArrayi++)
+	LS: for(int i=0i<sizeOfArrayi++) [SubClass: iinc]
+	CF: for(int i=0i<sizeOfArrayi++) -> for(int i=0i<sizeOfArrayi++) [label = "goto"]
+	CF:  -> exit [Return Type: void]
 }
 Client.getSizeOfArray{
 	entry ->   
-	MC: System.out.println ("Enter the no of elements of the array"); -> java.io.PrintStream.println;
-	CF: System.out.println ("Enter the no of elements of the array"); -> int sizeOfArray = in.nextInt();;
-	MC: int sizeOfArray = in.nextInt(); -> java.util.Scanner.nextInt;
-	CF: int sizeOfArray = in.nextInt(); -> return sizeOfArray;;
-	CF: return sizeOfArray; -> exit;
+	MC: System.out.println ("Enter the no of elements of the array") calls java.io.PrintStream.println
+	CF: System.out.println ("Enter the no of elements of the array") -> int sizeOfArray = in.nextInt()
+	LS: int sizeOfArray = in.nextInt() [SubClass: aload_0]
+	MC: int sizeOfArray = in.nextInt() calls java.util.Scanner.nextInt
+	LS: int sizeOfArray = in.nextInt() [SubClass: istore_1]
+	CF: int sizeOfArray = in.nextInt() -> return sizeOfArray
+	LS: return sizeOfArray [SubClass: iload_1]
+	CF: return sizeOfArray -> exit [Return Type: int]
 }
 Client.getScanner{
 	entry ->   
-	MC: return new Scanner(System.in); -> java.util.Scanner.<init>;
-	CF: return new Scanner(System.in); -> exit;
+	MC: return new Scanner(System.in) calls java.util.Scanner.<init>
+	CF: return new Scanner(System.in) -> exit [Return Type: java.lang.Object]
 }

@@ -1,13 +1,17 @@
 Caller.<init>{
 	entry ->   
-	MC: { -> java.lang.Object.<init>;
-	CF: { -> callbackref = cbr;;
-	CF: callbackref = cbr; -> };
-	CF: } -> exit;
+	LS:  [SubClass: aload_0]
+	MC:  calls java.lang.Object.<init>
+	CF:  -> callbackref = cbr
+	LS: callbackref = cbr [SubClass: aload_0]
+	LS: callbackref = cbr [SubClass: aload_1]
+	CF: callbackref = cbr -> 
+	CF:  -> exit [Return Type: void]
 }
 Caller.arraysort{
 	entry ->   
-	MC: callbackref.sort(); -> ISort.sort;
-	CF: callbackref.sort(); -> };
-	CF: } -> exit;
+	LS: callbackref.sort() [SubClass: aload_0]
+	MC: callbackref.sort() calls ISort.sort
+	CF: callbackref.sort() -> 
+	CF:  -> exit [Return Type: void]
 }

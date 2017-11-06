@@ -1,72 +1,101 @@
 edu.ncsu.csc326.coffeemaker.CoffeeMaker.<init>{
 	entry ->   
-	MC: public CoffeeMaker() { -> java.lang.Object.<init>;
-	CF: public CoffeeMaker() { -> recipeBook = new RecipeBook();;
-	MC: recipeBook = new RecipeBook(); -> edu.ncsu.csc326.coffeemaker.RecipeBook.<init>;
-	CF: recipeBook = new RecipeBook(); -> inventory = new Inventory();;
-	MC: inventory = new Inventory(); -> edu.ncsu.csc326.coffeemaker.Inventory.<init>;
-	CF: inventory = new Inventory(); -> };
-	CF: } -> exit;
+	LS: public CoffeeMaker() [SubClass: aload_0]
+	MC: public CoffeeMaker() calls java.lang.Object.<init>
+	CF: public CoffeeMaker() -> recipeBook = new RecipeBook()
+	MC: recipeBook = new RecipeBook() calls edu.ncsu.csc326.coffeemaker.RecipeBook.<init>
+	CF: recipeBook = new RecipeBook() -> inventory = new Inventory()
+	MC: inventory = new Inventory() calls edu.ncsu.csc326.coffeemaker.Inventory.<init>
+	CF: inventory = new Inventory() -> 
+	CF:  -> exit [Return Type: void]
 }
 edu.ncsu.csc326.coffeemaker.CoffeeMaker.addRecipe{
 	entry ->   
-	MC: return recipeBook.addRecipe(r); -> edu.ncsu.csc326.coffeemaker.RecipeBook.addRecipe;
-	CF: return recipeBook.addRecipe(r); -> exit;
+	LS: return recipeBook.addRecipe(r) [SubClass: aload_1]
+	MC: return recipeBook.addRecipe(r) calls edu.ncsu.csc326.coffeemaker.RecipeBook.addRecipe
+	CF: return recipeBook.addRecipe(r) -> exit [Return Type: int]
 }
 edu.ncsu.csc326.coffeemaker.CoffeeMaker.deleteRecipe{
 	entry ->   
-	MC: return recipeBook.deleteRecipe(recipeToDelete); -> edu.ncsu.csc326.coffeemaker.RecipeBook.deleteRecipe;
-	CF: return recipeBook.deleteRecipe(recipeToDelete); -> exit;
+	LS: return recipeBook.deleteRecipe(recipeToDelete) [SubClass: iload_1]
+	MC: return recipeBook.deleteRecipe(recipeToDelete) calls edu.ncsu.csc326.coffeemaker.RecipeBook.deleteRecipe
+	CF: return recipeBook.deleteRecipe(recipeToDelete) -> exit [Return Type: java.lang.Object]
 }
 edu.ncsu.csc326.coffeemaker.CoffeeMaker.editRecipe{
 	entry ->   
-	MC: return recipeBook.editRecipe(recipeToEdit, r); -> edu.ncsu.csc326.coffeemaker.RecipeBook.editRecipe;
-	CF: return recipeBook.editRecipe(recipeToEdit, r); -> exit;
+	LS: return recipeBook.editRecipe(recipeToEdit, r) [SubClass: iload_1]
+	LS: return recipeBook.editRecipe(recipeToEdit, r) [SubClass: aload_2]
+	MC: return recipeBook.editRecipe(recipeToEdit, r) calls edu.ncsu.csc326.coffeemaker.RecipeBook.editRecipe
+	CF: return recipeBook.editRecipe(recipeToEdit, r) -> exit [Return Type: java.lang.Object]
 }
 edu.ncsu.csc326.coffeemaker.CoffeeMaker.addInventory{
 	entry ->   
-	MC: inventory.addCoffee(amtCoffee); -> edu.ncsu.csc326.coffeemaker.Inventory.addCoffee;
-	CF: inventory.addCoffee(amtCoffee); -> inventory.addMilk(amtMilk);;
-	MC: inventory.addMilk(amtMilk); -> edu.ncsu.csc326.coffeemaker.Inventory.addMilk;
-	CF: inventory.addMilk(amtMilk); -> inventory.addSugar(amtSugar);;
-	MC: inventory.addSugar(amtSugar); -> edu.ncsu.csc326.coffeemaker.Inventory.addSugar;
-	CF: inventory.addSugar(amtSugar); -> inventory.addChocolate(amtChocolate);;
-	MC: inventory.addChocolate(amtChocolate); -> edu.ncsu.csc326.coffeemaker.Inventory.addChocolate;
-	CF: inventory.addChocolate(amtChocolate); -> };
-	CF: } -> exit;
+	LS: inventory.addCoffee(amtCoffee) [SubClass: aload_1]
+	MC: inventory.addCoffee(amtCoffee) calls edu.ncsu.csc326.coffeemaker.Inventory.addCoffee
+	CF: inventory.addCoffee(amtCoffee) -> inventory.addMilk(amtMilk)
+	LS: inventory.addMilk(amtMilk) [SubClass: aload_2]
+	MC: inventory.addMilk(amtMilk) calls edu.ncsu.csc326.coffeemaker.Inventory.addMilk
+	CF: inventory.addMilk(amtMilk) -> inventory.addSugar(amtSugar)
+	LS: inventory.addSugar(amtSugar) [SubClass: aload_3]
+	MC: inventory.addSugar(amtSugar) calls edu.ncsu.csc326.coffeemaker.Inventory.addSugar
+	CF: inventory.addSugar(amtSugar) -> inventory.addChocolate(amtChocolate)
+	LS: inventory.addChocolate(amtChocolate) [SubClass: aload]
+	MC: inventory.addChocolate(amtChocolate) calls edu.ncsu.csc326.coffeemaker.Inventory.addChocolate
+	CF: inventory.addChocolate(amtChocolate) -> 
+	CF:  -> exit [Return Type: void]
 }
 edu.ncsu.csc326.coffeemaker.CoffeeMaker.checkInventory{
 	entry ->   
-	MC: return inventory.toString(); -> edu.ncsu.csc326.coffeemaker.Inventory.toString;
-	CF: return inventory.toString(); -> exit;
+	MC: return inventory.toString() calls edu.ncsu.csc326.coffeemaker.Inventory.toString
+	CF: return inventory.toString() -> exit [Return Type: java.lang.Object]
 }
 edu.ncsu.csc326.coffeemaker.CoffeeMaker.makeCoffee{
 	entry ->   
-	CF: int change = 0; -> if (getRecipes()[recipeToPurchase] == null) {;
-	MC: if (getRecipes()[recipeToPurchase] == null) { -> edu.ncsu.csc326.coffeemaker.CoffeeMaker.getRecipes;
-	CF: if (getRecipes()[recipeToPurchase] == null) { -> } else if (getRecipes()[recipeToPurchase].getPrice() <= amtPaid) { [label = "ifnonnull"];
-	CF: if (getRecipes()[recipeToPurchase] == null) { -> change = amtPaid; [label = "!ifnonnull"];
-	CF: change = amtPaid; -> } else if (getRecipes()[recipeToPurchase].getPrice() <= amtPaid) {;
-	CF: } else if (getRecipes()[recipeToPurchase].getPrice() <= amtPaid) { -> return change; [label = "goto"];
-	MC: } else if (getRecipes()[recipeToPurchase].getPrice() <= amtPaid) { -> edu.ncsu.csc326.coffeemaker.CoffeeMaker.getRecipes;
-	MC: } else if (getRecipes()[recipeToPurchase].getPrice() <= amtPaid) { -> edu.ncsu.csc326.coffeemaker.Recipe.getPrice;
-	CF: } else if (getRecipes()[recipeToPurchase].getPrice() <= amtPaid) { -> change = amtPaid; [label = "if_icmpgt"];
-	CF: } else if (getRecipes()[recipeToPurchase].getPrice() <= amtPaid) { -> if (inventory.useIngredients(getRecipes()[recipeToPurchase])) { [label = "!if_icmpgt"];
-	MC: if (inventory.useIngredients(getRecipes()[recipeToPurchase])) { -> edu.ncsu.csc326.coffeemaker.CoffeeMaker.getRecipes;
-	MC: if (inventory.useIngredients(getRecipes()[recipeToPurchase])) { -> edu.ncsu.csc326.coffeemaker.Inventory.useIngredients;
-	CF: if (inventory.useIngredients(getRecipes()[recipeToPurchase])) { -> change = amtPaid; [label = "ifeq"];
-	CF: if (inventory.useIngredients(getRecipes()[recipeToPurchase])) { -> change = amtPaid - getRecipes()[recipeToPurchase].getPrice(); [label = "!ifeq"];
-	MC: change = amtPaid - getRecipes()[recipeToPurchase].getPrice(); -> edu.ncsu.csc326.coffeemaker.CoffeeMaker.getRecipes;
-	MC: change = amtPaid - getRecipes()[recipeToPurchase].getPrice(); -> edu.ncsu.csc326.coffeemaker.Recipe.getPrice;
-	CF: change = amtPaid - getRecipes()[recipeToPurchase].getPrice(); -> } else {;
-	CF: } else { -> return change; [label = "goto"];
-	CF: change = amtPaid; -> } else {;
-	CF: } else { -> return change; [label = "goto"];
-	CF: change = amtPaid; -> return change;;
-	CF: return change; -> exit;
+	LS: int change = 0 [SubClass: istore_3]
+	CF: int change = 0 -> if (getRecipes()[recipeToPurchase] == null)
+	LS: if (getRecipes()[recipeToPurchase] == null) [SubClass: aload_0]
+	MC: if (getRecipes()[recipeToPurchase] == null) calls edu.ncsu.csc326.coffeemaker.CoffeeMaker.getRecipes
+	LS: if (getRecipes()[recipeToPurchase] == null) [SubClass: iload_1]
+	CF: if (getRecipes()[recipeToPurchase] == null) -> else if (getRecipes()[recipeToPurchase].getPrice() <= amtPaid) [label = "ifnonnull"]
+	CF: if (getRecipes()[recipeToPurchase] == null) -> change = amtPaid [label = "!ifnonnull"]
+	LS: change = amtPaid [SubClass: iload_2]
+	LS: change = amtPaid [SubClass: istore_3]
+	CF: change = amtPaid -> else if (getRecipes()[recipeToPurchase].getPrice() <= amtPaid)
+	CF: else if (getRecipes()[recipeToPurchase].getPrice() <= amtPaid) -> return change [label = "goto"]
+	LS: else if (getRecipes()[recipeToPurchase].getPrice() <= amtPaid) [SubClass: aload_0]
+	MC: else if (getRecipes()[recipeToPurchase].getPrice() <= amtPaid) calls edu.ncsu.csc326.coffeemaker.CoffeeMaker.getRecipes
+	LS: else if (getRecipes()[recipeToPurchase].getPrice() <= amtPaid) [SubClass: iload_1]
+	MC: else if (getRecipes()[recipeToPurchase].getPrice() <= amtPaid) calls edu.ncsu.csc326.coffeemaker.Recipe.getPrice
+	LS: else if (getRecipes()[recipeToPurchase].getPrice() <= amtPaid) [SubClass: iload_2]
+	CF: else if (getRecipes()[recipeToPurchase].getPrice() <= amtPaid) -> change = amtPaid [label = "if_icmpgt"]
+	CF: else if (getRecipes()[recipeToPurchase].getPrice() <= amtPaid) -> if (inventory.useIngredients(getRecipes()[recipeToPurchase])) [label = "!if_icmpgt"]
+	LS: if (inventory.useIngredients(getRecipes()[recipeToPurchase])) [SubClass: aload_0]
+	MC: if (inventory.useIngredients(getRecipes()[recipeToPurchase])) calls edu.ncsu.csc326.coffeemaker.CoffeeMaker.getRecipes
+	LS: if (inventory.useIngredients(getRecipes()[recipeToPurchase])) [SubClass: iload_1]
+	MC: if (inventory.useIngredients(getRecipes()[recipeToPurchase])) calls edu.ncsu.csc326.coffeemaker.Inventory.useIngredients
+	CF: if (inventory.useIngredients(getRecipes()[recipeToPurchase])) -> change = amtPaid [label = "ifeq"]
+	CF: if (inventory.useIngredients(getRecipes()[recipeToPurchase])) -> change = amtPaid - getRecipes()[recipeToPurchase].getPrice() [label = "!ifeq"]
+	LS: change = amtPaid - getRecipes()[recipeToPurchase].getPrice() [SubClass: iload_2]
+	LS: change = amtPaid - getRecipes()[recipeToPurchase].getPrice() [SubClass: aload_0]
+	MC: change = amtPaid - getRecipes()[recipeToPurchase].getPrice() calls edu.ncsu.csc326.coffeemaker.CoffeeMaker.getRecipes
+	LS: change = amtPaid - getRecipes()[recipeToPurchase].getPrice() [SubClass: iload_1]
+	MC: change = amtPaid - getRecipes()[recipeToPurchase].getPrice() calls edu.ncsu.csc326.coffeemaker.Recipe.getPrice
+	AI: change = amtPaid - getRecipes()[recipeToPurchase].getPrice() [SubClass: isub	Type: int]
+	LS: change = amtPaid - getRecipes()[recipeToPurchase].getPrice() [SubClass: istore_3]
+	CF: change = amtPaid - getRecipes()[recipeToPurchase].getPrice() -> else
+	CF: else -> return change [label = "goto"]
+	LS: change = amtPaid [SubClass: iload_2]
+	LS: change = amtPaid [SubClass: istore_3]
+	CF: change = amtPaid -> else
+	CF: else -> return change [label = "goto"]
+	LS: change = amtPaid [SubClass: iload_2]
+	LS: change = amtPaid [SubClass: istore_3]
+	CF: change = amtPaid -> return change
+	LS: return change [SubClass: iload_3]
+	CF: return change -> exit [Return Type: int]
 }
 edu.ncsu.csc326.coffeemaker.CoffeeMaker.getRecipes{
 	entry ->   
-	MC: return recipeBook.getRecipes(); -> edu.ncsu.csc326.coffeemaker.RecipeBook.getRecipes;
-	CF: return recipeBook.getRecipes(); -> exit;
+	MC: return recipeBook.getRecipes() calls edu.ncsu.csc326.coffeemaker.RecipeBook.getRecipes
+	CF: return recipeBook.getRecipes() -> exit [Return Type: java.lang.Object]
 }

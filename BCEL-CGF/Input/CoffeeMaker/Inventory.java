@@ -58,8 +58,7 @@ public class Inventory {
     public synchronized void setChocolate(int chocolate) {
     	if(chocolate >= 0) {
     		Inventory.chocolate = chocolate;
-    	}
-        
+    	}     
     }
     
     /**

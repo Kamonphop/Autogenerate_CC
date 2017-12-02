@@ -1,0 +1,16 @@
+=:equals
+!:not
++:plus
+-:minus
+*:multiply by
+/:divide by
+%:modulus by
+++:increment by 1
+--:decrement by 1
+==:equal to
+>=:greater than or equal to
+<=:less than or equal to
+>:greater than
+<:less than
+&&:and
+||:or

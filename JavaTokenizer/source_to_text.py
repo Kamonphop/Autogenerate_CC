@@ -86,7 +86,7 @@ def read_pickle_input(input_file_path,output_file_path):
     comments_list = itemlist[0]
     for i in range(len(code_list)):
         code = code_list[i]
-        print(code)
+        # print(code)
         # print('Code--------------------------------------')
         # input()
         method=''

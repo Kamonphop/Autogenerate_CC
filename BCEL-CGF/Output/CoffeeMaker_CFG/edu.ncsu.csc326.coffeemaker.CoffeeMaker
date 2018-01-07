@@ -60,8 +60,7 @@ edu.ncsu.csc326.coffeemaker.CoffeeMaker.makeCoffee{
 	CF: if (getRecipes()[recipeToPurchase] == null) -> change = amtPaid [label = "!ifnonnull"]
 	LS: change = amtPaid [SubClass: iload_2]
 	LS: change = amtPaid [SubClass: istore_3]
-	CF: change = amtPaid -> else if (getRecipes()[recipeToPurchase].getPrice() <= amtPaid)
-	CF: else if (getRecipes()[recipeToPurchase].getPrice() <= amtPaid) -> return change [label = "goto"]
+	CF: change = amtPaid -> return change [label = "goto"]
 	LS: else if (getRecipes()[recipeToPurchase].getPrice() <= amtPaid) [SubClass: aload_0]
 	MC: else if (getRecipes()[recipeToPurchase].getPrice() <= amtPaid) calls edu.ncsu.csc326.coffeemaker.CoffeeMaker.getRecipes
 	LS: else if (getRecipes()[recipeToPurchase].getPrice() <= amtPaid) [SubClass: iload_1]
@@ -82,12 +81,10 @@ edu.ncsu.csc326.coffeemaker.CoffeeMaker.makeCoffee{
 	MC: change = amtPaid - getRecipes()[recipeToPurchase].getPrice() calls edu.ncsu.csc326.coffeemaker.Recipe.getPrice
 	AI: change = amtPaid - getRecipes()[recipeToPurchase].getPrice() [SubClass: isub	Type: int]
 	LS: change = amtPaid - getRecipes()[recipeToPurchase].getPrice() [SubClass: istore_3]
-	CF: change = amtPaid - getRecipes()[recipeToPurchase].getPrice() -> else
-	CF: else -> return change [label = "goto"]
+	CF: change = amtPaid - getRecipes()[recipeToPurchase].getPrice() -> return change [label = "goto"]
 	LS: change = amtPaid [SubClass: iload_2]
 	LS: change = amtPaid [SubClass: istore_3]
-	CF: change = amtPaid -> else
-	CF: else -> return change [label = "goto"]
+	CF: change = amtPaid -> return change [label = "goto"]
 	LS: change = amtPaid [SubClass: iload_2]
 	LS: change = amtPaid [SubClass: istore_3]
 	CF: change = amtPaid -> return change

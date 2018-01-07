@@ -29,8 +29,7 @@ edu.ncsu.csc326.coffeemaker.Recipe.setAmtChocolate{
 	LS: amtChocolate = Integer.parseInt(chocolate) [SubClass: aload_1]
 	MC: amtChocolate = Integer.parseInt(chocolate) calls java.lang.Integer.parseInt
 	LS: amtChocolate = Integer.parseInt(chocolate) [SubClass: istore_2]
-	CF: amtChocolate = Integer.parseInt(chocolate) -> catch (NumberFormatException e)
-	CF: catch (NumberFormatException e) -> if (amtChocolate >= 0) [label = "goto"]
+	CF: amtChocolate = Integer.parseInt(chocolate) -> if (amtChocolate >= 0) [label = "goto"]
 	LS: catch (NumberFormatException e) [SubClass: astore_3]
 	CF: catch (NumberFormatException e) -> throw new RecipeException("Units of chocolate must be a positive integer")
 	MC: throw new RecipeException("Units of chocolate must be a positive integer") calls edu.ncsu.csc326.coffeemaker.exceptions.RecipeException.<init>
@@ -40,8 +39,7 @@ edu.ncsu.csc326.coffeemaker.Recipe.setAmtChocolate{
 	CF: if (amtChocolate >= 0) -> this.amtChocolate = amtChocolate [label = "!iflt"]
 	LS: this.amtChocolate = amtChocolate [SubClass: aload_0]
 	LS: this.amtChocolate = amtChocolate [SubClass: iload_2]
-	CF: this.amtChocolate = amtChocolate -> else
-	CF: else ->  [label = "goto"]
+	CF: this.amtChocolate = amtChocolate ->  [label = "goto"]
 	MC: throw new RecipeException("Units of chocolate must be a positive integer") calls edu.ncsu.csc326.coffeemaker.exceptions.RecipeException.<init>
 	CF: throw new RecipeException("Units of chocolate must be a positive integer") -> 
 	CF:  -> exit [Return Type: void]
@@ -58,8 +56,7 @@ edu.ncsu.csc326.coffeemaker.Recipe.setAmtCoffee{
 	LS: amtCoffee = Integer.parseInt(coffee) [SubClass: aload_1]
 	MC: amtCoffee = Integer.parseInt(coffee) calls java.lang.Integer.parseInt
 	LS: amtCoffee = Integer.parseInt(coffee) [SubClass: istore_2]
-	CF: amtCoffee = Integer.parseInt(coffee) -> catch (NumberFormatException e)
-	CF: catch (NumberFormatException e) -> if (amtCoffee >= 0) [label = "goto"]
+	CF: amtCoffee = Integer.parseInt(coffee) -> if (amtCoffee >= 0) [label = "goto"]
 	LS: catch (NumberFormatException e) [SubClass: astore_3]
 	CF: catch (NumberFormatException e) -> throw new RecipeException("Units of coffee must be a positive integer")
 	MC: throw new RecipeException("Units of coffee must be a positive integer") calls edu.ncsu.csc326.coffeemaker.exceptions.RecipeException.<init>
@@ -69,8 +66,7 @@ edu.ncsu.csc326.coffeemaker.Recipe.setAmtCoffee{
 	CF: if (amtCoffee >= 0) -> this.amtCoffee = amtCoffee [label = "!iflt"]
 	LS: this.amtCoffee = amtCoffee [SubClass: aload_0]
 	LS: this.amtCoffee = amtCoffee [SubClass: iload_2]
-	CF: this.amtCoffee = amtCoffee -> else
-	CF: else ->  [label = "goto"]
+	CF: this.amtCoffee = amtCoffee ->  [label = "goto"]
 	MC: throw new RecipeException("Units of coffee must be a positive integer") calls edu.ncsu.csc326.coffeemaker.exceptions.RecipeException.<init>
 	CF: throw new RecipeException("Units of coffee must be a positive integer") -> 
 	CF:  -> exit [Return Type: void]
@@ -87,8 +83,7 @@ edu.ncsu.csc326.coffeemaker.Recipe.setAmtMilk{
 	LS: amtMilk = Integer.parseInt(milk) [SubClass: aload_1]
 	MC: amtMilk = Integer.parseInt(milk) calls java.lang.Integer.parseInt
 	LS: amtMilk = Integer.parseInt(milk) [SubClass: istore_2]
-	CF: amtMilk = Integer.parseInt(milk) -> catch (NumberFormatException e)
-	CF: catch (NumberFormatException e) -> if (amtMilk >= 0) [label = "goto"]
+	CF: amtMilk = Integer.parseInt(milk) -> if (amtMilk >= 0) [label = "goto"]
 	LS: catch (NumberFormatException e) [SubClass: astore_3]
 	CF: catch (NumberFormatException e) -> throw new RecipeException("Units of milk must be a positive integer")
 	MC: throw new RecipeException("Units of milk must be a positive integer") calls edu.ncsu.csc326.coffeemaker.exceptions.RecipeException.<init>
@@ -98,8 +93,7 @@ edu.ncsu.csc326.coffeemaker.Recipe.setAmtMilk{
 	CF: if (amtMilk >= 0) -> this.amtMilk = amtMilk [label = "!iflt"]
 	LS: this.amtMilk = amtMilk [SubClass: aload_0]
 	LS: this.amtMilk = amtMilk [SubClass: iload_2]
-	CF: this.amtMilk = amtMilk -> else
-	CF: else ->  [label = "goto"]
+	CF: this.amtMilk = amtMilk ->  [label = "goto"]
 	MC: throw new RecipeException("Units of milk must be a positive integer") calls edu.ncsu.csc326.coffeemaker.exceptions.RecipeException.<init>
 	CF: throw new RecipeException("Units of milk must be a positive integer") -> 
 	CF:  -> exit [Return Type: void]
@@ -116,8 +110,7 @@ edu.ncsu.csc326.coffeemaker.Recipe.setAmtSugar{
 	LS: amtSugar = Integer.parseInt(sugar) [SubClass: aload_1]
 	MC: amtSugar = Integer.parseInt(sugar) calls java.lang.Integer.parseInt
 	LS: amtSugar = Integer.parseInt(sugar) [SubClass: istore_2]
-	CF: amtSugar = Integer.parseInt(sugar) -> catch (NumberFormatException e)
-	CF: catch (NumberFormatException e) -> if (amtSugar >= 0) [label = "goto"]
+	CF: amtSugar = Integer.parseInt(sugar) -> if (amtSugar >= 0) [label = "goto"]
 	LS: catch (NumberFormatException e) [SubClass: astore_3]
 	CF: catch (NumberFormatException e) -> throw new RecipeException("Units of sugar must be a positive integer")
 	MC: throw new RecipeException("Units of sugar must be a positive integer") calls edu.ncsu.csc326.coffeemaker.exceptions.RecipeException.<init>
@@ -127,8 +120,7 @@ edu.ncsu.csc326.coffeemaker.Recipe.setAmtSugar{
 	CF: if (amtSugar >= 0) -> this.amtSugar = amtSugar [label = "!iflt"]
 	LS: this.amtSugar = amtSugar [SubClass: aload_0]
 	LS: this.amtSugar = amtSugar [SubClass: iload_2]
-	CF: this.amtSugar = amtSugar -> else
-	CF: else ->  [label = "goto"]
+	CF: this.amtSugar = amtSugar ->  [label = "goto"]
 	MC: throw new RecipeException("Units of sugar must be a positive integer") calls edu.ncsu.csc326.coffeemaker.exceptions.RecipeException.<init>
 	CF: throw new RecipeException("Units of sugar must be a positive integer") -> 
 	CF:  -> exit [Return Type: void]
@@ -160,8 +152,7 @@ edu.ncsu.csc326.coffeemaker.Recipe.setPrice{
 	LS: amtPrice = Integer.parseInt(price) [SubClass: aload_1]
 	MC: amtPrice = Integer.parseInt(price) calls java.lang.Integer.parseInt
 	LS: amtPrice = Integer.parseInt(price) [SubClass: istore_2]
-	CF: amtPrice = Integer.parseInt(price) -> catch (NumberFormatException e)
-	CF: catch (NumberFormatException e) -> if (amtPrice >= 0) [label = "goto"]
+	CF: amtPrice = Integer.parseInt(price) -> if (amtPrice >= 0) [label = "goto"]
 	LS: catch (NumberFormatException e) [SubClass: astore_3]
 	CF: catch (NumberFormatException e) -> throw new RecipeException("Price must be a positive integer")
 	MC: throw new RecipeException("Price must be a positive integer") calls edu.ncsu.csc326.coffeemaker.exceptions.RecipeException.<init>
@@ -171,8 +162,7 @@ edu.ncsu.csc326.coffeemaker.Recipe.setPrice{
 	CF: if (amtPrice >= 0) -> this.price = amtPrice [label = "!iflt"]
 	LS: this.price = amtPrice [SubClass: aload_0]
 	LS: this.price = amtPrice [SubClass: iload_2]
-	CF: this.price = amtPrice -> else
-	CF: else ->  [label = "goto"]
+	CF: this.price = amtPrice ->  [label = "goto"]
 	MC: throw new RecipeException("Price must be a positive integer") calls edu.ncsu.csc326.coffeemaker.exceptions.RecipeException.<init>
 	CF: throw new RecipeException("Price must be a positive integer") -> 
 	CF:  -> exit [Return Type: void]

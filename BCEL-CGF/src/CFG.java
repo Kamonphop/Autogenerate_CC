@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
+import java.util.Collections;
 
 import org.apache.bcel.classfile.ClassParser;
 import org.apache.bcel.classfile.Code;
@@ -195,35 +196,43 @@ public class CFG {
 
 			}} );
 
-		// Check arguments.
-		if ( args.length != 1 ) {
-			error.println( "Wrong number of arguments." );
-			error.println( "Usage: CFG <input-class-folder-with-.java-and-.class-files>" );
-			System.exit( 1 );
+		File classFolder = new File(args[0]);
+		File javaFolder = new File(args[1]);
+		String outputFolder = "";
+		if(args.length>2){
+			outputFolder = args[2];
 		}
 
-		File folder = new File(args[0]);
+
 		ArrayList<String> inputClassFilenameList = new ArrayList<String>(); 
 		ArrayList<String> inputJavaFilenameList = new ArrayList<String>();;
-		File[] listOfFiles = folder.listFiles();
+		
+		File[] listOfFiles = classFolder.listFiles();
 
 		for (int i = 0; i < listOfFiles.length; i++) {
 			String name = listOfFiles[i].getName();
 			if (name.endsWith(".class")) {
-				inputClassFilenameList.add(args[0]+File.separator+name);
-			} 
-			else if (name.endsWith(".java")) {
-				inputJavaFilenameList.add(args[0]+File.separator+name);
+				inputClassFilenameList.add(name);
 			}
 		}
 
+		listOfFiles = javaFolder.listFiles();
+		for (int i = 0; i < listOfFiles.length; i++) {
+			String name = listOfFiles[i].getName();
+			if (name.endsWith(".java") && inputClassFilenameList.contains(name.split(".java")[0]+".class")) {
+				inputJavaFilenameList.add(name);
+			}
+		}		
+
+		Collections.sort(inputClassFilenameList);
+		Collections.sort(inputJavaFilenameList);
 
 		for(int index = 0; index<inputClassFilenameList.size(); index++) {
 			System.out.println("Parsing " + inputClassFilenameList.get(index) + "." );
 			debug.println( "Parsing " + inputClassFilenameList.get(index)+ "." );
 			JavaClass cls = null;
 			try {
-				cls = (new ClassParser( inputClassFilenameList.get(index) )).parse();
+				cls = (new ClassParser( args[0]+File.separator+inputClassFilenameList.get(index) )).parse();
 			} catch (IOException e) {
 				e.printStackTrace( debug );
 				error.println( "Error while parsing " + inputClassFilenameList.get(index) + "." );
@@ -231,10 +240,10 @@ public class CFG {
 			}
 			String outputDottyFilename = cls.getClassName();
 			try {
-				OutputStream output = new FileOutputStream( outputDottyFilename );
+				OutputStream output = new FileOutputStream( outputFolder + outputDottyFilename );
 				for ( Method m : cls.getMethods() ) {
 					debug.println( "   " + m.getName() );
-					createCFG(error, debug, output, m, inputJavaFilenameList.get(index), cls);
+					createCFG(error, debug, output, m, args[1]+File.separator+inputJavaFilenameList.get(index), cls);
 				}
 				output.close();
 			} catch (IOException e) {

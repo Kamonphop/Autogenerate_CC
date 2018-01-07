@@ -32,246 +32,238 @@ edu.ncsu.csc326.coffeemaker.Inventory.setChocolate{
 }
 edu.ncsu.csc326.coffeemaker.Inventory.addChocolate{
 	entry ->   
-	LS: try [SubClass: istore_2]
-	CF: try -> catch (NumberFormatException e)
-	LS: catch (NumberFormatException e) [SubClass: aload_1]
-	MC: catch (NumberFormatException e) calls java.lang.Integer.parseInt
-	LS: catch (NumberFormatException e) [SubClass: istore_2]
+	LS: int amtChocolate = 0 [SubClass: istore_2]
+	CF: int amtChocolate = 0 -> amtChocolate = Integer.parseInt(chocolate)
+	LS: amtChocolate = Integer.parseInt(chocolate) [SubClass: aload_1]
+	MC: amtChocolate = Integer.parseInt(chocolate) calls java.lang.Integer.parseInt
+	LS: amtChocolate = Integer.parseInt(chocolate) [SubClass: istore_2]
+	CF: amtChocolate = Integer.parseInt(chocolate) -> if (amtChocolate >= 0) [label = "goto"]
+	LS: catch (NumberFormatException e) [SubClass: astore_3]
 	CF: catch (NumberFormatException e) -> throw new InventoryException("Units of chocolate must be a positive integer")
-	CF: throw new InventoryException("Units of chocolate must be a positive integer") -> Inventory.chocolate += amtChocolate [label = "goto"]
-	LS: throw new InventoryException("Units of chocolate must be a positive integer") [SubClass: astore_3]
-	CF: throw new InventoryException("Units of chocolate must be a positive integer") -> 
-	MC:  calls edu.ncsu.csc326.coffeemaker.exceptions.InventoryException.<init>
-	CF:  -> Inventory.chocolate += amtChocolate
+	MC: throw new InventoryException("Units of chocolate must be a positive integer") calls edu.ncsu.csc326.coffeemaker.exceptions.InventoryException.<init>
+	CF: throw new InventoryException("Units of chocolate must be a positive integer") -> if (amtChocolate >= 0)
+	LS: if (amtChocolate >= 0) [SubClass: iload_2]
+	CF: if (amtChocolate >= 0) -> throw new InventoryException("Units of chocolate must be a positive integer") [label = "iflt"]
+	CF: if (amtChocolate >= 0) -> Inventory.chocolate += amtChocolate [label = "!iflt"]
 	LS: Inventory.chocolate += amtChocolate [SubClass: iload_2]
-	CF: Inventory.chocolate += amtChocolate ->  [label = "iflt"]
-	CF: Inventory.chocolate += amtChocolate -> else [label = "!iflt"]
-	LS: else [SubClass: iload_2]
-	AI: else [SubClass: iadd	Type: int]
-	CF: else -> throw new InventoryException("Units of chocolate must be a positive integer")
-	CF: throw new InventoryException("Units of chocolate must be a positive integer") ->  [label = "goto"]
-	MC:  calls edu.ncsu.csc326.coffeemaker.exceptions.InventoryException.<init>
-	CF:  -> 
+	AI: Inventory.chocolate += amtChocolate [SubClass: iadd	Type: int]
+	CF: Inventory.chocolate += amtChocolate ->  [label = "goto"]
+	MC: throw new InventoryException("Units of chocolate must be a positive integer") calls edu.ncsu.csc326.coffeemaker.exceptions.InventoryException.<init>
+	CF: throw new InventoryException("Units of chocolate must be a positive integer") -> 
 	CF:  -> exit [Return Type: void]
 }
 edu.ncsu.csc326.coffeemaker.Inventory.getCoffee{
 	entry ->   
-	CF:  -> exit [Return Type: int]
+	CF: return coffee -> exit [Return Type: int]
 }
 edu.ncsu.csc326.coffeemaker.Inventory.setCoffee{
 	entry ->   
+	LS: if(coffee >= 0) [SubClass: iload_1]
+	CF: if(coffee >= 0) ->  [label = "iflt"]
+	CF: if(coffee >= 0) -> Inventory.coffee = coffee [label = "!iflt"]
 	LS: Inventory.coffee = coffee [SubClass: iload_1]
-	CF: Inventory.coffee = coffee ->  [label = "iflt"]
-	CF: Inventory.coffee = coffee ->  [label = "!iflt"]
-	LS:  [SubClass: iload_1]
-	CF:  -> 
+	CF: Inventory.coffee = coffee -> 
 	CF:  -> exit [Return Type: void]
 }
 edu.ncsu.csc326.coffeemaker.Inventory.addCoffee{
 	entry ->   
-	LS: try [SubClass: istore_2]
-	CF: try -> catch (NumberFormatException e)
-	LS: catch (NumberFormatException e) [SubClass: aload_1]
-	MC: catch (NumberFormatException e) calls java.lang.Integer.parseInt
-	LS: catch (NumberFormatException e) [SubClass: istore_2]
+	LS: int amtCoffee = 0 [SubClass: istore_2]
+	CF: int amtCoffee = 0 -> amtCoffee = Integer.parseInt(coffee)
+	LS: amtCoffee = Integer.parseInt(coffee) [SubClass: aload_1]
+	MC: amtCoffee = Integer.parseInt(coffee) calls java.lang.Integer.parseInt
+	LS: amtCoffee = Integer.parseInt(coffee) [SubClass: istore_2]
+	CF: amtCoffee = Integer.parseInt(coffee) -> if (amtCoffee >= 0) [label = "goto"]
+	LS: catch (NumberFormatException e) [SubClass: astore_3]
 	CF: catch (NumberFormatException e) -> throw new InventoryException("Units of coffee must be a positive integer")
-	CF: throw new InventoryException("Units of coffee must be a positive integer") -> Inventory.coffee += amtCoffee [label = "goto"]
-	LS: throw new InventoryException("Units of coffee must be a positive integer") [SubClass: astore_3]
-	CF: throw new InventoryException("Units of coffee must be a positive integer") -> 
-	MC:  calls edu.ncsu.csc326.coffeemaker.exceptions.InventoryException.<init>
-	CF:  -> Inventory.coffee += amtCoffee
+	MC: throw new InventoryException("Units of coffee must be a positive integer") calls edu.ncsu.csc326.coffeemaker.exceptions.InventoryException.<init>
+	CF: throw new InventoryException("Units of coffee must be a positive integer") -> if (amtCoffee >= 0)
+	LS: if (amtCoffee >= 0) [SubClass: iload_2]
+	CF: if (amtCoffee >= 0) -> throw new InventoryException("Units of coffee must be a positive integer") [label = "iflt"]
+	CF: if (amtCoffee >= 0) -> Inventory.coffee += amtCoffee [label = "!iflt"]
 	LS: Inventory.coffee += amtCoffee [SubClass: iload_2]
-	CF: Inventory.coffee += amtCoffee ->  [label = "iflt"]
-	CF: Inventory.coffee += amtCoffee -> else [label = "!iflt"]
-	LS: else [SubClass: iload_2]
-	AI: else [SubClass: iadd	Type: int]
-	CF: else -> throw new InventoryException("Units of coffee must be a positive integer")
-	CF: throw new InventoryException("Units of coffee must be a positive integer") ->  [label = "goto"]
-	MC:  calls edu.ncsu.csc326.coffeemaker.exceptions.InventoryException.<init>
-	CF:  -> 
+	AI: Inventory.coffee += amtCoffee [SubClass: iadd	Type: int]
+	CF: Inventory.coffee += amtCoffee ->  [label = "goto"]
+	MC: throw new InventoryException("Units of coffee must be a positive integer") calls edu.ncsu.csc326.coffeemaker.exceptions.InventoryException.<init>
+	CF: throw new InventoryException("Units of coffee must be a positive integer") -> 
 	CF:  -> exit [Return Type: void]
 }
 edu.ncsu.csc326.coffeemaker.Inventory.getMilk{
 	entry ->   
-	CF:  -> exit [Return Type: int]
+	CF: return milk -> exit [Return Type: int]
 }
 edu.ncsu.csc326.coffeemaker.Inventory.setMilk{
 	entry ->   
+	LS: if(milk >= 0) [SubClass: iload_1]
+	CF: if(milk >= 0) ->  [label = "iflt"]
+	CF: if(milk >= 0) -> Inventory.milk = milk [label = "!iflt"]
 	LS: Inventory.milk = milk [SubClass: iload_1]
-	CF: Inventory.milk = milk ->  [label = "iflt"]
-	CF: Inventory.milk = milk ->  [label = "!iflt"]
-	LS:  [SubClass: iload_1]
-	CF:  -> 
+	CF: Inventory.milk = milk -> 
 	CF:  -> exit [Return Type: void]
 }
 edu.ncsu.csc326.coffeemaker.Inventory.addMilk{
 	entry ->   
-	LS: try [SubClass: istore_2]
-	CF: try -> catch (NumberFormatException e)
-	LS: catch (NumberFormatException e) [SubClass: aload_1]
-	MC: catch (NumberFormatException e) calls java.lang.Integer.parseInt
-	LS: catch (NumberFormatException e) [SubClass: istore_2]
+	LS: int amtMilk = 0 [SubClass: istore_2]
+	CF: int amtMilk = 0 -> amtMilk = Integer.parseInt(milk)
+	LS: amtMilk = Integer.parseInt(milk) [SubClass: aload_1]
+	MC: amtMilk = Integer.parseInt(milk) calls java.lang.Integer.parseInt
+	LS: amtMilk = Integer.parseInt(milk) [SubClass: istore_2]
+	CF: amtMilk = Integer.parseInt(milk) -> if (amtMilk >= 0) [label = "goto"]
+	LS: catch (NumberFormatException e) [SubClass: astore_3]
 	CF: catch (NumberFormatException e) -> throw new InventoryException("Units of milk must be a positive integer")
-	CF: throw new InventoryException("Units of milk must be a positive integer") -> Inventory.milk += amtMilk [label = "goto"]
-	LS: throw new InventoryException("Units of milk must be a positive integer") [SubClass: astore_3]
-	CF: throw new InventoryException("Units of milk must be a positive integer") -> 
-	MC:  calls edu.ncsu.csc326.coffeemaker.exceptions.InventoryException.<init>
-	CF:  -> Inventory.milk += amtMilk
+	MC: throw new InventoryException("Units of milk must be a positive integer") calls edu.ncsu.csc326.coffeemaker.exceptions.InventoryException.<init>
+	CF: throw new InventoryException("Units of milk must be a positive integer") -> if (amtMilk >= 0)
+	LS: if (amtMilk >= 0) [SubClass: iload_2]
+	CF: if (amtMilk >= 0) -> throw new InventoryException("Units of milk must be a positive integer") [label = "iflt"]
+	CF: if (amtMilk >= 0) -> Inventory.milk += amtMilk [label = "!iflt"]
 	LS: Inventory.milk += amtMilk [SubClass: iload_2]
-	CF: Inventory.milk += amtMilk ->  [label = "iflt"]
-	CF: Inventory.milk += amtMilk -> else [label = "!iflt"]
-	LS: else [SubClass: iload_2]
-	AI: else [SubClass: iadd	Type: int]
-	CF: else -> throw new InventoryException("Units of milk must be a positive integer")
-	CF: throw new InventoryException("Units of milk must be a positive integer") ->  [label = "goto"]
-	MC:  calls edu.ncsu.csc326.coffeemaker.exceptions.InventoryException.<init>
-	CF:  -> 
+	AI: Inventory.milk += amtMilk [SubClass: iadd	Type: int]
+	CF: Inventory.milk += amtMilk ->  [label = "goto"]
+	MC: throw new InventoryException("Units of milk must be a positive integer") calls edu.ncsu.csc326.coffeemaker.exceptions.InventoryException.<init>
+	CF: throw new InventoryException("Units of milk must be a positive integer") -> 
 	CF:  -> exit [Return Type: void]
 }
 edu.ncsu.csc326.coffeemaker.Inventory.getSugar{
 	entry ->   
-	CF:  -> exit [Return Type: int]
+	CF: return sugar -> exit [Return Type: int]
 }
 edu.ncsu.csc326.coffeemaker.Inventory.setSugar{
 	entry ->   
+	LS: if(sugar >= 0) [SubClass: iload_1]
+	CF: if(sugar >= 0) ->  [label = "iflt"]
+	CF: if(sugar >= 0) -> Inventory.sugar = sugar [label = "!iflt"]
 	LS: Inventory.sugar = sugar [SubClass: iload_1]
-	CF: Inventory.sugar = sugar ->  [label = "iflt"]
-	CF: Inventory.sugar = sugar ->  [label = "!iflt"]
-	LS:  [SubClass: iload_1]
-	CF:  -> 
+	CF: Inventory.sugar = sugar -> 
 	CF:  -> exit [Return Type: void]
 }
 edu.ncsu.csc326.coffeemaker.Inventory.addSugar{
 	entry ->   
-	LS: try [SubClass: istore_2]
-	CF: try -> catch (NumberFormatException e)
-	LS: catch (NumberFormatException e) [SubClass: aload_1]
-	MC: catch (NumberFormatException e) calls java.lang.Integer.parseInt
-	LS: catch (NumberFormatException e) [SubClass: istore_2]
+	LS: int amtSugar = 0 [SubClass: istore_2]
+	CF: int amtSugar = 0 -> amtSugar = Integer.parseInt(sugar)
+	LS: amtSugar = Integer.parseInt(sugar) [SubClass: aload_1]
+	MC: amtSugar = Integer.parseInt(sugar) calls java.lang.Integer.parseInt
+	LS: amtSugar = Integer.parseInt(sugar) [SubClass: istore_2]
+	CF: amtSugar = Integer.parseInt(sugar) -> if (amtSugar >= 0) [label = "goto"]
+	LS: catch (NumberFormatException e) [SubClass: astore_3]
 	CF: catch (NumberFormatException e) -> throw new InventoryException("Units of sugar must be a positive integer")
-	CF: throw new InventoryException("Units of sugar must be a positive integer") -> Inventory.sugar += amtSugar [label = "goto"]
-	LS: throw new InventoryException("Units of sugar must be a positive integer") [SubClass: astore_3]
-	CF: throw new InventoryException("Units of sugar must be a positive integer") -> 
-	MC:  calls edu.ncsu.csc326.coffeemaker.exceptions.InventoryException.<init>
-	CF:  -> Inventory.sugar += amtSugar
+	MC: throw new InventoryException("Units of sugar must be a positive integer") calls edu.ncsu.csc326.coffeemaker.exceptions.InventoryException.<init>
+	CF: throw new InventoryException("Units of sugar must be a positive integer") -> if (amtSugar >= 0)
+	LS: if (amtSugar >= 0) [SubClass: iload_2]
+	CF: if (amtSugar >= 0) -> throw new InventoryException("Units of sugar must be a positive integer") [label = "iflt"]
+	CF: if (amtSugar >= 0) -> Inventory.sugar += amtSugar [label = "!iflt"]
 	LS: Inventory.sugar += amtSugar [SubClass: iload_2]
-	CF: Inventory.sugar += amtSugar ->  [label = "iflt"]
-	CF: Inventory.sugar += amtSugar -> else [label = "!iflt"]
-	LS: else [SubClass: iload_2]
-	AI: else [SubClass: iadd	Type: int]
-	CF: else -> throw new InventoryException("Units of sugar must be a positive integer")
-	CF: throw new InventoryException("Units of sugar must be a positive integer") ->  [label = "goto"]
-	MC:  calls edu.ncsu.csc326.coffeemaker.exceptions.InventoryException.<init>
-	CF:  -> 
+	AI: Inventory.sugar += amtSugar [SubClass: iadd	Type: int]
+	CF: Inventory.sugar += amtSugar ->  [label = "goto"]
+	MC: throw new InventoryException("Units of sugar must be a positive integer") calls edu.ncsu.csc326.coffeemaker.exceptions.InventoryException.<init>
+	CF: throw new InventoryException("Units of sugar must be a positive integer") -> 
 	CF:  -> exit [Return Type: void]
 }
 edu.ncsu.csc326.coffeemaker.Inventory.enoughIngredients{
 	entry ->   
-	LS: if(Inventory.coffee < r.getAmtCoffee()) [SubClass: istore_2]
-	CF: if(Inventory.coffee < r.getAmtCoffee()) -> isEnough = false
-	LS: isEnough = false [SubClass: aload_1]
-	MC: isEnough = false calls edu.ncsu.csc326.coffeemaker.Recipe.getAmtCoffee
-	CF: isEnough = false -> isEnough = false [label = "if_icmpge"]
-	CF: isEnough = false ->  [label = "!if_icmpge"]
-	LS:  [SubClass: istore_2]
-	CF:  -> isEnough = false
-	LS: isEnough = false [SubClass: aload_1]
-	MC: isEnough = false calls edu.ncsu.csc326.coffeemaker.Recipe.getAmtMilk
-	CF: isEnough = false -> isEnough = false [label = "if_icmpge"]
-	CF: isEnough = false ->  [label = "!if_icmpge"]
-	LS:  [SubClass: istore_2]
-	CF:  -> isEnough = false
-	LS: isEnough = false [SubClass: aload_1]
-	MC: isEnough = false calls edu.ncsu.csc326.coffeemaker.Recipe.getAmtSugar
-	CF: isEnough = false -> isEnough = false [label = "if_icmpge"]
-	CF: isEnough = false ->  [label = "!if_icmpge"]
-	LS:  [SubClass: istore_2]
-	CF:  -> isEnough = false
-	LS: isEnough = false [SubClass: aload_1]
-	MC: isEnough = false calls edu.ncsu.csc326.coffeemaker.Recipe.getAmtChocolate
-	CF: isEnough = false ->  [label = "if_icmpge"]
-	CF: isEnough = false ->  [label = "!if_icmpge"]
-	LS:  [SubClass: istore_2]
-	CF:  -> 
-	LS:  [SubClass: iload_2]
-	CF:  -> exit [Return Type: int]
+	LS: boolean isEnough = true [SubClass: istore_2]
+	CF: boolean isEnough = true -> if(Inventory.coffee < r.getAmtCoffee())
+	LS: if(Inventory.coffee < r.getAmtCoffee()) [SubClass: aload_1]
+	MC: if(Inventory.coffee < r.getAmtCoffee()) calls edu.ncsu.csc326.coffeemaker.Recipe.getAmtCoffee
+	CF: if(Inventory.coffee < r.getAmtCoffee()) -> if(Inventory.milk < r.getAmtMilk()) [label = "if_icmpge"]
+	CF: if(Inventory.coffee < r.getAmtCoffee()) -> isEnough = false [label = "!if_icmpge"]
+	LS: isEnough = false [SubClass: istore_2]
+	CF: isEnough = false -> if(Inventory.milk < r.getAmtMilk())
+	LS: if(Inventory.milk < r.getAmtMilk()) [SubClass: aload_1]
+	MC: if(Inventory.milk < r.getAmtMilk()) calls edu.ncsu.csc326.coffeemaker.Recipe.getAmtMilk
+	CF: if(Inventory.milk < r.getAmtMilk()) -> if(Inventory.sugar < r.getAmtSugar()) [label = "if_icmpge"]
+	CF: if(Inventory.milk < r.getAmtMilk()) -> isEnough = false [label = "!if_icmpge"]
+	LS: isEnough = false [SubClass: istore_2]
+	CF: isEnough = false -> if(Inventory.sugar < r.getAmtSugar())
+	LS: if(Inventory.sugar < r.getAmtSugar()) [SubClass: aload_1]
+	MC: if(Inventory.sugar < r.getAmtSugar()) calls edu.ncsu.csc326.coffeemaker.Recipe.getAmtSugar
+	CF: if(Inventory.sugar < r.getAmtSugar()) -> if(Inventory.chocolate < r.getAmtChocolate()) [label = "if_icmpge"]
+	CF: if(Inventory.sugar < r.getAmtSugar()) -> isEnough = false [label = "!if_icmpge"]
+	LS: isEnough = false [SubClass: istore_2]
+	CF: isEnough = false -> if(Inventory.chocolate < r.getAmtChocolate())
+	LS: if(Inventory.chocolate < r.getAmtChocolate()) [SubClass: aload_1]
+	MC: if(Inventory.chocolate < r.getAmtChocolate()) calls edu.ncsu.csc326.coffeemaker.Recipe.getAmtChocolate
+	CF: if(Inventory.chocolate < r.getAmtChocolate()) -> return isEnough [label = "if_icmpge"]
+	CF: if(Inventory.chocolate < r.getAmtChocolate()) -> isEnough = false [label = "!if_icmpge"]
+	LS: isEnough = false [SubClass: istore_2]
+	CF: isEnough = false -> return isEnough
+	LS: return isEnough [SubClass: iload_2]
+	CF: return isEnough -> exit [Return Type: int]
 }
 edu.ncsu.csc326.coffeemaker.Inventory.useIngredients{
 	entry ->   
-	LS: Inventory.coffee -= r.getAmtCoffee() [SubClass: aload_0]
+	LS: if (enoughIngredients(r)) [SubClass: aload_0]
+	LS: if (enoughIngredients(r)) [SubClass: aload_1]
+	MC: if (enoughIngredients(r)) calls edu.ncsu.csc326.coffeemaker.Inventory.enoughIngredients
+	CF: if (enoughIngredients(r)) -> return false [label = "ifeq"]
+	CF: if (enoughIngredients(r)) -> Inventory.coffee -= r.getAmtCoffee() [label = "!ifeq"]
 	LS: Inventory.coffee -= r.getAmtCoffee() [SubClass: aload_1]
-	MC: Inventory.coffee -= r.getAmtCoffee() calls edu.ncsu.csc326.coffeemaker.Inventory.enoughIngredients
-	CF: Inventory.coffee -= r.getAmtCoffee() ->  [label = "ifeq"]
-	CF: Inventory.coffee -= r.getAmtCoffee() -> Inventory.milk -= r.getAmtMilk() [label = "!ifeq"]
+	MC: Inventory.coffee -= r.getAmtCoffee() calls edu.ncsu.csc326.coffeemaker.Recipe.getAmtCoffee
+	AI: Inventory.coffee -= r.getAmtCoffee() [SubClass: isub	Type: int]
+	CF: Inventory.coffee -= r.getAmtCoffee() -> Inventory.milk -= r.getAmtMilk()
 	LS: Inventory.milk -= r.getAmtMilk() [SubClass: aload_1]
-	MC: Inventory.milk -= r.getAmtMilk() calls edu.ncsu.csc326.coffeemaker.Recipe.getAmtCoffee
+	MC: Inventory.milk -= r.getAmtMilk() calls edu.ncsu.csc326.coffeemaker.Recipe.getAmtMilk
 	AI: Inventory.milk -= r.getAmtMilk() [SubClass: isub	Type: int]
 	CF: Inventory.milk -= r.getAmtMilk() -> Inventory.sugar -= r.getAmtSugar()
 	LS: Inventory.sugar -= r.getAmtSugar() [SubClass: aload_1]
-	MC: Inventory.sugar -= r.getAmtSugar() calls edu.ncsu.csc326.coffeemaker.Recipe.getAmtMilk
+	MC: Inventory.sugar -= r.getAmtSugar() calls edu.ncsu.csc326.coffeemaker.Recipe.getAmtSugar
 	AI: Inventory.sugar -= r.getAmtSugar() [SubClass: isub	Type: int]
 	CF: Inventory.sugar -= r.getAmtSugar() -> Inventory.chocolate -= r.getAmtChocolate()
 	LS: Inventory.chocolate -= r.getAmtChocolate() [SubClass: aload_1]
-	MC: Inventory.chocolate -= r.getAmtChocolate() calls edu.ncsu.csc326.coffeemaker.Recipe.getAmtSugar
+	MC: Inventory.chocolate -= r.getAmtChocolate() calls edu.ncsu.csc326.coffeemaker.Recipe.getAmtChocolate
 	AI: Inventory.chocolate -= r.getAmtChocolate() [SubClass: isub	Type: int]
 	CF: Inventory.chocolate -= r.getAmtChocolate() -> return true
-	LS: return true [SubClass: aload_1]
-	MC: return true calls edu.ncsu.csc326.coffeemaker.Recipe.getAmtChocolate
-	AI: return true [SubClass: isub	Type: int]
-	CF: return true -> else
-	CF: else -> exit [Return Type: int]
-	CF:  -> exit [Return Type: int]
+	CF: return true -> exit [Return Type: int]
+	CF: return false -> exit [Return Type: int]
 }
 edu.ncsu.csc326.coffeemaker.Inventory.toString{
 	entry ->   
-	MC: buf.append("Coffee: ") calls java.lang.StringBuffer.<init>
-	LS: buf.append("Coffee: ") [SubClass: astore_1]
+	MC: StringBuffer buf = new StringBuffer() calls java.lang.StringBuffer.<init>
+	LS: StringBuffer buf = new StringBuffer() [SubClass: astore_1]
+	CF: StringBuffer buf = new StringBuffer() -> buf.append("Coffee: ")
+	LS: buf.append("Coffee: ") [SubClass: aload_1]
+	MC: buf.append("Coffee: ") calls java.lang.StringBuffer.append
 	CF: buf.append("Coffee: ") -> buf.append(getCoffee())
 	LS: buf.append(getCoffee()) [SubClass: aload_1]
+	LS: buf.append(getCoffee()) [SubClass: aload_0]
+	MC: buf.append(getCoffee()) calls edu.ncsu.csc326.coffeemaker.Inventory.getCoffee
 	MC: buf.append(getCoffee()) calls java.lang.StringBuffer.append
 	CF: buf.append(getCoffee()) -> buf.append("\n")
 	LS: buf.append("\n") [SubClass: aload_1]
-	LS: buf.append("\n") [SubClass: aload_0]
-	MC: buf.append("\n") calls edu.ncsu.csc326.coffeemaker.Inventory.getCoffee
 	MC: buf.append("\n") calls java.lang.StringBuffer.append
 	CF: buf.append("\n") -> buf.append("Milk: ")
 	LS: buf.append("Milk: ") [SubClass: aload_1]
 	MC: buf.append("Milk: ") calls java.lang.StringBuffer.append
 	CF: buf.append("Milk: ") -> buf.append(getMilk())
 	LS: buf.append(getMilk()) [SubClass: aload_1]
+	LS: buf.append(getMilk()) [SubClass: aload_0]
+	MC: buf.append(getMilk()) calls edu.ncsu.csc326.coffeemaker.Inventory.getMilk
 	MC: buf.append(getMilk()) calls java.lang.StringBuffer.append
 	CF: buf.append(getMilk()) -> buf.append("\n")
 	LS: buf.append("\n") [SubClass: aload_1]
-	LS: buf.append("\n") [SubClass: aload_0]
-	MC: buf.append("\n") calls edu.ncsu.csc326.coffeemaker.Inventory.getMilk
 	MC: buf.append("\n") calls java.lang.StringBuffer.append
 	CF: buf.append("\n") -> buf.append("Sugar: ")
 	LS: buf.append("Sugar: ") [SubClass: aload_1]
 	MC: buf.append("Sugar: ") calls java.lang.StringBuffer.append
 	CF: buf.append("Sugar: ") -> buf.append(getSugar())
 	LS: buf.append(getSugar()) [SubClass: aload_1]
+	LS: buf.append(getSugar()) [SubClass: aload_0]
+	MC: buf.append(getSugar()) calls edu.ncsu.csc326.coffeemaker.Inventory.getSugar
 	MC: buf.append(getSugar()) calls java.lang.StringBuffer.append
 	CF: buf.append(getSugar()) -> buf.append("\n")
 	LS: buf.append("\n") [SubClass: aload_1]
-	LS: buf.append("\n") [SubClass: aload_0]
-	MC: buf.append("\n") calls edu.ncsu.csc326.coffeemaker.Inventory.getSugar
 	MC: buf.append("\n") calls java.lang.StringBuffer.append
 	CF: buf.append("\n") -> buf.append("Chocolate: ")
 	LS: buf.append("Chocolate: ") [SubClass: aload_1]
 	MC: buf.append("Chocolate: ") calls java.lang.StringBuffer.append
 	CF: buf.append("Chocolate: ") -> buf.append(getChocolate())
 	LS: buf.append(getChocolate()) [SubClass: aload_1]
+	LS: buf.append(getChocolate()) [SubClass: aload_0]
+	MC: buf.append(getChocolate()) calls edu.ncsu.csc326.coffeemaker.Inventory.getChocolate
 	MC: buf.append(getChocolate()) calls java.lang.StringBuffer.append
 	CF: buf.append(getChocolate()) -> buf.append("\n")
 	LS: buf.append("\n") [SubClass: aload_1]
-	LS: buf.append("\n") [SubClass: aload_0]
-	MC: buf.append("\n") calls edu.ncsu.csc326.coffeemaker.Inventory.getChocolate
 	MC: buf.append("\n") calls java.lang.StringBuffer.append
 	CF: buf.append("\n") -> return buf.toString()
 	LS: return buf.toString() [SubClass: aload_1]
-	MC: return buf.toString() calls java.lang.StringBuffer.append
-	CF: return buf.toString() -> 
-	LS:  [SubClass: aload_1]
-	MC:  calls java.lang.StringBuffer.toString
-	CF:  -> exit [Return Type: java.lang.Object]
+	MC: return buf.toString() calls java.lang.StringBuffer.toString
+	CF: return buf.toString() -> exit [Return Type: java.lang.Object]
 }

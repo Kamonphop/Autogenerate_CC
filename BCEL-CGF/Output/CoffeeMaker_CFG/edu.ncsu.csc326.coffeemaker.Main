@@ -64,13 +64,11 @@ edu.ncsu.csc326.coffeemaker.Main.mainMenu{
 	CF: if (userInput == 0) System.exit(0) ->  [label = "ifne"]
 	CF: if (userInput == 0) System.exit(0) -> if (userInput == 0) System.exit(0) [label = "!ifne"]
 	MC: if (userInput == 0) System.exit(0) calls java.lang.System.exit
-	CF: if (userInput == 0) System.exit(0) -> else
-	CF: else ->  [label = "goto"]
+	CF: if (userInput == 0) System.exit(0) ->  [label = "goto"]
 	MC: System.out.println("Please enter a number from 0 - 6") calls java.io.PrintStream.println
 	CF: System.out.println("Please enter a number from 0 - 6") -> mainMenu()
 	MC: mainMenu() calls edu.ncsu.csc326.coffeemaker.Main.mainMenu
-	CF: mainMenu() -> catch (NumberFormatException e)
-	CF: catch (NumberFormatException e) ->  [label = "goto"]
+	CF: mainMenu() ->  [label = "goto"]
 	LS: catch (NumberFormatException e) [SubClass: astore_0]
 	CF: catch (NumberFormatException e) -> System.out.println("Please enter a number from 0 - 6")
 	MC: System.out.println("Please enter a number from 0 - 6") calls java.io.PrintStream.println
@@ -139,16 +137,14 @@ edu.ncsu.csc326.coffeemaker.Main.addRecipe{
 	MC: System.out.println(name + " successfully added.\n") calls java.lang.StringBuilder.append
 	MC: System.out.println(name + " successfully added.\n") calls java.lang.StringBuilder.toString
 	MC: System.out.println(name + " successfully added.\n") calls java.io.PrintStream.println
-	CF: System.out.println(name + " successfully added.\n") -> else
-	CF: else -> mainMenu() [label = "goto"]
+	CF: System.out.println(name + " successfully added.\n") -> mainMenu() [label = "goto"]
 	LS: System.out.println(name + " could not be added.\n") [SubClass: aload_0]
 	MC: System.out.println(name + " could not be added.\n") calls java.lang.String.valueOf
 	MC: System.out.println(name + " could not be added.\n") calls java.lang.StringBuilder.<init>
 	MC: System.out.println(name + " could not be added.\n") calls java.lang.StringBuilder.append
 	MC: System.out.println(name + " could not be added.\n") calls java.lang.StringBuilder.toString
 	MC: System.out.println(name + " could not be added.\n") calls java.io.PrintStream.println
-	CF: System.out.println(name + " could not be added.\n") -> catch (RecipeException e)
-	CF: catch (RecipeException e) -> mainMenu() [label = "goto"]
+	CF: System.out.println(name + " could not be added.\n") -> mainMenu() [label = "goto"]
 	LS: catch (RecipeException e) [SubClass: astore]
 	CF: catch (RecipeException e) -> System.out.println(e.getMessage())
 	LS: System.out.println(e.getMessage()) [SubClass: aload]
@@ -216,8 +212,7 @@ edu.ncsu.csc326.coffeemaker.Main.deleteRecipe{
 	MC: System.out.println(recipeDeleted + " successfully deleted.\n") calls java.lang.StringBuilder.append
 	MC: System.out.println(recipeDeleted + " successfully deleted.\n") calls java.lang.StringBuilder.toString
 	MC: System.out.println(recipeDeleted + " successfully deleted.\n") calls java.io.PrintStream.println
-	CF: System.out.println(recipeDeleted + " successfully deleted.\n") -> else
-	CF: else -> mainMenu() [label = "goto"]
+	CF: System.out.println(recipeDeleted + " successfully deleted.\n") -> mainMenu() [label = "goto"]
 	MC: System.out.println("Selected recipe doesn't exist and could not be deleted.\n") calls java.io.PrintStream.println
 	CF: System.out.println("Selected recipe doesn't exist and could not be deleted.\n") -> mainMenu()
 	MC: mainMenu() calls edu.ncsu.csc326.coffeemaker.Main.mainMenu
@@ -312,16 +307,14 @@ edu.ncsu.csc326.coffeemaker.Main.editRecipe{
 	MC: System.out.println(recipeEdited + " successfully edited.\n") calls java.lang.StringBuilder.append
 	MC: System.out.println(recipeEdited + " successfully edited.\n") calls java.lang.StringBuilder.toString
 	MC: System.out.println(recipeEdited + " successfully edited.\n") calls java.io.PrintStream.println
-	CF: System.out.println(recipeEdited + " successfully edited.\n") -> 
-	CF:  -> mainMenu() [label = "goto"]
+	CF: System.out.println(recipeEdited + " successfully edited.\n") -> mainMenu() [label = "goto"]
 	LS: System.out.println(recipeEdited + "could not be edited.\n") [SubClass: aload]
 	MC: System.out.println(recipeEdited + "could not be edited.\n") calls java.lang.String.valueOf
 	MC: System.out.println(recipeEdited + "could not be edited.\n") calls java.lang.StringBuilder.<init>
 	MC: System.out.println(recipeEdited + "could not be edited.\n") calls java.lang.StringBuilder.append
 	MC: System.out.println(recipeEdited + "could not be edited.\n") calls java.lang.StringBuilder.toString
 	MC: System.out.println(recipeEdited + "could not be edited.\n") calls java.io.PrintStream.println
-	CF: System.out.println(recipeEdited + "could not be edited.\n") -> catch (RecipeException e)
-	CF: catch (RecipeException e) -> mainMenu() [label = "goto"]
+	CF: System.out.println(recipeEdited + "could not be edited.\n") -> mainMenu() [label = "goto"]
 	LS: catch (RecipeException e) [SubClass: astore]
 	CF: catch (RecipeException e) -> System.out.println(e.getMessage())
 	LS: System.out.println(e.getMessage()) [SubClass: aload]
@@ -361,8 +354,7 @@ edu.ncsu.csc326.coffeemaker.Main.addInventory{
 	MC: coffeeMaker.addInventory(coffeeString, milkString, sugarString, chocolateString) calls edu.ncsu.csc326.coffeemaker.CoffeeMaker.addInventory
 	CF: coffeeMaker.addInventory(coffeeString, milkString, sugarString, chocolateString) -> System.out.println("Inventory successfully added")
 	MC: System.out.println("Inventory successfully added") calls java.io.PrintStream.println
-	CF: System.out.println("Inventory successfully added") -> catch (InventoryException e)
-	CF: catch (InventoryException e) -> mainMenu() [label = "goto"]
+	CF: System.out.println("Inventory successfully added") -> mainMenu() [label = "goto"]
 	LS: catch (InventoryException e) [SubClass: astore]
 	CF: catch (InventoryException e) -> System.out.println("Inventory was not added")
 	MC: System.out.println("Inventory was not added") calls java.io.PrintStream.println
@@ -427,8 +419,7 @@ edu.ncsu.csc326.coffeemaker.Main.makeCoffee{
 	LS: amtPaid = Integer.parseInt(amountPaid) [SubClass: aload_2]
 	MC: amtPaid = Integer.parseInt(amountPaid) calls java.lang.Integer.parseInt
 	LS: amtPaid = Integer.parseInt(amountPaid) [SubClass: istore_3]
-	CF: amtPaid = Integer.parseInt(amountPaid) -> catch (NumberFormatException e)
-	CF: catch (NumberFormatException e) -> int change = coffeeMaker.makeCoffee(recipeToPurchase, amtPaid) [label = "goto"]
+	CF: amtPaid = Integer.parseInt(amountPaid) -> int change = coffeeMaker.makeCoffee(recipeToPurchase, amtPaid) [label = "goto"]
 	LS: catch (NumberFormatException e) [SubClass: astore]
 	CF: catch (NumberFormatException e) -> System.out.println("Please enter a positive integer")
 	MC: System.out.println("Please enter a positive integer") calls java.io.PrintStream.println
@@ -445,8 +436,7 @@ edu.ncsu.csc326.coffeemaker.Main.makeCoffee{
 	CF: if (change == amtPaid) -> System.out.println("Thank you for purchasing " + coffeeMaker.getRecipes()[recipeToPurchase].getName()) [label = "if_icmpne"]
 	CF: if (change == amtPaid) -> System.out.println("Insufficient funds to purchase.") [label = "!if_icmpne"]
 	MC: System.out.println("Insufficient funds to purchase.") calls java.io.PrintStream.println
-	CF: System.out.println("Insufficient funds to purchase.") -> else
-	CF: else -> System.out.println("Your change is: " + change + "\n") [label = "goto"]
+	CF: System.out.println("Insufficient funds to purchase.") -> System.out.println("Your change is: " + change + "\n") [label = "goto"]
 	MC: System.out.println("Thank you for purchasing " + coffeeMaker.getRecipes()[recipeToPurchase].getName()) calls java.lang.StringBuilder.<init>
 	MC: System.out.println("Thank you for purchasing " + coffeeMaker.getRecipes()[recipeToPurchase].getName()) calls edu.ncsu.csc326.coffeemaker.CoffeeMaker.getRecipes
 	LS: System.out.println("Thank you for purchasing " + coffeeMaker.getRecipes()[recipeToPurchase].getName()) [SubClass: iload_1]
@@ -480,8 +470,7 @@ edu.ncsu.csc326.coffeemaker.Main.inputOutput{
 	LS: returnString = br.readLine() [SubClass: aload_1]
 	MC: returnString = br.readLine() calls java.io.BufferedReader.readLine
 	LS: returnString = br.readLine() [SubClass: astore_2]
-	CF: returnString = br.readLine() -> 
-	CF:  -> return returnString [label = "goto"]
+	CF: returnString = br.readLine() -> return returnString [label = "goto"]
 	LS: catch (IOException e) [SubClass: astore_3]
 	CF: catch (IOException e) -> System.out.println("Error reading in value")
 	MC: System.out.println("Error reading in value") calls java.io.PrintStream.println
@@ -511,8 +500,7 @@ edu.ncsu.csc326.coffeemaker.Main.recipeListSelection{
 	CF: if (recipe >= 0 && recipe <=2) -> return recipe [label = "if_icmple"]
 	CF: if (recipe >= 0 && recipe <=2) -> recipe = -1 [label = "!if_icmple"]
 	LS: recipe = -1 [SubClass: istore_2]
-	CF: recipe = -1 -> catch (NumberFormatException e)
-	CF: catch (NumberFormatException e) -> return recipe [label = "goto"]
+	CF: recipe = -1 -> return recipe [label = "goto"]
 	LS: catch (NumberFormatException e) [SubClass: astore_3]
 	CF: catch (NumberFormatException e) -> System.out.println("Please select a number from 1-3.")
 	MC: System.out.println("Please select a number from 1-3.") calls java.io.PrintStream.println
